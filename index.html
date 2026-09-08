@@ -891,15 +891,19 @@
           </div>
         </div>
 
-        <!-- DUAL COCKPIT MODE SWITCHER (🇧🇷 BR vs 🇺🇸 USD $500) -->
-        <div class="bg-zinc-100 dark:bg-zinc-800 p-1 rounded-xl flex items-center gap-1 border border-zinc-200 dark:border-zinc-700">
-          <button id="btn-cp-mode-br" onclick="setCockpitPitchMode('br')" class="px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white shadow-sm border border-zinc-200 dark:border-zinc-700">
-            <span>🇧🇷</span>
-            <span>Pitch Brasil (R$)</span>
+        <!-- TRI-MODAL COCKPIT MODE SWITCHER (📱 WhatsApp Stealth vs 🇧🇷 BR vs 🇺🇸 USD $500) -->
+        <div class="bg-zinc-100 dark:bg-zinc-800 p-1 rounded-xl flex items-center gap-1 border border-zinc-200 dark:border-zinc-700 flex-wrap">
+          <button id="btn-cp-mode-wa" onclick="setCockpitPitchMode('wa')" class="px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 bg-emerald-600 text-white shadow-sm" title="Abordagem disfarçada via WhatsApp antes da ligação">
+            <i class="fa-brands fa-whatsapp text-xs"></i>
+            <span>WhatsApp Stealth</span>
           </button>
-          <button id="btn-cp-mode-us" onclick="setCockpitPitchMode('us')" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all flex items-center gap-1.5">
+          <button id="btn-cp-mode-br" onclick="setCockpitPitchMode('br')" class="px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-semibold text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all flex items-center gap-1.5">
+            <span>🇧🇷</span>
+            <span>Ligação Brasil</span>
+          </button>
+          <button id="btn-cp-mode-us" onclick="setCockpitPitchMode('us')" class="px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-semibold text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all flex items-center gap-1.5">
             <span>🇺🇸</span>
-            <span>Pitch EUA ($500 USD)</span>
+            <span>Pitch EUA ($500)</span>
           </button>
         </div>
 
@@ -4777,49 +4781,222 @@
       `;
     }
 
-    function setCockpitPitchMode(mode) {
+    let isCockpitWarmCall = false;
+
+    function setCockpitPitchMode(mode, isWarm = false) {
       currentCockpitPitchMode = mode;
+      isCockpitWarmCall = isWarm;
+
+      const btnWA = document.getElementById('btn-cp-mode-wa');
       const btnBR = document.getElementById('btn-cp-mode-br');
       const btnUS = document.getElementById('btn-cp-mode-us');
       const ttsBtn = document.getElementById('btn-tts-speak');
 
-      if (mode === 'us') {
-        btnUS.className = 'px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 bg-blue-700 text-white shadow-sm';
-        btnBR.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all flex items-center gap-1.5';
+      const inactiveClass = 'px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-semibold text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all flex items-center gap-1.5';
+
+      if (btnWA) btnWA.className = inactiveClass;
+      if (btnBR) btnBR.className = inactiveClass;
+      if (btnUS) btnUS.className = inactiveClass;
+      if (ttsBtn) ttsBtn.classList.add('hidden');
+
+      if (mode === 'wa') {
+        if (btnWA) btnWA.className = 'px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 bg-emerald-600 text-white shadow-sm';
+        renderCockpitWhatsApp();
+      } else if (mode === 'us') {
+        if (btnUS) btnUS.className = 'px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 bg-blue-700 text-white shadow-sm';
         if (ttsBtn) ttsBtn.classList.remove('hidden');
         renderCockpitUS();
       } else {
-        btnBR.className = 'px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white shadow-sm border border-zinc-200 dark:border-zinc-700';
-        btnUS.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all flex items-center gap-1.5';
-        if (ttsBtn) ttsBtn.classList.add('hidden');
-        renderCockpitBR();
+        if (btnBR) {
+          btnBR.className = isWarm 
+            ? 'px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-black transition-all flex items-center gap-1.5 bg-amber-500 text-zinc-950 shadow-sm border border-amber-400' 
+            : 'px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white shadow-sm border border-zinc-200 dark:border-zinc-700';
+        }
+        renderCockpitBR(isWarm);
       }
     }
 
-    function renderCockpitBR() {
+    // ==============================================================
+    // MODALIDADE 3: WHATSAPP STEALTH (CAVALO DE TROIA & PRÉ-CONTATO)
+    // ==============================================================
+    function renderCockpitWhatsApp() {
+      const lead = currentCockpitLead;
+      if (!lead) return;
+      const decisor = getDecisorFirstName(lead.contact);
+      const cleanPhone = (lead.phone || '').replace(/\D/g, '');
+      const neighborhood = lead.dossier?.neighborhood || (lead.address ? lead.address.split(',')[0] : 'sua região');
+      
+      // Identifica o serviço principal do nicho para criar a pergunta disfarçada
+      let targetService = 'atendimentos e procedimentos';
+      if (lead.dossier && lead.dossier.anchorServices && lead.dossier.anchorServices.length > 0) {
+        targetService = lead.dossier.anchorServices[0].toLowerCase();
+      } else if (lead.niche) {
+        targetService = lead.niche.split(',')[0].toLowerCase();
+      }
+
+      document.getElementById('cp-modal-main-title').innerHTML = `<i class="fa-brands fa-whatsapp text-emerald-600 mr-1.5"></i> Abordagem WhatsApp Stealth • Pré-Contato`;
+      document.getElementById('cp-target-badge').innerText = `Isca: ${targetService}`;
+
+      document.getElementById('cp-teleprompter-title').innerHTML = `<i class="fa-solid fa-user-secret text-emerald-600"></i> 🕵️ Cavalo de Troia: Mensagem Disfarçada de Paciente/Cliente`;
+      document.getElementById('cp-teleprompter-target').innerText = `Validação de Resposta`;
+
+      document.getElementById('cp-teleprompter-body').innerHTML = `
+        <div class="space-y-1.5">
+          <p class="text-xs text-zinc-800 dark:text-zinc-200">
+            <strong>🎯 Estratégia de Infiltração:</strong> Não mande o link ainda! Envie primeiro uma pergunta inocente de cliente sobre <strong class="text-emerald-700 dark:text-emerald-400 font-bold">${targetService}</strong>. Quando responderem, o número e o contato estarão quentes para você ligar ou mandar a prévia.
+          </p>
+        </div>
+      `;
+
+      // Monta as duas mensagens: Isca (Msg 1) e Transição com Demo (Msg 2)
+      const stealthMsg1 = `Oi, tudo bem? Vocês atendem ${targetService} aí em ${neighborhood}? Como funciona para agendar?`;
+      const stealthMsg1Encoded = encodeURIComponent(stealthMsg1);
+      const waDirectUrl1 = cleanPhone ? `https://wa.me/55${cleanPhone}?text=${stealthMsg1Encoded}` : '#';
+
+      const demoUrl = document.getElementById('site-link-input').value || (lead.linktree || 'https://drapatriciagalli.vercel.app');
+      const stealthMsg2 = `Que agilidade excelente, muito obrigado! Na verdade, além de pesquisar o espaço de vocês, eu trabalho com presença digital para negócios selecionados aqui em ${neighborhood}... Notei que vocês têm nota máxima 5.0 no Google, mas quem pesquisa pelo Google não acha o site oficial de vocês.\n\nMontei uma demonstração visual pronta exclusiva sem compromisso:\n${demoUrl}\n\nPosso te ligar rapidinho — menos de 1 minuto — só para te mostrar como ficou?`;
+      const stealthMsg2Encoded = encodeURIComponent(stealthMsg2.replace(/\\n/g, '\n'));
+      const waDirectUrl2 = cleanPhone ? `https://wa.me/55${cleanPhone}?text=${stealthMsg2Encoded}` : '#';
+
+      document.getElementById('cp-step1-text').innerHTML = `
+        <div class="space-y-2.5">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-black uppercase text-emerald-800 dark:text-emerald-300 flex items-center gap-1.5">
+              <i class="fa-solid fa-paper-plane text-emerald-600"></i> Passo 1: Disparar Mensagem Isca (Disfarçada)
+            </span>
+            <span class="text-[10px] text-zinc-400">Zero parecer telemarketing</span>
+          </div>
+
+          <div class="bg-emerald-50/70 dark:bg-emerald-950/40 p-3 rounded-xl border border-emerald-300 dark:border-emerald-800/80 text-xs sm:text-sm font-sans font-medium text-emerald-950 dark:text-emerald-100 leading-relaxed select-all">
+            "${stealthMsg1}"
+          </div>
+
+          <div class="flex items-center gap-2 flex-wrap pt-1">
+            <button onclick="copyCustomText('${stealthMsg1.replace(/'/g, "\\'")}', 'Mensagem Isca copiada com sucesso!')" class="btn-cockpit px-3 py-2 rounded-lg text-xs font-bold text-zinc-900 dark:text-zinc-100 bg-white dark:bg-zinc-800 border-zinc-300 dark:border-zinc-700 flex items-center gap-1.5 shadow-xs transition active:scale-95">
+              <i class="fa-solid fa-copy text-xs text-zinc-500"></i>
+              <span>Copiar Mensagem Isca</span>
+            </button>
+
+            ${cleanPhone ? `
+              <a href="${waDirectUrl1}" target="_blank" class="btn-cockpit-primary px-3.5 py-2 rounded-lg text-xs font-black text-white bg-emerald-600 hover:bg-emerald-700 shadow-sm flex items-center gap-1.5 transition active:scale-95">
+                <i class="fa-brands fa-whatsapp text-sm"></i>
+                <span>Disparar no WhatsApp</span>
+              </a>
+            ` : '<span class="text-xs text-zinc-400">Sem telefone cadastrado</span>'}
+          </div>
+        </div>
+      `;
+
+      document.getElementById('cp-step2-text').innerHTML = `
+        <div class="space-y-2.5">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-black uppercase text-amber-800 dark:text-amber-300 flex items-center gap-1.5">
+              <i class="fa-solid fa-bolt text-amber-600"></i> Passo 2: O Cliente Respondeu? Escolha a Continuação:
+            </span>
+            <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 font-bold">Contato Validado!</span>
+          </div>
+
+          <!-- BOTÃO DE TRANSIÇÃO DIRETA PARA LIGAÇÃO MORNA -->
+          <div class="p-3 bg-amber-50 dark:bg-amber-950/40 rounded-xl border border-amber-300 dark:border-amber-800/80 space-y-2">
+            <div class="flex items-center justify-between flex-wrap gap-2">
+              <div>
+                <strong class="text-xs font-bold text-amber-950 dark:text-amber-100 flex items-center gap-1.5">
+                  <i class="fa-solid fa-fire text-amber-600"></i> Opção A (Recomendada): Migrar para Ligação Morna (Warm Call)
+                </strong>
+                <p class="text-[11px] text-amber-800 dark:text-amber-300 mt-0.5">
+                  Ligue agora dizendo: "Oi ${decisor}, acabei de falar com você no WhatsApp perguntando sobre ${targetService}..."
+                </p>
+              </div>
+              <button onclick="setCockpitPitchMode('br', true)" class="btn-cockpit-primary px-4 py-2 rounded-lg text-xs font-black uppercase tracking-wider text-zinc-950 bg-gradient-to-b from-amber-300 via-amber-400 to-amber-500 hover:from-amber-200 hover:to-amber-400 shadow-sm flex items-center gap-2 active:scale-95 transition">
+                <i class="fa-solid fa-phone text-xs"></i>
+                <span>Ligar com Contato Quente 🔥</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- OPÇÃO B: SEGUIR VIA WHATSAPP COM LINK -->
+          <div class="p-3 bg-zinc-50 dark:bg-zinc-950/70 rounded-xl border border-zinc-200 dark:border-zinc-800 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-zinc-800 dark:text-zinc-200">
+                💬 Opção B: Revelação Elegante no Próprio WhatsApp (Msg 2 c/ Link)
+              </span>
+              <button onclick="copyCustomText('${stealthMsg2.replace(/'/g, "\\'").replace(/\n/g, '\\n')}', 'Mensagem 2 copiada!')" class="text-[11px] text-emerald-700 dark:text-emerald-400 font-bold hover:underline flex items-center gap-1">
+                <i class="fa-solid fa-copy"></i> Copiar Msg 2
+              </button>
+            </div>
+            <div class="bg-white dark:bg-zinc-900 p-2.5 rounded-lg border border-zinc-200 dark:border-zinc-800 text-xs text-zinc-800 dark:text-zinc-200 leading-relaxed font-sans select-all">
+              "${stealthMsg2.replace(/\\n/g, '<br>')}"
+            </div>
+          </div>
+        </div>
+      `;
+
+      document.getElementById('cp-step3-text').innerHTML = `
+        <div class="p-2.5 bg-zinc-50 dark:bg-zinc-900/60 rounded-xl border border-zinc-200 dark:border-zinc-800 text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
+          💡 <strong>Dica de ouro:</strong> Se o cliente responder pelo WhatsApp confirmando que faz o serviço, ele já confirmou que o número é ativo e quem está no celular está pronto para conversar. Ligue imediatamente clicando no botão <strong>"Ligar com Contato Quente 🔥"</strong> acima!
+        </div>
+      `;
+
+      document.getElementById('cp-step4-text').innerHTML = `
+        <div class="p-2.5 bg-zinc-50 dark:bg-zinc-900/60 rounded-xl border border-zinc-200 dark:border-zinc-800 text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
+          🛑 Se não responder em até 24h, acione a <strong>Cadência D1 (Demo Drop)</strong> disponível na esteira do lead.
+        </div>
+      `;
+    }
+
+    function renderCockpitBR(isWarm = false) {
       const lead = currentCockpitLead;
       if (!lead) return;
       const cp = lead.cockpit || {};
       const decisor = getDecisorFirstName(lead.contact);
+      const neighborhood = lead.dossier?.neighborhood || (lead.address ? lead.address.split(',')[0] : 'sua região');
+      
+      let targetService = 'atendimentos e procedimentos';
+      if (lead.dossier && lead.dossier.anchorServices && lead.dossier.anchorServices.length > 0) {
+        targetService = lead.dossier.anchorServices[0].toLowerCase();
+      } else if (lead.niche) {
+        targetService = lead.niche.split(',')[0].toLowerCase();
+      }
 
-      document.getElementById('cp-modal-main-title').innerHTML = `Cockpit de Negociação • Pilar 3 (Brasil)`;
-      document.getElementById('cp-target-badge').innerText = `Alvo: ${lead.value || 'R$ 539,90'}`;
+      if (isWarm) {
+        document.getElementById('cp-modal-main-title').innerHTML = `Cockpit • Ligação Morna 🔥 (Pós-WhatsApp)`;
+        document.getElementById('cp-target-badge').innerText = `Alvo: ${lead.value || 'R$ 539,90'}`;
 
-      document.getElementById('cp-teleprompter-title').innerHTML = `<i class="fa-solid fa-microphone-lines text-purple-600 dark:text-purple-400"></i> 🎙️ Partitura de Oratória • Tom & Pausas`;
-      document.getElementById('cp-teleprompter-target').innerText = `Meta: ~25s`;
+        document.getElementById('cp-teleprompter-title').innerHTML = `<i class="fa-solid fa-fire text-amber-500 mr-1.5"></i> 🔥 Partitura Morna: Conexão Estabelecida via WhatsApp`;
+        document.getElementById('cp-teleprompter-target').innerText = `Contato Quente`;
 
-      document.getElementById('cp-teleprompter-body').innerHTML = `
-        <p><span class="px-1.5 py-0.5 rounded bg-amber-100 dark:bg-amber-900/60 text-amber-900 dark:text-amber-200 font-bold text-[10px] uppercase mr-1">Sorriso na Voz</span> "Oi <strong class="text-rose-600 dark:text-rose-400">${decisor}</strong>... tudo bem?" <span class="text-zinc-400 text-[10px]">(pausa)</span></p>
-        <p><span class="px-1.5 py-0.5 rounded bg-sky-100 dark:bg-sky-900/60 text-sky-900 dark:text-sky-200 font-bold text-[10px] uppercase mr-1">Empatia</span> "Tentei te dar um alô agora, imagino que esteja na correria dos atendimentos aí no ${lead.name}!" <span class="text-zinc-400 text-[10px]">(pausa)</span></p>
-        <p><span class="px-1.5 py-0.5 rounded bg-emerald-100 dark:bg-emerald-900/60 text-emerald-900 dark:text-emerald-200 font-bold text-[10px] uppercase mr-1">Prizing</span> "Montei um <strong>projeto visual exclusivo</strong> pro seu espaço... e queria te ligar rapidinho — menos de 1 minuto — só pra te mostrar."</p>
-        <p><span class="px-1.5 py-0.5 rounded bg-rose-100 dark:bg-rose-900/60 text-rose-900 dark:text-rose-200 font-bold text-[10px] uppercase mr-1">Fechamento</span> "Que horas fica melhor pra eu te dar um alô? <strong>Umas 18h ou 19h fica bom?</strong>"</p>
-      `;
+        document.getElementById('cp-teleprompter-body').innerHTML = `
+          <p><span class="px-1.5 py-0.5 rounded bg-amber-100 dark:bg-amber-900/60 text-amber-900 dark:text-amber-200 font-bold text-[10px] uppercase mr-1">Conexão Imediata</span> "Oi <strong class="text-rose-600 dark:text-rose-400">${decisor}</strong>! Acabei de falar com você no WhatsApp perguntando sobre o ${targetService}..." <span class="text-zinc-400 text-[10px]">(pausa)</span></p>
+          <p><span class="px-1.5 py-0.5 rounded bg-emerald-100 dark:bg-emerald-900/60 text-emerald-900 dark:text-emerald-200 font-bold text-[10px] uppercase mr-1">Elogio Real</span> "Vi que você respondeu super rápido, adorei a agilidade de vocês no ${lead.name}!" <span class="text-zinc-400 text-[10px]">(pausa)</span></p>
+          <p><span class="px-1.5 py-0.5 rounded bg-sky-100 dark:bg-sky-900/60 text-sky-900 dark:text-sky-200 font-bold text-[10px] uppercase mr-1">Transição Natural</span> "Na verdade, além de pesquisar o espaço de vocês, eu trabalho com presença digital de alto padrão aqui em ${neighborhood}..."</p>
+          <p><span class="px-1.5 py-0.5 rounded bg-rose-100 dark:bg-rose-900/60 text-rose-900 dark:text-rose-200 font-bold text-[10px] uppercase mr-1">O Presente</span> "...e estruturei um <strong>projeto visual exclusivo</strong> pro seu negócio que queria te dar um alô rápido de 1 minuto só pra te mostrar."</p>
+        `;
 
-      document.getElementById('cp-step1-text').innerHTML = `
-        <p class="text-sm font-medium text-zinc-900 dark:text-zinc-100 leading-relaxed">
-          "Oi, <strong>${decisor}</strong>, tudo bem? Aqui é o [Seu Nome]. Sei que posso estar te pegando no meio dos atendimentos no <strong>${lead.name}</strong>, prometo ser super rápido (menos de 1 minuto). <strong>Pode falar um minutinho?</strong>"
-        </p>
-      `;
+        document.getElementById('cp-step1-text').innerHTML = `
+          <p class="text-sm font-medium text-zinc-900 dark:text-zinc-100 leading-relaxed">
+            "Oi, <strong>${decisor}</strong>! Tudo bem? Acabei de te mandar mensagem aqui no WhatsApp perguntando sobre ${targetService}... Vi que você respondeu rapidinho, parabéns pela agilidade do atendimento! Prometo ser super rápido (menos de 1 minuto). Na verdade, além de conhecer o <strong>${lead.name}</strong>, eu trabalho com presença digital de alto padrão aqui em ${neighborhood} e montei uma prévia visual exclusiva pronta pro seu espaço. <strong>Pode falar um minutinho?</strong>"
+          </p>
+        `;
+      } else {
+        document.getElementById('cp-modal-main-title').innerHTML = `Cockpit de Negociação • Pilar 3 (Brasil)`;
+        document.getElementById('cp-target-badge').innerText = `Alvo: ${lead.value || 'R$ 539,90'}`;
+
+        document.getElementById('cp-teleprompter-title').innerHTML = `<i class="fa-solid fa-microphone-lines text-purple-600 dark:text-purple-400"></i> 🎙️ Partitura de Oratória • Tom & Pausas`;
+        document.getElementById('cp-teleprompter-target').innerText = `Meta: ~25s`;
+
+        document.getElementById('cp-teleprompter-body').innerHTML = `
+          <p><span class="px-1.5 py-0.5 rounded bg-amber-100 dark:bg-amber-900/60 text-amber-900 dark:text-amber-200 font-bold text-[10px] uppercase mr-1">Sorriso na Voz</span> "Oi <strong class="text-rose-600 dark:text-rose-400">${decisor}</strong>... tudo bem?" <span class="text-zinc-400 text-[10px]">(pausa)</span></p>
+          <p><span class="px-1.5 py-0.5 rounded bg-sky-100 dark:bg-sky-900/60 text-sky-900 dark:text-sky-200 font-bold text-[10px] uppercase mr-1">Empatia</span> "Tentei te dar um alô agora, imagino que esteja na correria dos atendimentos aí no ${lead.name}!" <span class="text-zinc-400 text-[10px]">(pausa)</span></p>
+          <p><span class="px-1.5 py-0.5 rounded bg-emerald-100 dark:bg-emerald-900/60 text-emerald-900 dark:text-emerald-200 font-bold text-[10px] uppercase mr-1">Prizing</span> "Montei um <strong>projeto visual exclusivo</strong> pro seu espaço... e queria te ligar rapidinho — menos de 1 minuto — só pra te mostrar."</p>
+          <p><span class="px-1.5 py-0.5 rounded bg-rose-100 dark:bg-rose-900/60 text-rose-900 dark:text-rose-200 font-bold text-[10px] uppercase mr-1">Fechamento</span> "Que horas fica melhor pra eu te dar um alô? <strong>Umas 18h ou 19h fica bom?</strong>"</p>
+        `;
+
+        document.getElementById('cp-step1-text').innerHTML = `
+          <p class="text-sm font-medium text-zinc-900 dark:text-zinc-100 leading-relaxed">
+            "Oi, <strong>${decisor}</strong>, tudo bem? Aqui é o [Seu Nome]. Sei que posso estar te pegando no meio dos atendimentos no <strong>${lead.name}</strong>, prometo ser super rápido (menos de 1 minuto). <strong>Pode falar um minutinho?</strong>"
+          </p>
+        `;
+      }
       
       document.getElementById('cp-step2-text').innerHTML = `
         <p class="text-sm font-medium text-zinc-900 dark:text-zinc-100 leading-relaxed">
@@ -5169,6 +5346,15 @@
       "Oi ${decisor}! Acompanhei o trabalho impecável da sua empresa no Google Maps com nota 5.0 ★. Notei que quem pesquisa em ${lead.address ? lead.address.split(',')[0] : 'sua região'} não encontra um site oficial com carregamento em 1s. Estruturei um projeto visual pronto para o seu espaço — posso te mandar uma demonstração de 1 minuto no WhatsApp agora?"`;
 
       appendHermesMessage('assistant', hookMsg);
+    }
+
+    
+    function copyCustomText(text, successMsg = 'Texto copiado!') {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast(successMsg);
+      }).catch(() => {
+        showToast('Copiado!');
+      });
     }
 
     function openScorecardModal() {
