@@ -9857,45 +9857,45 @@
 
     const branchContentWA = {
       1: {
-        passou_tabela: `
+        pode_mandar: `
           <div class="space-y-1.5">
             <div class="flex items-center justify-between">
-              <span class="font-bold text-emerald-700 dark:text-emerald-400 text-[11px]">🟢 Lead enviou tabela / valores. Responda:</span>
-              <span class="text-[10px] text-zinc-400 font-mono">Transição natural</span>
+              <span class="font-bold text-emerald-700 dark:text-emerald-400 text-[11px]">🟢 Lead respondeu "Pode mandar / Manda sim":</span>
+              <span class="text-[10px] text-zinc-400 font-mono">Apresentar Demonstração</span>
             </div>
             <p class="font-medium text-zinc-900 dark:text-zinc-100 bg-white dark:bg-zinc-900 p-2 rounded border border-emerald-200 dark:border-emerald-800/60 leading-relaxed">
-              "Muito obrigado pelos valores e pela rapidez! Achei super organizado. Vi vocês no Google com nota 5 estrelas e reparei que vocês não têm um site oficial com os procedimentos pra quem pesquisa na região, né? Hoje o agendamento de vocês é todo manual por aqui pelo WhatsApp?"
+              "Maravilha! Dá uma olhada em como fica limpo e rápido no celular:\n🔗 [link da demo aqui]\n\nA cliente entra pelo Google ou Insta, vê os procedimentos com clareza e clica no botão pra agendar direto com você no WhatsApp. E você não precisa entender nada de tecnologia: a gente entrega 100% pronto e configurado pra vocês! ✨"
             </p>
             <div class="flex gap-2 pt-1">
-              <button onclick="copyCustomText('Muito obrigado pelos valores e pela rapidez! Achei super organizado. Vi vocês no Google com nota 5 estrelas e reparei que vocês não têm um site oficial com os procedimentos pra quem pesquisa na região, né? Hoje o agendamento de vocês é todo manual por aqui pelo WhatsApp?', 'Réplica copiada!')" class="bg-emerald-600 hover:bg-emerald-700 text-white px-2.5 py-1 rounded text-[11px] font-bold">📋 Copiar Réplica</button>
+              <button onclick="copyCustomText('Maravilha! Dá uma olhada em como fica limpo e rápido no celular:\n🔗 https://drapatriciagalli.vercel.app\n\nA cliente entra pelo Google ou Insta, vê os procedimentos com clareza e clica no botão pra agendar direto com você no WhatsApp. E você não precisa entender nada de tecnologia: a gente entrega 100% pronto e configurado pra vocês! ✨', 'Demonstração copiada!')" class="bg-emerald-600 hover:bg-emerald-700 text-white px-2.5 py-1 rounded text-[11px] font-bold">📋 Copiar Demonstração</button>
             </div>
           </div>
         `,
-        qual_horario: `
+        quanto_fica: `
           <div class="space-y-1.5">
             <div class="flex items-center justify-between">
-              <span class="font-bold text-sky-700 dark:text-sky-400 text-[11px]">🔵 Lead perguntou qual data/horário você quer. Responda:</span>
-              <span class="text-[10px] text-zinc-400 font-mono">Curiosidade</span>
+              <span class="font-bold text-sky-700 dark:text-sky-400 text-[11px]">🔵 Lead perguntou valores / como funciona:</span>
+              <span class="text-[10px] text-zinc-400 font-mono">Tabela Direta</span>
             </div>
             <p class="font-medium text-zinc-900 dark:text-zinc-100 bg-white dark:bg-zinc-900 p-2 rounded border border-sky-200 dark:border-sky-800/60 leading-relaxed">
-              "Obrigado pelo retorno rápido! Na verdade, eu estava pesquisando os melhores espaços de beleza aqui da região e encontrei a avaliação impecável de vocês no Google. Aí notei que quando a gente clica na busca não tem um site de vocês mostrando os trabalhos e a agenda. Vocês atendem só por aqui mesmo ou têm página oficial?"
+              "A gente tem 2 opções bem diretas e sem nenhuma mensalidade: 1️⃣ Só a Landing Page oficial por taxa única de R$ 289,90; ou 2️⃣ Landing Page + Catálogo Completo por R$ 589,90 (em até 3x sem juros no cartão ou Pix). E com domínio próprio fica apenas +R$ 119,90. Posso te mandar o exemplo no celular?"
             </p>
             <div class="flex gap-2 pt-1">
-              <button onclick="copyCustomText('Obrigado pelo retorno rápido! Na verdade, eu estava pesquisando os melhores espaços de beleza aqui da região e encontrei a avaliação impecável de vocês no Google. Aí notei que quando a gente clica na busca não tem um site de vocês mostrando os trabalhos e a agenda. Vocês atendem só por aqui mesmo ou têm página oficial?', 'Réplica copiada!')" class="bg-sky-600 hover:bg-sky-700 text-white px-2.5 py-1 rounded text-[11px] font-bold">📋 Copiar Réplica</button>
+              <button onclick="copyCustomText('A gente tem 2 opções bem diretas e sem nenhuma mensalidade: 1️⃣ Só a Landing Page oficial por taxa única de R$ 289,90; ou 2️⃣ Landing Page + Catálogo Completo por R$ 589,90 (em até 3x sem juros no cartão ou Pix). E com domínio próprio fica apenas +R$ 119,90. Posso te mandar o exemplo no celular?', 'Valores copiados!')" class="bg-sky-600 hover:bg-sky-700 text-white px-2.5 py-1 rounded text-[11px] font-bold">📋 Copiar Valores</button>
             </div>
           </div>
         `,
-        quem_e: `
+        ja_tenho: `
           <div class="space-y-1.5">
             <div class="flex items-center justify-between">
-              <span class="font-bold text-amber-700 dark:text-amber-400 text-[11px]">🟡 Lead desconfiou ("Quem gostaria?"). Responda:</span>
-              <span class="text-[10px] text-zinc-400 font-mono">Desarmar</span>
+              <span class="font-bold text-amber-700 dark:text-amber-400 text-[11px]">🟡 Lead disse "Já temos site / Já temos quem faz":</span>
+              <span class="text-[10px] text-zinc-400 font-mono">Valorizar + Gap</span>
             </div>
             <p class="font-medium text-zinc-900 dark:text-zinc-100 bg-white dark:bg-zinc-900 p-2 rounded border border-amber-200 dark:border-amber-800/60 leading-relaxed">
-              "Oi! Tudo bem? Fica tranquila, não é cobrança nem nada do tipo! Eu trabalho com presença digital de alto padrão aqui na região e estava justamente admirando a nota 5 estrelas de vocês no Google. Só reparei que quem busca não acha uma página oficial de vocês. Pode falar rapidinho por aqui?"
+              "Que ótimo, parabéns pelo posicionamento! A maioria dos locais não tem essa visão. O nosso diferencial é uma página ultrarrápida com foco em conversão imediata pro WhatsApp e botão de agendamento em 1 toque. Se em algum momento precisarem otimizar ou renovar a estrutura, fico à disposição por aqui! Um abraço e boas vendas! 🙏"
             </p>
             <div class="flex gap-2 pt-1">
-              <button onclick="copyCustomText('Oi! Tudo bem? Fica tranquila, não é cobrança nem nada do tipo! Eu trabalho com presença digital de alto padrão aqui na região e estava justamente admirando a nota 5 estrelas de vocês no Google. Só reparei que quem busca não acha uma página oficial de vocês. Pode falar rapidinho por aqui?', 'Réplica copiada!')" class="bg-amber-600 hover:bg-amber-700 text-white px-2.5 py-1 rounded text-[11px] font-bold">📋 Copiar Réplica</button>
+              <button onclick="copyCustomText('Que ótimo, parabéns pelo posicionamento! A maioria dos locais não tem essa visão. O nosso diferencial é uma página ultrarrápida com foco em conversão imediata pro WhatsApp e botão de agendamento em 1 toque. Se em algum momento precisarem otimizar ou renovar a estrutura, fico à disposição por aqui! Um abraço e boas vendas! 🙏', 'Réplica copiada!')" class="bg-amber-600 hover:bg-amber-700 text-white px-2.5 py-1 rounded text-[11px] font-bold">📋 Copiar Resposta</button>
             </div>
           </div>
         `
@@ -10726,41 +10726,43 @@
       const s1Title = document.getElementById('cp-step1-title');
       const s1Sub = document.getElementById('cp-step1-sub');
       if (s1Num) s1Num.className = 'w-4 h-4 rounded-full bg-emerald-600 text-white flex items-center justify-center text-[9px] font-bold';
-      if (s1Title) s1Title.innerText = '1. Abertura Leve (Sondagem Espontânea de Atendimento)';
-      if (s1Sub) s1Sub.innerText = 'Tom curioso, desarmado e 100% humano';
+      if (s1Title) s1Title.innerText = '1. Apresentação & Oferta Ampla (Thiago)';
+      if (s1Sub) s1Sub.innerText = 'Transparência imediata, âncora R$ 289,90 e filtro de interesse';
 
       const s2Num = document.getElementById('cp-step2-num');
       const s2Title = document.getElementById('cp-step2-title');
       const s2Sub = document.getElementById('cp-step2-sub');
       if (s2Num) s2Num.className = 'w-4 h-4 rounded-full bg-sky-600 text-white flex items-center justify-center text-[9px] font-bold';
-      if (s2Title) s2Title.innerText = '2. Transição com Elogio Google + Identificação do Gargalo';
-      if (s2Sub) s2Sub.innerText = 'Reconhece o trabalho e valida o fluxo manual';
+      if (s2Title) s2Title.innerText = '2. Demonstração Pronta (Link da Vitrine no Celular)';
+      if (s2Sub) s2Sub.innerText = 'Mostra a velocidade e autoridade sem esforço pra ela';
 
       const s3Num = document.getElementById('cp-step3-num');
       const s3Title = document.getElementById('cp-step3-title');
       const s3Sub = document.getElementById('cp-step3-sub');
       if (s3Num) s3Num.className = 'w-4 h-4 rounded-full bg-amber-600 text-white flex items-center justify-center text-[9px] font-bold';
-      if (s3Title) s3Title.innerText = '3. Apresentação da Solução Sem Atrito (Zero Esforço para Ela)';
-      if (s3Sub) s3Sub.innerText = 'Página rápida no celular pronta em 48h';
+      if (s3Title) s3Title.innerText = '3. Detalhamento Comercial (LP R$ 289,90 vs Catálogo R$ 589,90)';
+      if (s3Sub) s3Sub.innerText = 'Taxa única sem mensalidade / Opção de domínio próprio';
 
       const s4Num = document.getElementById('cp-step4-num');
       const s4Title = document.getElementById('cp-step4-title');
       const s4Sub = document.getElementById('cp-step4-sub');
       if (s4Num) s4Num.className = 'w-4 h-4 rounded-full bg-emerald-600 text-white flex items-center justify-center text-[9px] font-bold';
-      if (s4Title) s4Title.innerText = '4. Proposta de Fechamento Irrecusável (Taxa Única / Pix)';
-      if (s4Sub) s4Sub.innerText = 'Sem mensalidade, paga-se com 1 atendimento';
+      if (s4Title) s4Title.innerText = '4. Fechamento & Vaga da Semana (Pix / Cartão)';
+      if (s4Sub) s4Sub.innerText = 'Entrega rápida no ar em até 48 horas';
 
       // Obtém ou inicializa mensagens customizadas por lead
       if (!lead.customCockpitWa) lead.customCockpitWa = {};
 
-      // Mensagens Padrão Formatadas com Emojis Equilibrados e Quebras Estruturadas
-      const defaultMsg1 = `Oi, tudo bem? ✨\nVocês tão atendendo ${targetService} ${locText}?\nComo funciona pra agendar com vocês? 🗓️`;
+      const demoLink = (lead.cockpit && lead.cockpit.siteUrl) || lead.linktree || 'https://drapatriciagalli.vercel.app';
+
+      // Mensagens Padrão - Nova Partitura Opção C (Ampla, Transparente e Escalável para 10+ disparos)
+      const defaultMsg1 = `Oi, tudo bem? ✨\nAqui é o Thiago.\n\nEstou fazendo uma captação exclusiva esta semana com valores de taxa única (a partir de R$ 289,90 sem nenhuma mensalidade) pra colocar no ar sites rápidos e catálogos no WhatsApp pra negócios de ${targetService}.\n\nVi a boa reputação de vocês no Google e achei que faria total sentido pro ${lead.name || 'seu negócio'} converter mais clientes que pesquisam por vocês na internet. 🚀\n\nSe fizer sentido, te mando um exemplo em 1 minuto! O que acha? 📲`;
       
-      const defaultMsg2 = `Obrigado pelo retorno tão rápido! Adorei a atenção. 🙏\n\nNa verdade eu perguntei porque vi a ficha de vocês no Google com nota ${rating} estrelas e achei super conceituado! ⭐\n\nMas reparei que quem pesquisa por vocês no Google não acha uma página oficial com os procedimentos e a opção de agendar direto. O atendimento de vocês hoje é todo manual respondendo um a um por aqui mesmo? 📲`;
+      const defaultMsg2 = `Maravilha! Dá uma olhada em como fica limpo e rápido no celular: 📲\n🔗 ${demoLink}\n\nA cliente entra pelo Google ou Instagram, vê as fotos dos trabalhos, os procedimentos com clareza e clica no botão pra agendar direto com você no WhatsApp. ⚡\n\nSem você precisar entender nada de tecnologia nem ter trabalho nenhum: a gente entrega 100% pronto e configurado pra vocês! ✨`;
 
-      const defaultMsg3 = `Faz total sentido! Eu atendo outros espaços de ${targetService} justamente nisso. 🤝\n\nQuando uma cliente nova pesquisa no Google e não acha um site oficial, muitas vezes ela fica insegura ou vai na concorrente. O que a gente faz é estruturar uma página bem leve e bonita pro ${lead.name || 'seu negócio'}, que abre em 1 segundo no celular, com as fotos reais dos seus trabalhos e botão direto de agendar. ⚡\n\nE você não precisa entender nada de tecnologia nem ter trabalho nenhum: a gente monta tudo pronto pra você. ✨`;
+      const defaultMsg3 = `A gente trabalha de forma bem direta e sem aquelas mensalidades caras de agência: 🤝\n\n1️⃣ Apenas a Landing Page oficial: taxa única de R$ 289,90;\n2️⃣ Landing Page + Catálogo Completo: taxa única de R$ 589,90.\n(Dá pra fazer no Pix ou em até 3x no cartão sem juros).\n\n📌 Caso queira registrar o domínio próprio oficial (.com.br) com o nome do ${lead.name || 'seu espaço'}, tem apenas o acréscimo de R$ 119,90.\n\nCom 1 ou 2 atendimentos que entrarem pelo Google ela já se paga 100%! 🚀`;
 
-      const defaultMsg4 = `A gente não trabalha com aquelas mensalidades caras de R$ 500 nem taxas de agência de 2 mil reais. Temos duas opções bem diretas: 🚀\n\n1️⃣ Apenas a Landing Page oficial por taxa única de R$ 289,90;\n2️⃣ Landing Page + Catálogo Completo de Procedimentos por taxa única de R$ 589,90 (dá pra fazer no Pix ou em até 3x no cartão sem juros).\n\n📌 Caso queira o domínio com o nome do ${lead.name || 'seu negócio'} registrado (.com.br), tem apenas o acréscimo de R$ 119,90.\n\nCom 1 atendimento que você fechar pelo Google, ela já se paga 100%! Quer que eu organize a de vocês pra colocar no ar ainda esta semana? 📲`;
+      const defaultMsg4 = `Qual das opções fica melhor pro momento do ${lead.name || 'espaço de vocês'}? 🤝\n\nSe fecharmos agora, eu já separo a vaga promocional da semana e coloco a página de vocês no ar em até 48 horas! 🚀`;
 
       const msg1 = lead.customCockpitWa[1] || defaultMsg1;
       const msg2 = lead.customCockpitWa[2] || defaultMsg2;
@@ -10777,7 +10779,7 @@
         <div class="grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
           <div class="md:col-span-6 space-y-2">
             <p class="text-xs text-zinc-600 dark:text-zinc-300">
-              Inicie como uma conversa real do dia a dia. Você <strong>não</strong> vende nada ainda: avalia a velocidade de resposta e quebra qualquer resistência inicial.
+              Apresente-se com seu nome (<strong>Thiago</strong>), transparência total e a âncora da taxa única (<strong>R$ 289,90 sem mensalidade</strong>). Excelente para disparar em lote sem parecer robô.
             </p>
             <div class="flex items-center gap-2 flex-wrap pt-0.5">
               ` + (cleanPhone ? `
@@ -10828,14 +10830,14 @@
 
       // Botões de Resposta da Lead no Passo 1
       document.getElementById('cp-step1-branches').innerHTML = `
-        <button onclick="setBranch(1, 'passou_tabela')" id="btn-1-passou_tabela" class="text-left text-[11px] bg-white dark:bg-zinc-800 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 p-1.5 rounded-lg border border-zinc-200 dark:border-zinc-700 text-emerald-800 dark:text-emerald-300 font-medium flex items-center gap-1 transition">
-          <span>🟢</span> "Mandou tabela / valores"
+        <button onclick="setBranch(1, 'pode_mandar')" id="btn-1-pode_mandar" class="text-left text-[11px] bg-white dark:bg-zinc-800 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 p-1.5 rounded-lg border border-zinc-200 dark:border-zinc-700 text-emerald-800 dark:text-emerald-300 font-medium flex items-center gap-1 transition">
+          <span>🟢</span> "Pode mandar / Manda sim"
         </button>
-        <button onclick="setBranch(1, 'qual_horario')" id="btn-1-qual_horario" class="text-left text-[11px] bg-white dark:bg-zinc-800 hover:bg-sky-50 dark:hover:bg-sky-950/40 p-1.5 rounded-lg border border-zinc-200 dark:border-zinc-700 text-sky-800 dark:text-sky-300 font-medium flex items-center gap-1 transition">
-          <span>🔵</span> "Qual dia/horário você prefere?"
+        <button onclick="setBranch(1, 'quanto_fica')" id="btn-1-quanto_fica" class="text-left text-[11px] bg-white dark:bg-zinc-800 hover:bg-sky-50 dark:hover:bg-sky-950/40 p-1.5 rounded-lg border border-zinc-200 dark:border-zinc-700 text-sky-800 dark:text-sky-300 font-medium flex items-center gap-1 transition">
+          <span>🔵</span> "Quanto fica? / Como funciona?"
         </button>
-        <button onclick="setBranch(1, 'quem_e')" id="btn-1-quem_e" class="text-left text-[11px] bg-white dark:bg-zinc-800 hover:bg-amber-50 dark:hover:bg-amber-950/40 p-1.5 rounded-lg border border-zinc-200 dark:border-zinc-700 text-amber-800 dark:text-amber-300 font-medium flex items-center gap-1 transition">
-          <span>🟡</span> "Quem gostaria? / Quem é?"
+        <button onclick="setBranch(1, 'ja_tenho')" id="btn-1-ja_tenho" class="text-left text-[11px] bg-white dark:bg-zinc-800 hover:bg-amber-50 dark:hover:bg-amber-950/40 p-1.5 rounded-lg border border-zinc-200 dark:border-zinc-700 text-amber-800 dark:text-amber-300 font-medium flex items-center gap-1 transition">
+          <span>🟡</span> "Já temos site / Já temos quem faz"
         </button>
       `;
 
@@ -10844,13 +10846,13 @@
         <div class="grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
           <div class="md:col-span-6 space-y-2">
             <p class="text-xs text-zinc-600 dark:text-zinc-300">
-              Elogie o atendimento rápido e as avaliações no Google. Em seguida, mostre que ela <strong>perde tempo respondendo preços manualmente no dedo</strong> por não ter uma vitrine oficial.
+              Envie o link da demonstração pronta e mostre o benefício visual imediato: abre em 1s no celular, transmite alta credibilidade e conecta direto ao WhatsApp.
             </p>
             <div class="flex items-center gap-2 flex-wrap pt-0.5">
               ` + (cleanPhone ? `
                 <a id="wa-send-btn-2" href="` + waUrl2 + `" target="_blank" class="px-3 py-1.5 rounded-lg text-xs font-black text-white bg-sky-600 hover:bg-sky-700 shadow-sm flex items-center gap-1.5 transition active:scale-95">
                   <i class="fa-brands fa-whatsapp text-sm"></i>
-                  <span>Enviar Mensagem 2</span>
+                  <span>Enviar Demonstração (Passo 2)</span>
                 </a>
               ` : '') + `
               <button onclick="copyStepWaText(2)" class="px-2.5 py-1.5 rounded-lg text-xs font-bold text-zinc-800 dark:text-zinc-200 bg-white dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 flex items-center gap-1 shadow-xs hover:bg-zinc-100 transition active:scale-95">
@@ -10866,9 +10868,9 @@
           <div class="md:col-span-6">
             <div class="rounded-xl overflow-hidden shadow-md border border-zinc-300 dark:border-zinc-700 bg-[#efeae2] dark:bg-[#0b141a]">
               <div class="bg-[#008069] dark:bg-[#1f2c34] text-white px-2.5 py-1.5 flex items-center justify-between text-[11px]">
-                <span class="truncate font-semibold">Mensagem 2 (O Gargalo)</span>
+                <span class="truncate font-semibold">Mensagem 2 (A Vitrine no Celular)</span>
                 <div class="flex items-center gap-2">
-                  <span class="text-[9px] text-emerald-200">sondagem</span>
+                  <span class="text-[9px] text-emerald-200">demonstração</span>
                   <button onclick="toggleEditStepMessage(2)" class="text-white/80 hover:text-white" title="Editar texto"><i class="fa-solid fa-pencil text-[10px]"></i></button>
                 </div>
               </div>
@@ -10893,13 +10895,13 @@
       // Botões de Resposta da Lead no Passo 2
       document.getElementById('cp-step2-branches').innerHTML = `
         <button onclick="setBranch(2, 'sim_manual')" id="btn-2-sim_manual" class="text-left text-[11px] bg-white dark:bg-zinc-800 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 p-1.5 rounded-lg border border-zinc-200 dark:border-zinc-700 text-emerald-800 dark:text-emerald-300 font-medium flex items-center gap-1 transition">
-          <span>🟢</span> "Sim, é só por aqui mesmo"
+          <span>🟢</span> "Gostei! / Achei bonito"
         </button>
         <button onclick="setBranch(2, 'tenho_insta')" id="btn-2-tenho_insta" class="text-left text-[11px] bg-white dark:bg-zinc-800 hover:bg-amber-50 dark:hover:bg-amber-950/40 p-1.5 rounded-lg border border-zinc-200 dark:border-zinc-700 text-amber-800 dark:text-amber-300 font-medium flex items-center gap-1 transition">
           <span>📱</span> "Uso mais o Instagram"
         </button>
         <button onclick="setBranch(2, 'nao_tenho_tempo')" id="btn-2-nao_tenho_tempo" class="text-left text-[11px] bg-white dark:bg-zinc-800 hover:bg-purple-50 dark:hover:bg-purple-950/40 p-1.5 rounded-lg border border-zinc-200 dark:border-zinc-700 text-purple-800 dark:text-purple-300 font-medium flex items-center gap-1 transition">
-          <span>⏳</span> "A rotina aqui é uma correria"
+          <span>⏳</span> "A rotina aqui é corrida"
         </button>
       `;
 
@@ -10908,13 +10910,13 @@
         <div class="grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
           <div class="md:col-span-6 space-y-2">
             <p class="text-xs text-zinc-600 dark:text-zinc-300">
-              Apresente a solução tirando qualquer peso das costas dela: sem exigir tempo nem conhecimento técnico dela, com foco em valorização e novas clientes.
+              Apresente as duas opções comerciais: <strong>Landing Page (R$ 289,90)</strong> ou <strong>LP + Catálogo (R$ 589,90)</strong>. Domínio próprio opcional por <strong>+R$ 119,90</strong>.
             </p>
             <div class="flex items-center gap-2 flex-wrap pt-0.5">
               ` + (cleanPhone ? `
                 <a id="wa-send-btn-3" href="` + waUrl3 + `" target="_blank" class="px-3 py-1.5 rounded-lg text-xs font-black text-white bg-amber-600 hover:bg-amber-700 shadow-sm flex items-center gap-1.5 transition active:scale-95">
                   <i class="fa-brands fa-whatsapp text-sm"></i>
-                  <span>Enviar Mensagem 3</span>
+                  <span>Enviar Valores Detalhados</span>
                 </a>
               ` : '') + `
               <button onclick="copyStepWaText(3)" class="px-2.5 py-1.5 rounded-lg text-xs font-bold text-zinc-800 dark:text-zinc-200 bg-white dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 flex items-center gap-1 shadow-xs hover:bg-zinc-100 transition active:scale-95">
@@ -10930,9 +10932,9 @@
           <div class="md:col-span-6">
             <div class="rounded-xl overflow-hidden shadow-md border border-zinc-300 dark:border-zinc-700 bg-[#efeae2] dark:bg-[#0b141a]">
               <div class="bg-[#008069] dark:bg-[#1f2c34] text-white px-2.5 py-1.5 flex items-center justify-between text-[11px]">
-                <span class="truncate font-semibold">Mensagem 3 (A Oportunidade)</span>
+                <span class="truncate font-semibold">Mensagem 3 (Condições Comerciais)</span>
                 <div class="flex items-center gap-2">
-                  <span class="text-[9px] text-emerald-200">sem atrito</span>
+                  <span class="text-[9px] text-emerald-200">sem mensalidade</span>
                   <button onclick="toggleEditStepMessage(3)" class="text-white/80 hover:text-white" title="Editar texto"><i class="fa-solid fa-pencil text-[10px]"></i></button>
                 </div>
               </div>
@@ -10972,13 +10974,13 @@
         <div class="grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
           <div class="md:col-span-6 space-y-2">
             <p class="text-xs text-zinc-600 dark:text-zinc-300">
-              Apresente as 2 opções com taxa única e sem mensalidade: <strong>Landing Page (R$ 289,90)</strong> ou <strong>LP + Catálogo (R$ 589,90)</strong>. Domínio próprio opcional por <strong>+R$ 119,90</strong>.
+              Faça a chamada final de fechamento para reservar a vaga da semana e colocar a página no ar em 48 horas.
             </p>
             <div class="flex items-center gap-2 flex-wrap pt-0.5">
               ` + (cleanPhone ? `
                 <a id="wa-send-btn-4" href="` + waUrl4 + `" target="_blank" class="px-3 py-1.5 rounded-lg text-xs font-black text-white bg-emerald-600 hover:bg-emerald-700 shadow-sm flex items-center gap-1.5 transition active:scale-95">
                   <i class="fa-brands fa-whatsapp text-sm"></i>
-                  <span>Enviar Proposta de Fechamento</span>
+                  <span>Enviar Chamada de Fechamento</span>
                 </a>
               ` : '') + `
               <button onclick="copyStepWaText(4)" class="px-2.5 py-1.5 rounded-lg text-xs font-bold text-zinc-800 dark:text-zinc-200 bg-white dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 flex items-center gap-1 shadow-xs hover:bg-zinc-100 transition active:scale-95">

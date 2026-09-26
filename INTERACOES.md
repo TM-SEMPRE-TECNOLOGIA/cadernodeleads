@@ -39,6 +39,7 @@ Toda a abordagem comercial, scripts do Cockpit, WhatsApp Frio e cálculo de fech
   - **Edição Individual de Mensagens no Cockpit WhatsApp:** Cada uma das 4 etapas agora conta com botão de edição inline (`textarea`), permitindo alterar o texto diretamente no card do lead antes de enviar ou copiar. As alterações persistem por lead no `localStorage` (`lead.customCockpitWa[step]`) com opção de "Restaurar Padrão".
   - **Formatação WhatsApp Humanizada com Emojis:** Quebras de linhas limpas em tópicos e emojis equilibrados (✨, 🗓️, 🙏, ⭐, 📲, 🤝, ⚡, 🚀, 1️⃣, 2️⃣, 📌) sem blocos de texto maçantes.
   - **Correção no Botão Sales Cockpit:** Identificado e corrigido `ReferenceError: escapeHtml is not defined` que impedia o modal de abrir ao clicar em "Sales Cockpit & Ligar". Função sanitizadora declarada, testada via Chromium DevTools e com deploy imediato na Vercel.
+  - **Nova Partitura de Copys WhatsApp (Opção C Ampla & Escalável):** Substituída a sondagem disfarçada por apresentação transparente do Thiago, com âncora de taxa única a partir de R$ 289,90 (sem mensalidade) logo no Passo 1, direcionamento para link da vitrine no celular no Passo 2, detalhamento comercial no Passo 3 e fechamento para entrega em 48h no Passo 4. Respostas rápidas e réplicas dos botões ajustadas para essa nova dinâmica.
 
 ---
 
