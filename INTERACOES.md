@@ -38,6 +38,7 @@ Toda a abordagem comercial, scripts do Cockpit, WhatsApp Frio e cálculo de fech
   - Copys do Cockpit e réplicas de fechamento atualizadas com a nova tabela comercial (R$ 289,90 LP / R$ 589,90 LP + Catálogo / Domínio +R$ 119,90).
   - **Edição Individual de Mensagens no Cockpit WhatsApp:** Cada uma das 4 etapas agora conta com botão de edição inline (`textarea`), permitindo alterar o texto diretamente no card do lead antes de enviar ou copiar. As alterações persistem por lead no `localStorage` (`lead.customCockpitWa[step]`) com opção de "Restaurar Padrão".
   - **Formatação WhatsApp Humanizada com Emojis:** Quebras de linhas limpas em tópicos e emojis equilibrados (✨, 🗓️, 🙏, ⭐, 📲, 🤝, ⚡, 🚀, 1️⃣, 2️⃣, 📌) sem blocos de texto maçantes.
+  - **Correção no Botão Sales Cockpit:** Identificado e corrigido `ReferenceError: escapeHtml is not defined` que impedia o modal de abrir ao clicar em "Sales Cockpit & Ligar". Função sanitizadora declarada, testada via Chromium DevTools e com deploy imediato na Vercel.
 
 ---
 
