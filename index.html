@@ -10659,10 +10659,14 @@
     // Funções auxiliares para humanização de bairro e nicho
     function getNaturalNeighborhood(lead) {
       if (!lead) return 'aqui na região';
-      const raw = (lead.dossier?.neighborhood || lead.address || '').trim();
+      let raw = (lead.dossier?.neighborhood || lead.address || '').trim();
       if (!raw) return 'aqui na região';
-      // Se for poluição cadastral do Google Maps
-      if (raw.toLowerCase().includes('fechado') || raw.toLowerCase().includes('abre') || raw.toLowerCase().includes('salão') || raw.toLowerCase().includes('esteticista') || raw.length > 35) {
+      
+      const lower = raw.toLowerCase();
+      // Remove termos genéricos de template ou poluição
+      if (lower.includes('região nobre') || lower.includes('regiao nobre') || lower.includes('nobre') ||
+          lower.includes('fechado') || lower.includes('abre') || lower.includes('salão') || 
+          lower.includes('esteticista') || lower.includes('clínica') || raw.length > 30) {
         return 'aqui na região';
       }
       return 'aí no ' + raw;
@@ -10736,19 +10740,38 @@
       if (s4Title) s4Title.innerText = '4. Proposta de Fechamento Irrecusável (Taxa Única / Pix)';
       if (s4Sub) s4Sub.innerText = 'Sem mensalidade, paga-se com 1 atendimento';
 
-      // PASSO 1: ABERTURA FRIA (Fluida e natural)
-      const msg1 = 'Oi, tudo bem? Vocês tão atendendo ' + targetService + ' ' + locText + '? Como funciona pra marcar com vocês?';
-      const waUrl1 = cleanPhone ? 'https://wa.me/' + cleanPhone + '?text=' + encodeURIComponent(msg1) : '#';
+      // Obtém ou inicializa mensagens customizadas por lead
+      if (!lead.customCockpitWa) lead.customCockpitWa = {};
 
+      // Mensagens Padrão Formatadas com Emojis Equilibrados e Quebras Estruturadas
+      const defaultMsg1 = `Oi, tudo bem? ✨\nVocês tão atendendo ${targetService} ${locText}?\nComo funciona pra agendar com vocês? 🗓️`;
+      
+      const defaultMsg2 = `Obrigado pelo retorno tão rápido! Adorei a atenção. 🙏\n\nNa verdade eu perguntei porque vi a ficha de vocês no Google com nota ${rating} estrelas e achei super conceituado! ⭐\n\nMas reparei que quem pesquisa por vocês no Google não acha uma página oficial com os procedimentos e a opção de agendar direto. O atendimento de vocês hoje é todo manual respondendo um a um por aqui mesmo? 📲`;
+
+      const defaultMsg3 = `Faz total sentido! Eu atendo outros espaços de ${targetService} justamente nisso. 🤝\n\nQuando uma cliente nova pesquisa no Google e não acha um site oficial, muitas vezes ela fica insegura ou vai na concorrente. O que a gente faz é estruturar uma página bem leve e bonita pro ${lead.name || 'seu negócio'}, que abre em 1 segundo no celular, com as fotos reais dos seus trabalhos e botão direto de agendar. ⚡\n\nE você não precisa entender nada de tecnologia nem ter trabalho nenhum: a gente monta tudo pronto pra você. ✨`;
+
+      const defaultMsg4 = `A gente não trabalha com aquelas mensalidades caras de R$ 500 nem taxas de agência de 2 mil reais. Temos duas opções bem diretas: 🚀\n\n1️⃣ Apenas a Landing Page oficial por taxa única de R$ 289,90;\n2️⃣ Landing Page + Catálogo Completo de Procedimentos por taxa única de R$ 589,90 (dá pra fazer no Pix ou em até 3x no cartão sem juros).\n\n📌 Caso queira o domínio com o nome do ${lead.name || 'seu negócio'} registrado (.com.br), tem apenas o acréscimo de R$ 119,90.\n\nCom 1 atendimento que você fechar pelo Google, ela já se paga 100%! Quer que eu organize a de vocês pra colocar no ar ainda esta semana? 📲`;
+
+      const msg1 = lead.customCockpitWa[1] || defaultMsg1;
+      const msg2 = lead.customCockpitWa[2] || defaultMsg2;
+      const msg3 = lead.customCockpitWa[3] || defaultMsg3;
+      const msg4 = lead.customCockpitWa[4] || defaultMsg4;
+
+      const waUrl1 = cleanPhone ? 'https://wa.me/' + cleanPhone + '?text=' + encodeURIComponent(msg1) : '#';
+      const waUrl2 = cleanPhone ? 'https://wa.me/' + cleanPhone + '?text=' + encodeURIComponent(msg2) : '#';
+      const waUrl3 = cleanPhone ? 'https://wa.me/' + cleanPhone + '?text=' + encodeURIComponent(msg3) : '#';
+      const waUrl4 = cleanPhone ? 'https://wa.me/' + cleanPhone + '?text=' + encodeURIComponent(msg4) : '#';
+
+      // PASSO 1
       document.getElementById('cp-step1-text').innerHTML = `
         <div class="grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
-          <div class="md:col-span-7 space-y-2">
+          <div class="md:col-span-6 space-y-2">
             <p class="text-xs text-zinc-600 dark:text-zinc-300">
               Inicie como uma conversa real do dia a dia. Você <strong>não</strong> vende nada ainda: avalia a velocidade de resposta e quebra qualquer resistência inicial.
             </p>
             <div class="flex items-center gap-2 flex-wrap pt-0.5">
               ` + (cleanPhone ? `
-                <a href="` + waUrl1 + `" target="_blank" class="px-3 py-1.5 rounded-lg text-xs font-black text-white bg-emerald-600 hover:bg-emerald-700 shadow-sm flex items-center gap-1.5 transition active:scale-95">
+                <a id="wa-send-btn-1" href="` + waUrl1 + `" target="_blank" class="px-3 py-1.5 rounded-lg text-xs font-black text-white bg-emerald-600 hover:bg-emerald-700 shadow-sm flex items-center gap-1.5 transition active:scale-95">
                   <i class="fa-brands fa-whatsapp text-sm"></i>
                   <span>Enviar no WhatsApp</span>
                 </a>
@@ -10757,23 +10780,34 @@
                 <i class="fa-solid fa-copy text-zinc-500"></i>
                 <span>Copiar</span>
               </button>
+              <button onclick="toggleEditStepMessage(1)" id="btn-edit-step-1" class="px-2.5 py-1.5 rounded-lg text-xs font-bold text-sky-700 dark:text-sky-300 bg-sky-50 dark:bg-sky-950/60 border border-sky-300 dark:border-sky-800 flex items-center gap-1 shadow-xs hover:bg-sky-100 transition active:scale-95" title="Editar mensagem desta etapa">
+                <i class="fa-solid fa-pen-to-square"></i>
+                <span>Editar Mensagem</span>
+              </button>
             </div>
           </div>
-          <div class="md:col-span-5">
+          <div class="md:col-span-6">
             <div class="rounded-xl overflow-hidden shadow-md border border-zinc-300 dark:border-zinc-700 bg-[#efeae2] dark:bg-[#0b141a]">
               <div class="bg-[#008069] dark:bg-[#1f2c34] text-white px-2.5 py-1.5 flex items-center justify-between text-[11px]">
                 <div class="flex items-center gap-1.5 truncate">
                   <div class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center font-bold text-[9px]">` + initials + `</div>
                   <span class="truncate font-semibold">` + (lead.name || 'Lead') + `</span>
                 </div>
-                <span class="text-[9px] text-emerald-200">online</span>
+                <div class="flex items-center gap-2">
+                  <span class="text-[9px] text-emerald-200">online</span>
+                  <button onclick="toggleEditStepMessage(1)" class="text-white/80 hover:text-white" title="Editar texto"><i class="fa-solid fa-pencil text-[10px]"></i></button>
+                </div>
               </div>
               <div class="p-2.5">
-                <div class="bg-[#d9fdd3] dark:bg-[#005c4b] text-zinc-900 dark:text-zinc-100 p-2 rounded-lg text-xs leading-relaxed shadow-xs">
-                  <p>` + msg1 + `</p>
-                  <div class="flex items-center justify-end gap-1 mt-1 text-[9px] text-zinc-500 dark:text-emerald-200/80 font-mono">
-                    <span>` + nowTime + `</span>
-                    <i class="fa-solid fa-check-double text-sky-500"></i>
+                <div id="step-preview-box-1" class="bg-[#d9fdd3] dark:bg-[#005c4b] text-zinc-900 dark:text-zinc-100 p-2.5 rounded-lg text-xs leading-relaxed shadow-xs whitespace-pre-line">` + escapeHtml(msg1) + `<div class="flex items-center justify-end gap-1 mt-1 text-[9px] text-zinc-500 dark:text-emerald-200/80 font-mono"><span>` + nowTime + `</span> <i class="fa-solid fa-check-double text-sky-500"></i></div></div>
+                <div id="step-edit-box-1" class="hidden mt-1.5 space-y-1.5">
+                  <textarea id="step-input-1" class="w-full text-xs p-2 rounded-lg border border-emerald-400 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 focus:ring-2 focus:ring-emerald-500 outline-none resize-y min-h-[90px]" rows="3">` + escapeHtml(msg1) + `</textarea>
+                  <div class="flex items-center justify-between gap-1">
+                    <button onclick="resetStepMessage(1)" class="text-[10px] text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 underline">Restaurar Padrão</button>
+                    <div class="flex gap-1.5">
+                      <button onclick="toggleEditStepMessage(1)" class="px-2 py-1 text-[11px] rounded bg-zinc-200 dark:bg-zinc-700 text-zinc-800 dark:text-zinc-200 font-bold">Cancelar</button>
+                      <button onclick="saveStepMessage(1)" class="px-2.5 py-1 text-[11px] rounded bg-emerald-600 hover:bg-emerald-700 text-white font-bold flex items-center gap-1"><i class="fa-solid fa-check"></i> Salvar</button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -10795,19 +10829,16 @@
         </button>
       `;
 
-      // PASSO 2: IDENTIFICAÇÃO DO GARGALO
-      const msg2 = 'Obrigado pelo retorno tão rápido! Adorei a atenção. Na verdade eu perguntei porque vi a ficha de vocês no Google com nota ' + rating + ' estrelas e achei super conceituado! Mas reparei que quem pesquisa por vocês no Google não acha uma página oficial com os procedimentos e a opção de agendar direto. O atendimento de vocês hoje é todo manual respondendo um a um por aqui mesmo?';
-      const waUrl2 = cleanPhone ? 'https://wa.me/' + cleanPhone + '?text=' + encodeURIComponent(msg2) : '#';
-
+      // PASSO 2
       document.getElementById('cp-step2-text').innerHTML = `
         <div class="grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
-          <div class="md:col-span-7 space-y-2">
+          <div class="md:col-span-6 space-y-2">
             <p class="text-xs text-zinc-600 dark:text-zinc-300">
               Elogie o atendimento rápido e as avaliações no Google. Em seguida, mostre que ela <strong>perde tempo respondendo preços manualmente no dedo</strong> por não ter uma vitrine oficial.
             </p>
             <div class="flex items-center gap-2 flex-wrap pt-0.5">
               ` + (cleanPhone ? `
-                <a href="` + waUrl2 + `" target="_blank" class="px-3 py-1.5 rounded-lg text-xs font-black text-white bg-sky-600 hover:bg-sky-700 shadow-sm flex items-center gap-1.5 transition active:scale-95">
+                <a id="wa-send-btn-2" href="` + waUrl2 + `" target="_blank" class="px-3 py-1.5 rounded-lg text-xs font-black text-white bg-sky-600 hover:bg-sky-700 shadow-sm flex items-center gap-1.5 transition active:scale-95">
                   <i class="fa-brands fa-whatsapp text-sm"></i>
                   <span>Enviar Mensagem 2</span>
                 </a>
@@ -10816,20 +10847,31 @@
                 <i class="fa-solid fa-copy text-zinc-500"></i>
                 <span>Copiar</span>
               </button>
+              <button onclick="toggleEditStepMessage(2)" id="btn-edit-step-2" class="px-2.5 py-1.5 rounded-lg text-xs font-bold text-sky-700 dark:text-sky-300 bg-sky-50 dark:bg-sky-950/60 border border-sky-300 dark:border-sky-800 flex items-center gap-1 shadow-xs hover:bg-sky-100 transition active:scale-95" title="Editar mensagem desta etapa">
+                <i class="fa-solid fa-pen-to-square"></i>
+                <span>Editar Mensagem</span>
+              </button>
             </div>
           </div>
-          <div class="md:col-span-5">
+          <div class="md:col-span-6">
             <div class="rounded-xl overflow-hidden shadow-md border border-zinc-300 dark:border-zinc-700 bg-[#efeae2] dark:bg-[#0b141a]">
               <div class="bg-[#008069] dark:bg-[#1f2c34] text-white px-2.5 py-1.5 flex items-center justify-between text-[11px]">
                 <span class="truncate font-semibold">Mensagem 2 (O Gargalo)</span>
-                <span class="text-[9px] text-emerald-200">sondagem</span>
+                <div class="flex items-center gap-2">
+                  <span class="text-[9px] text-emerald-200">sondagem</span>
+                  <button onclick="toggleEditStepMessage(2)" class="text-white/80 hover:text-white" title="Editar texto"><i class="fa-solid fa-pencil text-[10px]"></i></button>
+                </div>
               </div>
               <div class="p-2.5">
-                <div class="bg-[#d9fdd3] dark:bg-[#005c4b] text-zinc-900 dark:text-zinc-100 p-2 rounded-lg text-xs leading-relaxed shadow-xs">
-                  <p>` + msg2 + `</p>
-                  <div class="flex items-center justify-end gap-1 mt-1 text-[9px] text-zinc-500 dark:text-emerald-200/80 font-mono">
-                    <span>` + nowTime + `</span>
-                    <i class="fa-solid fa-check-double text-sky-500"></i>
+                <div id="step-preview-box-2" class="bg-[#d9fdd3] dark:bg-[#005c4b] text-zinc-900 dark:text-zinc-100 p-2.5 rounded-lg text-xs leading-relaxed shadow-xs whitespace-pre-line">` + escapeHtml(msg2) + `<div class="flex items-center justify-end gap-1 mt-1 text-[9px] text-zinc-500 dark:text-emerald-200/80 font-mono"><span>` + nowTime + `</span> <i class="fa-solid fa-check-double text-sky-500"></i></div></div>
+                <div id="step-edit-box-2" class="hidden mt-1.5 space-y-1.5">
+                  <textarea id="step-input-2" class="w-full text-xs p-2 rounded-lg border border-sky-400 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 focus:ring-2 focus:ring-sky-500 outline-none resize-y min-h-[110px]" rows="4">` + escapeHtml(msg2) + `</textarea>
+                  <div class="flex items-center justify-between gap-1">
+                    <button onclick="resetStepMessage(2)" class="text-[10px] text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 underline">Restaurar Padrão</button>
+                    <div class="flex gap-1.5">
+                      <button onclick="toggleEditStepMessage(2)" class="px-2 py-1 text-[11px] rounded bg-zinc-200 dark:bg-zinc-700 text-zinc-800 dark:text-zinc-200 font-bold">Cancelar</button>
+                      <button onclick="saveStepMessage(2)" class="px-2.5 py-1 text-[11px] rounded bg-sky-600 hover:bg-sky-700 text-white font-bold flex items-center gap-1"><i class="fa-solid fa-check"></i> Salvar</button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -10851,19 +10893,16 @@
         </button>
       `;
 
-      // PASSO 3: A SOLUÇÃO SOB MEDIDA (Sem falar em demonstração já pronta)
-      const msg3 = 'Faz total sentido! Eu atendo outros espaços de ' + targetService + ' justamente nisso. Quando uma cliente nova pesquisa no Google e não acha um site oficial, muitas vezes ela fica insegura ou vai na concorrente. O que a gente faz é estruturar uma página bem leve e bonita pro ' + (lead.name || 'seu negócio') + ', que abre em 1 segundo no celular, com as fotos reais dos seus trabalhos e botão direto de agendar. E você não precisa entender nada de tecnologia nem ter trabalho nenhum: a gente monta tudo pronto pra você.';
-      const waUrl3 = cleanPhone ? 'https://wa.me/' + cleanPhone + '?text=' + encodeURIComponent(msg3) : '#';
-
+      // PASSO 3
       document.getElementById('cp-step3-text').innerHTML = `
         <div class="grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
-          <div class="md:col-span-7 space-y-2">
+          <div class="md:col-span-6 space-y-2">
             <p class="text-xs text-zinc-600 dark:text-zinc-300">
               Apresente a solução tirando qualquer peso das costas dela: sem exigir tempo nem conhecimento técnico dela, com foco em valorização e novas clientes.
             </p>
             <div class="flex items-center gap-2 flex-wrap pt-0.5">
               ` + (cleanPhone ? `
-                <a href="` + waUrl3 + `" target="_blank" class="px-3 py-1.5 rounded-lg text-xs font-black text-white bg-amber-600 hover:bg-amber-700 shadow-sm flex items-center gap-1.5 transition active:scale-95">
+                <a id="wa-send-btn-3" href="` + waUrl3 + `" target="_blank" class="px-3 py-1.5 rounded-lg text-xs font-black text-white bg-amber-600 hover:bg-amber-700 shadow-sm flex items-center gap-1.5 transition active:scale-95">
                   <i class="fa-brands fa-whatsapp text-sm"></i>
                   <span>Enviar Mensagem 3</span>
                 </a>
@@ -10872,20 +10911,31 @@
                 <i class="fa-solid fa-copy text-zinc-500"></i>
                 <span>Copiar</span>
               </button>
+              <button onclick="toggleEditStepMessage(3)" id="btn-edit-step-3" class="px-2.5 py-1.5 rounded-lg text-xs font-bold text-sky-700 dark:text-sky-300 bg-sky-50 dark:bg-sky-950/60 border border-sky-300 dark:border-sky-800 flex items-center gap-1 shadow-xs hover:bg-sky-100 transition active:scale-95" title="Editar mensagem desta etapa">
+                <i class="fa-solid fa-pen-to-square"></i>
+                <span>Editar Mensagem</span>
+              </button>
             </div>
           </div>
-          <div class="md:col-span-5">
+          <div class="md:col-span-6">
             <div class="rounded-xl overflow-hidden shadow-md border border-zinc-300 dark:border-zinc-700 bg-[#efeae2] dark:bg-[#0b141a]">
               <div class="bg-[#008069] dark:bg-[#1f2c34] text-white px-2.5 py-1.5 flex items-center justify-between text-[11px]">
                 <span class="truncate font-semibold">Mensagem 3 (A Oportunidade)</span>
-                <span class="text-[9px] text-emerald-200">sem atrito</span>
+                <div class="flex items-center gap-2">
+                  <span class="text-[9px] text-emerald-200">sem atrito</span>
+                  <button onclick="toggleEditStepMessage(3)" class="text-white/80 hover:text-white" title="Editar texto"><i class="fa-solid fa-pencil text-[10px]"></i></button>
+                </div>
               </div>
               <div class="p-2.5">
-                <div class="bg-[#d9fdd3] dark:bg-[#005c4b] text-zinc-900 dark:text-zinc-100 p-2 rounded-lg text-xs leading-relaxed shadow-xs">
-                  <p>` + msg3 + `</p>
-                  <div class="flex items-center justify-end gap-1 mt-1 text-[9px] text-zinc-500 dark:text-emerald-200/80 font-mono">
-                    <span>` + nowTime + `</span>
-                    <i class="fa-solid fa-check-double text-sky-500"></i>
+                <div id="step-preview-box-3" class="bg-[#d9fdd3] dark:bg-[#005c4b] text-zinc-900 dark:text-zinc-100 p-2.5 rounded-lg text-xs leading-relaxed shadow-xs whitespace-pre-line">` + escapeHtml(msg3) + `<div class="flex items-center justify-end gap-1 mt-1 text-[9px] text-zinc-500 dark:text-emerald-200/80 font-mono"><span>` + nowTime + `</span> <i class="fa-solid fa-check-double text-sky-500"></i></div></div>
+                <div id="step-edit-box-3" class="hidden mt-1.5 space-y-1.5">
+                  <textarea id="step-input-3" class="w-full text-xs p-2 rounded-lg border border-amber-400 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 focus:ring-2 focus:ring-amber-500 outline-none resize-y min-h-[120px]" rows="4">` + escapeHtml(msg3) + `</textarea>
+                  <div class="flex items-center justify-between gap-1">
+                    <button onclick="resetStepMessage(3)" class="text-[10px] text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 underline">Restaurar Padrão</button>
+                    <div class="flex gap-1.5">
+                      <button onclick="toggleEditStepMessage(3)" class="px-2 py-1 text-[11px] rounded bg-zinc-200 dark:bg-zinc-700 text-zinc-800 dark:text-zinc-200 font-bold">Cancelar</button>
+                      <button onclick="saveStepMessage(3)" class="px-2.5 py-1 text-[11px] rounded bg-amber-600 hover:bg-amber-700 text-white font-bold flex items-center gap-1"><i class="fa-solid fa-check"></i> Salvar</button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -10907,19 +10957,16 @@
         </button>
       `;
 
-      // PASSO 4: FECHAMENTO & PROPOSTA IRRECUSÁVEL (Opções: LP R$ 289,90 | LP + Catálogo R$ 589,90 | Domínio +R$ 119,90)
-      const msg4 = 'A gente não trabalha com aquelas mensalidades caras de R$ 500 nem taxas de agência de 2 mil reais. Temos duas opções bem diretas: 1) Apenas a Landing Page oficial por taxa única de R$ 289,90; ou 2) Landing Page + Catálogo Completo de Procedimentos por taxa única de R$ 589,90 (dá pra fazer no Pix ou até 3x no cartão sem juros). Caso queira o domínio com o nome do ' + (lead.name || 'seu negócio') + ' registrado (.com.br), tem apenas o acréscimo de R$ 119,90. Com 1 atendimento que você fechar pelo Google, ela já se paga 100%. Quer que eu organize a de vocês pra colocar no ar ainda esta semana?';
-      const waUrl4 = cleanPhone ? 'https://wa.me/' + cleanPhone + '?text=' + encodeURIComponent(msg4) : '#';
-
+      // PASSO 4
       document.getElementById('cp-step4-text').innerHTML = `
         <div class="grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
-          <div class="md:col-span-7 space-y-2">
+          <div class="md:col-span-6 space-y-2">
             <p class="text-xs text-zinc-600 dark:text-zinc-300">
               Apresente as 2 opções com taxa única e sem mensalidade: <strong>Landing Page (R$ 289,90)</strong> ou <strong>LP + Catálogo (R$ 589,90)</strong>. Domínio próprio opcional por <strong>+R$ 119,90</strong>.
             </p>
             <div class="flex items-center gap-2 flex-wrap pt-0.5">
               ` + (cleanPhone ? `
-                <a href="` + waUrl4 + `" target="_blank" class="px-3 py-1.5 rounded-lg text-xs font-black text-white bg-emerald-600 hover:bg-emerald-700 shadow-sm flex items-center gap-1.5 transition active:scale-95">
+                <a id="wa-send-btn-4" href="` + waUrl4 + `" target="_blank" class="px-3 py-1.5 rounded-lg text-xs font-black text-white bg-emerald-600 hover:bg-emerald-700 shadow-sm flex items-center gap-1.5 transition active:scale-95">
                   <i class="fa-brands fa-whatsapp text-sm"></i>
                   <span>Enviar Proposta de Fechamento</span>
                 </a>
@@ -10928,24 +10975,35 @@
                 <i class="fa-solid fa-copy text-zinc-500"></i>
                 <span>Copiar</span>
               </button>
+              <button onclick="toggleEditStepMessage(4)" id="btn-edit-step-4" class="px-2.5 py-1.5 rounded-lg text-xs font-bold text-sky-700 dark:text-sky-300 bg-sky-50 dark:bg-sky-950/60 border border-sky-300 dark:border-sky-800 flex items-center gap-1 shadow-xs hover:bg-sky-100 transition active:scale-95" title="Editar mensagem desta etapa">
+                <i class="fa-solid fa-pen-to-square"></i>
+                <span>Editar Mensagem</span>
+              </button>
               <button onclick="recordCockpitOutcome('fechou')" class="px-3 py-1.5 rounded-lg text-xs font-black text-white bg-purple-700 hover:bg-purple-800 shadow-sm flex items-center gap-1 transition active:scale-95">
                 <i class="fa-solid fa-trophy"></i>
                 <span>Marcar Venda Fechada!</span>
               </button>
             </div>
           </div>
-          <div class="md:col-span-5">
+          <div class="md:col-span-6">
             <div class="rounded-xl overflow-hidden shadow-md border border-zinc-300 dark:border-zinc-700 bg-[#efeae2] dark:bg-[#0b141a]">
               <div class="bg-[#008069] dark:bg-[#1f2c34] text-white px-2.5 py-1.5 flex items-center justify-between text-[11px]">
                 <span class="truncate font-semibold">Mensagem 4 (Fechamento)</span>
-                <span class="text-[9px] text-emerald-200">LP R$ 289,90 / Catálogo R$ 589,90</span>
+                <div class="flex items-center gap-2">
+                  <span class="text-[9px] text-emerald-200">LP R$ 289,90 / Catálogo R$ 589,90</span>
+                  <button onclick="toggleEditStepMessage(4)" class="text-white/80 hover:text-white" title="Editar texto"><i class="fa-solid fa-pencil text-[10px]"></i></button>
+                </div>
               </div>
               <div class="p-2.5">
-                <div class="bg-[#d9fdd3] dark:bg-[#005c4b] text-zinc-900 dark:text-zinc-100 p-2 rounded-lg text-xs leading-relaxed shadow-xs">
-                  <p>` + msg4 + `</p>
-                  <div class="flex items-center justify-end gap-1 mt-1 text-[9px] text-zinc-500 dark:text-emerald-200/80 font-mono">
-                    <span>` + nowTime + `</span>
-                    <i class="fa-solid fa-check-double text-sky-500"></i>
+                <div id="step-preview-box-4" class="bg-[#d9fdd3] dark:bg-[#005c4b] text-zinc-900 dark:text-zinc-100 p-2.5 rounded-lg text-xs leading-relaxed shadow-xs whitespace-pre-line">` + escapeHtml(msg4) + `<div class="flex items-center justify-end gap-1 mt-1 text-[9px] text-zinc-500 dark:text-emerald-200/80 font-mono"><span>` + nowTime + `</span> <i class="fa-solid fa-check-double text-sky-500"></i></div></div>
+                <div id="step-edit-box-4" class="hidden mt-1.5 space-y-1.5">
+                  <textarea id="step-input-4" class="w-full text-xs p-2 rounded-lg border border-emerald-400 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 focus:ring-2 focus:ring-emerald-500 outline-none resize-y min-h-[140px]" rows="5">` + escapeHtml(msg4) + `</textarea>
+                  <div class="flex items-center justify-between gap-1">
+                    <button onclick="resetStepMessage(4)" class="text-[10px] text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 underline">Restaurar Padrão</button>
+                    <div class="flex gap-1.5">
+                      <button onclick="toggleEditStepMessage(4)" class="px-2 py-1 text-[11px] rounded bg-zinc-200 dark:bg-zinc-700 text-zinc-800 dark:text-zinc-200 font-bold">Cancelar</button>
+                      <button onclick="saveStepMessage(4)" class="px-2.5 py-1 text-[11px] rounded bg-emerald-600 hover:bg-emerald-700 text-white font-bold flex items-center gap-1"><i class="fa-solid fa-check"></i> Salvar</button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -10968,6 +11026,52 @@
       `;
     }
 
+    function toggleEditStepMessage(step) {
+      const prevBox = document.getElementById(`step-preview-box-${step}`);
+      const editBox = document.getElementById(`step-edit-box-${step}`);
+      if (!prevBox || !editBox) return;
+
+      const isEditing = !editBox.classList.contains('hidden');
+      if (isEditing) {
+        editBox.classList.add('hidden');
+        prevBox.classList.remove('hidden');
+      } else {
+        editBox.classList.remove('hidden');
+        prevBox.classList.add('hidden');
+        const textarea = document.getElementById(`step-input-${step}`);
+        if (textarea) textarea.focus();
+      }
+    }
+
+    function saveStepMessage(step) {
+      const lead = currentCockpitLead;
+      if (!lead) return;
+      const textarea = document.getElementById(`step-input-${step}`);
+      if (!textarea) return;
+
+      const newText = textarea.value.trim();
+      if (!newText) {
+        showToast('⚠️ A mensagem não pode estar vazia.');
+        return;
+      }
+
+      if (!lead.customCockpitWa) lead.customCockpitWa = {};
+      lead.customCockpitWa[step] = newText;
+      saveState();
+
+      renderCockpitWhatsApp();
+      showToast(`✅ Mensagem da Etapa ${step} salva com sucesso!`);
+    }
+
+    function resetStepMessage(step) {
+      const lead = currentCockpitLead;
+      if (!lead || !lead.customCockpitWa) return;
+      delete lead.customCockpitWa[step];
+      saveState();
+      renderCockpitWhatsApp();
+      showToast(`🔄 Mensagem da Etapa ${step} restaurada para o padrão!`);
+    }
+
     function copyStepWaText(step) {
       const lead = currentCockpitLead;
       if (!lead) return;
@@ -10975,19 +11079,16 @@
       const targetService = getNaturalService(lead);
       const rating = lead.dossier?.rating || '5.0';
 
-      let text = '';
-      if (step === 1) {
-        text = 'Oi, tudo bem? Vocês tão atendendo ' + targetService + ' ' + locText + '? Como funciona pra marcar com vocês?';
-      } else if (step === 2) {
-        text = 'Obrigado pelo retorno tão rápido! Adorei a atenção. Na verdade eu perguntei porque vi a ficha de vocês no Google com nota ' + rating + ' estrelas e achei super conceituado! Mas reparei que quem pesquisa por vocês no Google não acha uma página oficial com os procedimentos e a opção de agendar direto. O atendimento de vocês hoje é todo manual respondendo um a um por aqui mesmo?';
-      } else if (step === 3) {
-        text = 'Faz total sentido! Eu atendo outros espaços de ' + targetService + ' justamente nisso. Quando uma cliente nova pesquisa no Google e não acha um site oficial, muitas vezes ela fica insegura ou vai na concorrente. O que a gente faz é estruturar uma página bem leve e bonita pro ' + (lead.name || 'seu negócio') + ', que abre em 1 segundo no celular, com as fotos reais dos seus trabalhos e botão direto de agendar. E você não precisa entender nada de tecnologia nem ter trabalho nenhum: a gente monta tudo pronto pra você.';
-      } else if (step === 4) {
-        text = 'A gente não trabalha com aquelas mensalidades caras de R$ 500 nem taxas de agência de 2 mil reais. Temos duas opções bem diretas: 1) Apenas a Landing Page oficial por taxa única de R$ 289,90; ou 2) Landing Page + Catálogo Completo de Procedimentos por taxa única de R$ 589,90 (dá pra fazer no Pix ou até 3x no cartão sem juros). Caso queira o domínio com o nome do ' + (lead.name || 'seu negócio') + ' registrado (.com.br), tem apenas o acréscimo de R$ 119,90. Com 1 atendimento que você fechar pelo Google, ela já se paga 100%. Quer que eu organize a de vocês pra colocar no ar ainda esta semana?';
-      }
+      const defaultMsg1 = `Oi, tudo bem? ✨\nVocês tão atendendo ${targetService} ${locText}?\nComo funciona pra agendar com vocês? 🗓️`;
+      const defaultMsg2 = `Obrigado pelo retorno tão rápido! Adorei a atenção. 🙏\n\nNa verdade eu perguntei porque vi a ficha de vocês no Google com nota ${rating} estrelas e achei super conceituado! ⭐\n\nMas reparei que quem pesquisa por vocês no Google não acha uma página oficial com os procedimentos e a opção de agendar direto. O atendimento de vocês hoje é todo manual respondendo um a um por aqui mesmo? 📲`;
+      const defaultMsg3 = `Faz total sentido! Eu atendo outros espaços de ${targetService} justamente nisso. 🤝\n\nQuando uma cliente nova pesquisa no Google e não acha um site oficial, muitas vezes ela fica insegura ou vai na concorrente. O que a gente faz é estruturar uma página bem leve e bonita pro ${lead.name || 'seu negócio'}, que abre em 1 segundo no celular, com as fotos reais dos seus trabalhos e botão direto de agendar. ⚡\n\nE você não precisa entender nada de tecnologia nem ter trabalho nenhum: a gente monta tudo pronto pra você. ✨`;
+      const defaultMsg4 = `A gente não trabalha com aquelas mensalidades caras de R$ 500 nem taxas de agência de 2 mil reais. Temos duas opções bem diretas: 🚀\n\n1️⃣ Apenas a Landing Page oficial por taxa única de R$ 289,90;\n2️⃣ Landing Page + Catálogo Completo de Procedimentos por taxa única de R$ 589,90 (dá pra fazer no Pix ou em até 3x no cartão sem juros).\n\n📌 Caso queira o domínio com o nome do ${lead.name || 'seu negócio'} registrado (.com.br), tem apenas o acréscimo de R$ 119,90.\n\nCom 1 atendimento que você fechar pelo Google, ela já se paga 100%! Quer que eu organize a de vocês pra colocar no ar ainda esta semana? 📲`;
 
-      if (text) {
-        copyCustomText(text, 'Mensagem ' + step + ' copiada!');
+      const defaults = { 1: defaultMsg1, 2: defaultMsg2, 3: defaultMsg3, 4: defaultMsg4 };
+      const custom = (lead.customCockpitWa && lead.customCockpitWa[step]) || defaults[step];
+
+      if (custom) {
+        copyCustomText(custom, 'Mensagem ' + step + ' copiada!');
       }
     }
 
