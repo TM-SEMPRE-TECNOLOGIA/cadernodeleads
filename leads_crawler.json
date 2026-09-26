@@ -1,0 +1,1137 @@
+[
+  {
+    "title": "Clínica BEM",
+    "subTitle": null,
+    "description": null,
+    "ownerDescription": null,
+    "price": null,
+    "categoryName": "Clínica especializada",
+    "address": "Alameda dos Nhambiquaras, 150 - Moema, São Paulo - SP, 04090-000, Brasil",
+    "neighborhood": "Moema",
+    "street": "Alameda dos Nhambiquaras, 150",
+    "city": "São Paulo",
+    "postalCode": "04090-000",
+    "state": "São Paulo",
+    "countryCode": "BR",
+    "phone": "+55 11 94838-0137",
+    "phoneUnformatted": "+5511948380137",
+    "claimThisBusiness": true,
+    "location": {
+      "lat": -23.6017317,
+      "lng": -46.6546375
+    },
+    "locatedIn": null,
+    "floor": null,
+    "plusCode": null,
+    "menu": null,
+    "servicesLink": null,
+    "totalScore": 5,
+    "permanentlyClosed": false,
+    "temporarilyClosed": false,
+    "placeId": "ChIJAQDswBlazpQRgy6le81NDtM",
+    "categories": [
+      "Clínica especializada",
+      "Esteticista",
+      "Centro de saúde e beleza",
+      "Serviço de corte a laser",
+      "Serviço de depilação a laser",
+      "Terapeuta de drenagem linfática",
+      "Centro de massagem",
+      "Policlínica"
+    ],
+    "fid": "0x94ce5a19c0ec0001:0xd30e4dcd7ba52e83",
+    "cid": "15208178536614801027",
+    "reviewsCount": 9,
+    "reviewsDistribution": {
+      "oneStar": 0,
+      "twoStar": 0,
+      "threeStar": 0,
+      "fourStar": 0,
+      "fiveStar": 9
+    },
+    "imagesCount": 1,
+    "imageCategories": [],
+    "scrapedAt": "2026-09-07T20:59:21.222Z",
+    "reserveTableUrl": null,
+    "googleFoodUrl": null,
+    "hotelStars": null,
+    "hotelDescription": null,
+    "checkInDate": null,
+    "checkOutDate": null,
+    "hotelAds": [],
+    "popularTimesLiveText": null,
+    "popularTimesLivePercent": null,
+    "popularTimesHistogram": {},
+    "openingHours": [
+      {
+        "day": "segunda-feira",
+        "hours": "08:00 to 22:00"
+      },
+      {
+        "day": "terça-feira",
+        "hours": "08:00 to 22:00"
+      },
+      {
+        "day": "quarta-feira",
+        "hours": "08:00 to 22:00"
+      },
+      {
+        "day": "quinta-feira",
+        "hours": "08:00 to 22:00"
+      },
+      {
+        "day": "sexta-feira",
+        "hours": "08:00 to 21:00"
+      },
+      {
+        "day": "sábado",
+        "hours": "08:00 to 13:00"
+      },
+      {
+        "day": "domingo",
+        "hours": "Fechado"
+      }
+    ],
+    "wasOpenAtScrapeTime": true,
+    "peopleAlsoSearch": [],
+    "placesTags": [],
+    "reviewsTags": [],
+    "additionalInfo": {
+      "Acessibilidade": [
+        {
+          "Banheiro com acessibilidade para pessoas em cadeira de rodas": true
+        },
+        {
+          "Entrada com acessibilidade para pessoas em cadeira de rodas": true
+        },
+        {
+          "Estacionamento com acessibilidade para pessoas em cadeira de rodas": true
+        }
+      ],
+      "Comodidades": [
+        {
+          "Banheiro": true
+        }
+      ],
+      "Planejamento": [
+        {
+          "É recomendado marcar hora": true
+        }
+      ],
+      "Pagamentos": [
+        {
+          "Cartão de crédito": true
+        },
+        {
+          "Cartão de débito": true
+        },
+        {
+          "Pagamentos por dispositivo móvel via NFC": true
+        }
+      ]
+    },
+    "gasPrices": [],
+    "url": "https://www.google.com/maps/search/?api=1&query=Cl%C3%ADnica%20BEM&query_place_id=ChIJAQDswBlazpQRgy6le81NDtM",
+    "searchPageUrl": "https://www.google.com/maps/search/Cl%C3%ADnica%20de%20Est%C3%A9tica%20Moema%20S%C3%A3o%20Paulo/@-20.28852114863235,-28.77803274053701,13z?hl=pt-BR",
+    "searchString": "Clínica de Estética Moema São Paulo",
+    "language": "pt-BR",
+    "rank": 5,
+    "isAdvertisement": false,
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=PPO3jJGCZ2wKBFZlw10ZjQ&cb_client=search.gws-prod.gps&w=408&h=240&yaw=313.43356&pitch=0&thumbfov=100",
+    "kgmid": "/g/11hbj8ly7q",
+    "businessProfileId": null
+  },
+  {
+    "title": "Clínica de Estética Harmony - Endolaser, Harmonização Corporal, Tratamento Para Celulite e Flacidez",
+    "subTitle": null,
+    "description": null,
+    "ownerDescription": null,
+    "price": null,
+    "categoryName": "Centro de saúde e beleza",
+    "address": "Alameda Iraé, 302 - Moema, São Paulo - SP, 04075-000, Brasil",
+    "neighborhood": "Moema",
+    "street": "Alameda Iraé, 302",
+    "city": "São Paulo",
+    "postalCode": "04075-000",
+    "state": "São Paulo",
+    "countryCode": "BR",
+    "phone": "+55 11 97628-4485",
+    "phoneUnformatted": "+5511976284485",
+    "claimThisBusiness": false,
+    "location": {
+      "lat": -23.6020836,
+      "lng": -46.6593413
+    },
+    "locatedIn": null,
+    "floor": null,
+    "plusCode": null,
+    "menu": null,
+    "servicesLink": null,
+    "totalScore": 4.7,
+    "permanentlyClosed": false,
+    "temporarilyClosed": false,
+    "placeId": "ChIJBbFhy2BbzpQRV9jefFnnero",
+    "categories": [
+      "Centro de saúde e beleza",
+      "Esteticista"
+    ],
+    "fid": "0x94ce5b60cb61b105:0xba7ae7597cded857",
+    "cid": "13437306809746380887",
+    "reviewsCount": 259,
+    "reviewsDistribution": {
+      "oneStar": 17,
+      "twoStar": 1,
+      "threeStar": 0,
+      "fourStar": 7,
+      "fiveStar": 234
+    },
+    "imagesCount": 23,
+    "imageCategories": [],
+    "scrapedAt": "2026-09-07T20:59:21.228Z",
+    "reserveTableUrl": null,
+    "googleFoodUrl": null,
+    "hotelStars": null,
+    "hotelDescription": null,
+    "checkInDate": null,
+    "checkOutDate": null,
+    "hotelAds": [],
+    "popularTimesLiveText": null,
+    "popularTimesLivePercent": null,
+    "popularTimesHistogram": {},
+    "openingHours": [
+      {
+        "day": "segunda-feira",
+        "hours": "12:00 to 21:00"
+      },
+      {
+        "day": "terça-feira",
+        "hours": "12:00 to 21:00"
+      },
+      {
+        "day": "quarta-feira",
+        "hours": "12:00 to 21:00"
+      },
+      {
+        "day": "quinta-feira",
+        "hours": "12:00 to 21:00"
+      },
+      {
+        "day": "sexta-feira",
+        "hours": "12:00 to 21:00"
+      },
+      {
+        "day": "sábado",
+        "hours": "09:00 to 18:00"
+      },
+      {
+        "day": "domingo",
+        "hours": "Fechado"
+      }
+    ],
+    "wasOpenAtScrapeTime": true,
+    "peopleAlsoSearch": [],
+    "placesTags": [],
+    "reviewsTags": [],
+    "additionalInfo": {
+      "Pagamentos": [
+        {
+          "Cartão de crédito": true
+        },
+        {
+          "Cartão de débito": true
+        },
+        {
+          "Pagamentos por dispositivo móvel via NFC": true
+        }
+      ]
+    },
+    "gasPrices": [],
+    "url": "https://www.google.com/maps/search/?api=1&query=Cl%C3%ADnica%20de%20Est%C3%A9tica%20Harmony%20-%20Endolaser%2C%20Harmoniza%C3%A7%C3%A3o%20Corporal%2C%20Tratamento%20Para%20Celulite%20e%20Flacidez&query_place_id=ChIJBbFhy2BbzpQRV9jefFnnero",
+    "searchPageUrl": "https://www.google.com/maps/search/Cl%C3%ADnica%20de%20Est%C3%A9tica%20Moema%20S%C3%A3o%20Paulo/@-20.28852114863235,-28.77803274053701,13z?hl=pt-BR",
+    "searchString": "Clínica de Estética Moema São Paulo",
+    "language": "pt-BR",
+    "rank": 17,
+    "isAdvertisement": false,
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmpbLfezberakU2OTZ9FKerP3FaS-gaTN1gYCc2vLfEwAWi0l8qQMp5ryydoR0OKoWweKjYGPVuSA3Ny3iktn_va2aLeUXgepcyNwtWUdKkjuYV20xUtonT5MnmEEOrLhENQ-2L=w408-h544-k-no",
+    "kgmid": "/g/11w_jg9kw7",
+    "businessProfileId": "2126558718292105061"
+  },
+  {
+    "title": "Clínica de Estética e Massagem",
+    "subTitle": null,
+    "description": null,
+    "ownerDescription": null,
+    "price": null,
+    "categoryName": "Centro de saúde e beleza",
+    "address": "Av. Divino Salvador, 736 - Moema, São Paulo - SP, 04078-012, Brasil",
+    "neighborhood": "Moema",
+    "street": "Av. Divino Salvador, 736",
+    "city": "São Paulo",
+    "postalCode": "04078-012",
+    "state": "São Paulo",
+    "countryCode": "BR",
+    "phone": "+55 11 98713-8795",
+    "phoneUnformatted": "+5511987138795",
+    "claimThisBusiness": false,
+    "location": {
+      "lat": -23.6084901,
+      "lng": -46.6556526
+    },
+    "locatedIn": null,
+    "floor": null,
+    "plusCode": null,
+    "menu": null,
+    "servicesLink": null,
+    "totalScore": 4.8,
+    "permanentlyClosed": false,
+    "temporarilyClosed": false,
+    "placeId": "ChIJpaNiahRazpQRS-GQKLYGYas",
+    "categories": [
+      "Centro de saúde e beleza",
+      "Centro de bem-estar",
+      "Centro de massagem",
+      "Manicure"
+    ],
+    "fid": "0x94ce5a146a62a3a5:0xab6106b62890e14b",
+    "cid": "12349159032661008715",
+    "reviewsCount": 45,
+    "reviewsDistribution": {
+      "oneStar": 0,
+      "twoStar": 0,
+      "threeStar": 1,
+      "fourStar": 7,
+      "fiveStar": 37
+    },
+    "imagesCount": 37,
+    "imageCategories": [],
+    "scrapedAt": "2026-09-07T20:59:21.229Z",
+    "reserveTableUrl": null,
+    "googleFoodUrl": null,
+    "hotelStars": null,
+    "hotelDescription": null,
+    "checkInDate": null,
+    "checkOutDate": null,
+    "hotelAds": [],
+    "popularTimesLiveText": null,
+    "popularTimesLivePercent": null,
+    "popularTimesHistogram": {},
+    "openingHours": [
+      {
+        "day": "segunda-feira",
+        "hours": "08:00 to 20:30"
+      },
+      {
+        "day": "terça-feira",
+        "hours": "08:00 to 20:30"
+      },
+      {
+        "day": "quarta-feira",
+        "hours": "08:00 to 20:30"
+      },
+      {
+        "day": "quinta-feira",
+        "hours": "08:00 to 20:30"
+      },
+      {
+        "day": "sexta-feira",
+        "hours": "08:00 to 20:30"
+      },
+      {
+        "day": "sábado",
+        "hours": "08:30 to 16:00"
+      },
+      {
+        "day": "domingo",
+        "hours": "Fechado"
+      }
+    ],
+    "wasOpenAtScrapeTime": true,
+    "peopleAlsoSearch": [],
+    "placesTags": [],
+    "reviewsTags": [],
+    "additionalInfo": {
+      "Pagamentos": [
+        {
+          "Cartão de crédito": true
+        },
+        {
+          "Cartão de débito": true
+        },
+        {
+          "Pagamentos por dispositivo móvel via NFC": true
+        },
+        {
+          "Cartões de crédito": true
+        }
+      ]
+    },
+    "gasPrices": [],
+    "url": "https://www.google.com/maps/search/?api=1&query=Cl%C3%ADnica%20de%20Est%C3%A9tica%20e%20Massagem&query_place_id=ChIJpaNiahRazpQRS-GQKLYGYas",
+    "searchPageUrl": "https://www.google.com/maps/search/Cl%C3%ADnica%20de%20Est%C3%A9tica%20Moema%20S%C3%A3o%20Paulo/@-20.28852114863235,-28.77803274053701,13z?hl=pt-BR",
+    "searchString": "Clínica de Estética Moema São Paulo",
+    "language": "pt-BR",
+    "rank": 19,
+    "isAdvertisement": false,
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWk3p6suuODjq1hC1pzUAfcQo9V_BBKExMUmpTIick3cA5_Z1B1FUZmouBGfrR07WEAlSL9hdBiUhTtYYaQy8_7kRovtDkTGx_rlmdZLes_2HZS6XNFLMA0_cddRkp-pO4rfCCSx=w408-h330-k-no",
+    "kgmid": "/g/11dym8hm5r",
+    "businessProfileId": "10428596257203788285"
+  },
+  {
+    "title": "Centro de Dermatologia Dra Chris Guarnieri | São Paulo - Itaim Bibi",
+    "subTitle": null,
+    "description": null,
+    "ownerDescription": null,
+    "price": null,
+    "categoryName": "Dermatologista",
+    "address": "Rua Joaquim Floriano, 72 - Cj 121 - Itaim Bibi, SÃO PAULO - SP, 04535-011",
+    "neighborhood": null,
+    "street": null,
+    "city": null,
+    "postalCode": null,
+    "state": null,
+    "countryCode": null,
+    "phone": "(11) 3078-4104",
+    "phoneUnformatted": "+551130784104",
+    "claimThisBusiness": false,
+    "location": {
+      "lat": -23.582944,
+      "lng": -46.670809
+    },
+    "locatedIn": null,
+    "floor": null,
+    "plusCode": null,
+    "menu": null,
+    "servicesLink": null,
+    "totalScore": 5,
+    "permanentlyClosed": false,
+    "temporarilyClosed": false,
+    "placeId": "ChIJg3sp91xXzpQRL_FoCL0vUBc",
+    "categories": [
+      "Dermatologista"
+    ],
+    "fid": "0x94ce575cf7297b83:0x17502fbd0868f12f",
+    "cid": "1679895149945614639",
+    "reviewsCount": 10,
+    "imagesCount": 0,
+    "imageCategories": [],
+    "scrapedAt": "2026-09-07T20:59:32.328Z",
+    "reserveTableUrl": null,
+    "googleFoodUrl": null,
+    "hotelStars": null,
+    "hotelDescription": null,
+    "checkInDate": null,
+    "checkOutDate": null,
+    "hotelAds": [],
+    "popularTimesLiveText": null,
+    "popularTimesLivePercent": null,
+    "popularTimesHistogram": {},
+    "openingHours": [
+      {
+        "day": "segunda-feira",
+        "hours": "09:00 to 21:00"
+      },
+      {
+        "day": "terça-feira",
+        "hours": "09:00 to 21:00"
+      },
+      {
+        "day": "quarta-feira",
+        "hours": "09:00 to 21:00"
+      },
+      {
+        "day": "quinta-feira",
+        "hours": "09:00 to 21:00"
+      },
+      {
+        "day": "sexta-feira",
+        "hours": "09:00 to 21:00"
+      },
+      {
+        "day": "sábado",
+        "hours": "Fechado"
+      },
+      {
+        "day": "domingo",
+        "hours": "Fechado"
+      }
+    ],
+    "wasOpenAtScrapeTime": true,
+    "peopleAlsoSearch": [],
+    "placesTags": [],
+    "reviewsTags": [],
+    "gasPrices": [],
+    "url": "https://www.google.com/maps/search/?api=1&query=Centro%20de%20Dermatologia%20Dra%20Chris%20Guarnieri%20%7C%20S%C3%A3o%20Paulo%20-%20Itaim%20Bibi&query_place_id=ChIJg3sp91xXzpQRL_FoCL0vUBc",
+    "searchPageUrl": "https://www.google.com/maps/search/Cl%C3%ADnica%20de%20Est%C3%A9tica%20Moema%20S%C3%A3o%20Paulo/@-23.06163227250348,-56.93378047986218,8z?hl=pt-BR",
+    "searchString": "Clínica de Estética Moema São Paulo",
+    "language": "pt-BR",
+    "rank": 2,
+    "isAdvertisement": true,
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWl9DUn26PsCf3pUoBkfClAUUfoT4LqZvU7ZjQyHiZzinbSa_Ie7DwdPuOOlg3mbeRbc9H8j1QNMoTq40IlN7kvJ67Hkx3NKxq_PUq08AdRbomP-PCEFoTWT4HM_YGh7IKX0etJ8fnPqRo8s=k-no-",
+    "kgmid": null,
+    "businessProfileId": null
+  },
+  {
+    "title": "Vai Laser Clínica de Estética e Depilação - Tatuapé",
+    "subTitle": null,
+    "description": null,
+    "ownerDescription": null,
+    "price": null,
+    "categoryName": "Clínica especializada",
+    "address": "Edifício Platina, Rua Bom Sucesso, 220 - conj 1603 - Tatuapé, SÃO PAULO - SP, 03305-000",
+    "neighborhood": null,
+    "street": null,
+    "city": null,
+    "postalCode": null,
+    "state": null,
+    "countryCode": null,
+    "phone": "(11) 98975-3743",
+    "phoneUnformatted": "+5511989753743",
+    "claimThisBusiness": false,
+    "location": {
+      "lat": -23.542651,
+      "lng": -46.57706
+    },
+    "locatedIn": null,
+    "floor": null,
+    "plusCode": null,
+    "menu": null,
+    "servicesLink": null,
+    "totalScore": 4.9,
+    "permanentlyClosed": false,
+    "temporarilyClosed": false,
+    "placeId": "ChIJqUudFoxezpQRtbW-x3kFst0",
+    "categories": [
+      "Clínica especializada"
+    ],
+    "fid": "0x94ce5e8c169d4ba9:0xddb20579c7beb5b5",
+    "cid": "15974836848836916661",
+    "reviewsCount": 104,
+    "imagesCount": 0,
+    "imageCategories": [],
+    "scrapedAt": "2026-09-07T20:59:44.473Z",
+    "reserveTableUrl": null,
+    "googleFoodUrl": null,
+    "hotelStars": null,
+    "hotelDescription": null,
+    "checkInDate": null,
+    "checkOutDate": null,
+    "hotelAds": [],
+    "popularTimesLiveText": null,
+    "popularTimesLivePercent": null,
+    "popularTimesHistogram": {},
+    "openingHours": [
+      {
+        "day": "segunda-feira",
+        "hours": "09:00 to 20:00"
+      },
+      {
+        "day": "terça-feira",
+        "hours": "09:00 to 20:00"
+      },
+      {
+        "day": "quarta-feira",
+        "hours": "09:00 to 20:00"
+      },
+      {
+        "day": "quinta-feira",
+        "hours": "09:00 to 20:00"
+      },
+      {
+        "day": "sexta-feira",
+        "hours": "09:00 to 20:00"
+      },
+      {
+        "day": "sábado",
+        "hours": "09:00 to 16:00"
+      },
+      {
+        "day": "domingo",
+        "hours": "Fechado"
+      }
+    ],
+    "wasOpenAtScrapeTime": true,
+    "peopleAlsoSearch": [],
+    "placesTags": [],
+    "reviewsTags": [],
+    "gasPrices": [],
+    "url": "https://www.google.com/maps/search/?api=1&query=Vai%20Laser%20Cl%C3%ADnica%20de%20Est%C3%A9tica%20e%20Depila%C3%A7%C3%A3o%20-%20Tatuap%C3%A9&query_place_id=ChIJqUudFoxezpQRtbW-x3kFst0",
+    "searchPageUrl": "https://www.google.com/maps/search/Cl%C3%ADnica%20de%20Est%C3%A9tica%20Moema%20S%C3%A3o%20Paulo/@-20.41749128287745,-28.64016592161104,13z?hl=pt-BR",
+    "searchString": "Clínica de Estética Moema São Paulo",
+    "language": "pt-BR",
+    "rank": 1,
+    "isAdvertisement": true,
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnV9sIFTOqGAwcAjJSn0DN0-YKD8k-ZNM8QKBMETBYbTQyLj14VNLNUrRbFvtAc_eLjMwZ4xcnJOtHP0G-Z32SCnuhHvqHJ2lEWSHW0HarvCzJZMJMRLzYRn3ncmxTCRSIJAc66v4bmQ5wL=k-no-",
+    "kgmid": null,
+    "businessProfileId": null
+  },
+  {
+    "title": "Blooma Moema | Salão de Beleza & Spa",
+    "subTitle": null,
+    "description": null,
+    "ownerDescription": null,
+    "price": null,
+    "categoryName": "Centro de saúde e beleza",
+    "address": "Alameda dos Maracatins, 426 - Moema, SÃO PAULO - SP, 04089-000",
+    "neighborhood": null,
+    "street": null,
+    "city": null,
+    "postalCode": null,
+    "state": null,
+    "countryCode": null,
+    "phone": "(11) 5051-1532",
+    "phoneUnformatted": "+551150511532",
+    "claimThisBusiness": false,
+    "location": {
+      "lat": -23.60509,
+      "lng": -46.659334
+    },
+    "locatedIn": null,
+    "floor": null,
+    "plusCode": null,
+    "menu": null,
+    "servicesLink": null,
+    "totalScore": 5,
+    "permanentlyClosed": false,
+    "temporarilyClosed": false,
+    "placeId": "ChIJFRuo1H1bzpQRHSBDfAJJ1LU",
+    "categories": [
+      "Centro de saúde e beleza"
+    ],
+    "fid": "0x94ce5b7dd4a81b15:0xb5d449027c43201d",
+    "cid": "13102177490951151645",
+    "reviewsCount": 24,
+    "imagesCount": 0,
+    "imageCategories": [],
+    "scrapedAt": "2026-09-07T20:59:48.589Z",
+    "reserveTableUrl": null,
+    "googleFoodUrl": null,
+    "hotelStars": null,
+    "hotelDescription": null,
+    "checkInDate": null,
+    "checkOutDate": null,
+    "hotelAds": [],
+    "popularTimesLiveText": null,
+    "popularTimesLivePercent": null,
+    "popularTimesHistogram": {},
+    "openingHours": [
+      {
+        "day": "segunda-feira",
+        "hours": "Fechado"
+      },
+      {
+        "day": "terça-feira",
+        "hours": "09:00 to 17:00"
+      },
+      {
+        "day": "quarta-feira",
+        "hours": "09:00 to 17:00"
+      },
+      {
+        "day": "quinta-feira",
+        "hours": "09:00 to 17:00"
+      },
+      {
+        "day": "sexta-feira",
+        "hours": "09:00 to 17:00"
+      },
+      {
+        "day": "sábado",
+        "hours": "09:00 to 17:00"
+      },
+      {
+        "day": "domingo",
+        "hours": "Fechado"
+      }
+    ],
+    "wasOpenAtScrapeTime": false,
+    "peopleAlsoSearch": [],
+    "placesTags": [],
+    "reviewsTags": [],
+    "gasPrices": [],
+    "url": "https://www.google.com/maps/search/?api=1&query=Blooma%20Moema%20%7C%20Sal%C3%A3o%20de%20Beleza%20%26%20Spa&query_place_id=ChIJFRuo1H1bzpQRHSBDfAJJ1LU",
+    "searchPageUrl": "https://www.google.com/maps/search/Cl%C3%ADnica%20de%20Est%C3%A9tica%20Moema%20S%C3%A3o%20Paulo/@0.9169566,-29.482932163294933,13z?hl=pt-BR",
+    "searchString": "Clínica de Estética Moema São Paulo",
+    "language": "pt-BR",
+    "rank": 1,
+    "isAdvertisement": true,
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlBjiPSOIeJTTwHGW_UyyiRc5hGE7pwADd8_B1dBTqzBNqzmzA1JrvZMlIprKeY8MT13x3tUcHrzKSWSOPNgUK1H2v03rPPADZ-_j_wCo7amBR61e6gxCcK3LHbcI05zGiwcELyuMowRFY=k-no-",
+    "kgmid": null,
+    "businessProfileId": null
+  },
+  {
+    "title": "Diazer Estética Inteligente e Integrativa",
+    "subTitle": null,
+    "description": null,
+    "ownerDescription": null,
+    "price": null,
+    "categoryName": "Centro estético",
+    "address": "Rua Oscar Freire, 2250 - Conjs 601, 602, 603 - Pinheiros, SÃO PAULO - SP, 05409-012",
+    "neighborhood": null,
+    "street": null,
+    "city": null,
+    "postalCode": null,
+    "state": null,
+    "countryCode": null,
+    "phone": "(11) 3064-8068",
+    "phoneUnformatted": "+551130648068",
+    "claimThisBusiness": false,
+    "location": {
+      "lat": -23.553205,
+      "lng": -46.676903
+    },
+    "locatedIn": null,
+    "floor": null,
+    "plusCode": null,
+    "menu": null,
+    "servicesLink": null,
+    "totalScore": 5,
+    "permanentlyClosed": false,
+    "temporarilyClosed": false,
+    "placeId": "ChIJkTttgalXzpQRVaCImTFH99c",
+    "categories": [
+      "Centro estético"
+    ],
+    "fid": "0x94ce57a9816d3b91:0xd7f747319988a055",
+    "cid": "15561985315756875861",
+    "reviewsCount": 103,
+    "imagesCount": 0,
+    "imageCategories": [],
+    "scrapedAt": "2026-09-07T20:59:49.035Z",
+    "reserveTableUrl": null,
+    "googleFoodUrl": null,
+    "hotelStars": null,
+    "hotelDescription": null,
+    "checkInDate": null,
+    "checkOutDate": null,
+    "hotelAds": [],
+    "popularTimesLiveText": null,
+    "popularTimesLivePercent": null,
+    "popularTimesHistogram": {},
+    "openingHours": [
+      {
+        "day": "segunda-feira",
+        "hours": "08:00 to 21:00"
+      },
+      {
+        "day": "terça-feira",
+        "hours": "08:00 to 21:00"
+      },
+      {
+        "day": "quarta-feira",
+        "hours": "08:00 to 21:00"
+      },
+      {
+        "day": "quinta-feira",
+        "hours": "08:00 to 21:00"
+      },
+      {
+        "day": "sexta-feira",
+        "hours": "08:00 to 21:00"
+      },
+      {
+        "day": "sábado",
+        "hours": "08:00 to 17:00"
+      },
+      {
+        "day": "domingo",
+        "hours": "Fechado"
+      }
+    ],
+    "wasOpenAtScrapeTime": true,
+    "peopleAlsoSearch": [],
+    "placesTags": [],
+    "reviewsTags": [],
+    "gasPrices": [],
+    "url": "https://www.google.com/maps/search/?api=1&query=Diazer%20Est%C3%A9tica%20Inteligente%20e%20Integrativa&query_place_id=ChIJkTttgalXzpQRVaCImTFH99c",
+    "searchPageUrl": "https://www.google.com/maps/search/Cl%C3%ADnica%20de%20Est%C3%A9tica%20Moema%20S%C3%A3o%20Paulo/@-1.1573610912447823,-51.624079820137815,8z?hl=pt-BR",
+    "searchString": "Clínica de Estética Moema São Paulo",
+    "language": "pt-BR",
+    "rank": 1,
+    "isAdvertisement": true,
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnVplD6Tct-d02HNvkjLiEp7HQRl3O4CWzFfqXzWqKchav5dgTkKZCsUAYKe6DxygsEE7zlMiONCxg2FOEW66AnosGmnrVX6eXS9uyqhIqlDNWc0eQ5-pMMDDeuLKUjslIyhsE=k-no-",
+    "kgmid": null,
+    "businessProfileId": null
+  },
+  {
+    "title": "Fisioterapeuta Jéssica Fernandes - Clínica em Moema | Atendimento Domiciliar | Drenagem Linfática | Pós-operatório | Gestante",
+    "subTitle": null,
+    "description": null,
+    "ownerDescription": null,
+    "price": null,
+    "categoryName": "Centro de saúde e beleza",
+    "address": "Alameda dos Maracatins, 508 - Conj 22 - Moema, São Paulo - SP, 04089-001, Brasil",
+    "neighborhood": "Moema",
+    "street": "Alameda dos Maracatins, 508 - Conj 22",
+    "city": "São Paulo",
+    "postalCode": "04089-001",
+    "state": "São Paulo",
+    "countryCode": "BR",
+    "phone": "+55 11 94785-1717",
+    "phoneUnformatted": "+5511947851717",
+    "claimThisBusiness": false,
+    "location": {
+      "lat": -23.6056594,
+      "lng": -46.6599494
+    },
+    "locatedIn": null,
+    "floor": null,
+    "plusCode": null,
+    "menu": null,
+    "servicesLink": null,
+    "totalScore": 5,
+    "permanentlyClosed": false,
+    "temporarilyClosed": false,
+    "placeId": "ChIJ65xEIphZzpQR7ah-q0PPq4Q",
+    "categories": [
+      "Centro de saúde e beleza"
+    ],
+    "fid": "0x94ce599822449ceb:0x84abcf43ab7ea8ed",
+    "cid": "9559962523570972909",
+    "reviewsCount": 31,
+    "reviewsDistribution": {
+      "oneStar": 0,
+      "twoStar": 0,
+      "threeStar": 0,
+      "fourStar": 0,
+      "fiveStar": 31
+    },
+    "imagesCount": 11,
+    "imageCategories": [],
+    "scrapedAt": "2026-09-07T21:00:02.502Z",
+    "reserveTableUrl": null,
+    "googleFoodUrl": null,
+    "hotelStars": null,
+    "hotelDescription": null,
+    "checkInDate": null,
+    "checkOutDate": null,
+    "hotelAds": [],
+    "popularTimesLiveText": null,
+    "popularTimesLivePercent": null,
+    "popularTimesHistogram": {},
+    "openingHours": [
+      {
+        "day": "segunda-feira",
+        "hours": "08:00 to 22:00"
+      },
+      {
+        "day": "terça-feira",
+        "hours": "08:00 to 22:00"
+      },
+      {
+        "day": "quarta-feira",
+        "hours": "08:00 to 22:00"
+      },
+      {
+        "day": "quinta-feira",
+        "hours": "08:00 to 22:00"
+      },
+      {
+        "day": "sexta-feira",
+        "hours": "08:00 to 22:00"
+      },
+      {
+        "day": "sábado",
+        "hours": "08:00 to 15:00"
+      },
+      {
+        "day": "domingo",
+        "hours": "Fechado"
+      }
+    ],
+    "wasOpenAtScrapeTime": true,
+    "peopleAlsoSearch": [],
+    "placesTags": [],
+    "reviewsTags": [],
+    "additionalInfo": {
+      "Opções de serviço": [
+        {
+          "Serviços no local": true
+        }
+      ],
+      "Comodidades": [
+        {
+          "Banheiro de gênero neutro": true
+        },
+        {
+          "Wi-Fi": true
+        },
+        {
+          "Wi-Fi gratuito": true
+        }
+      ],
+      "Público": [
+        {
+          "Empresa que acolhe a comunidade LGBTQ+": true
+        },
+        {
+          "Espaço seguro para pessoas transgênero": true
+        }
+      ],
+      "Planejamento": [
+        {
+          "Necessário fazer agendamento": true
+        }
+      ],
+      "Pagamentos": [
+        {
+          "Cartão de crédito": true
+        },
+        {
+          "Cartão de débito": true
+        },
+        {
+          "Pagamentos por dispositivo móvel via NFC": true
+        },
+        {
+          "Cartões de crédito": true
+        }
+      ],
+      "Estacionamento": [
+        {
+          "Estacionamento coberto pago": true
+        }
+      ]
+    },
+    "gasPrices": [],
+    "url": "https://www.google.com/maps/search/?api=1&query=Fisioterapeuta%20J%C3%A9ssica%20Fernandes%20-%20Cl%C3%ADnica%20em%20Moema%20%7C%20Atendimento%20Domiciliar%20%7C%20Drenagem%20Linf%C3%A1tica%20%7C%20P%C3%B3s-operat%C3%B3rio%20%7C%20Gestante&query_place_id=ChIJ65xEIphZzpQR7ah-q0PPq4Q",
+    "searchPageUrl": "https://www.google.com/maps/search/Cl%C3%ADnica%20de%20Est%C3%A9tica%20Moema%20S%C3%A3o%20Paulo/@-23.06163227250348,-46.31437916041345,8z?hl=pt-BR",
+    "searchString": "Clínica de Estética Moema São Paulo",
+    "language": "pt-BR",
+    "rank": 36,
+    "isAdvertisement": false,
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlELVoj2LVdgM463RquUkSxe8fu_Y0FlqzvFPRsPUGrOwcqsDKhXyQhP0uhK99pr4XjUym91RidDtCBomzhe-Pq4KW-vtyRn1f8JXkVVJLkhJrPIBsSMuvqlY_vVS8RrvTBlW51akB50wti=w408-h725-k-no",
+    "kgmid": "/g/11rxvkrbhv",
+    "businessProfileId": "15277253306874499474"
+  },
+  {
+    "title": "Clinica Natuee",
+    "subTitle": null,
+    "description": null,
+    "ownerDescription": null,
+    "price": null,
+    "categoryName": "Clínica de dermatologia",
+    "address": "Rua Urussuí, 92 - Conjunto 101 - Itaim Bibi, SÃO PAULO - SP, 04542-050",
+    "neighborhood": null,
+    "street": null,
+    "city": null,
+    "postalCode": null,
+    "state": null,
+    "countryCode": null,
+    "phone": "(11) 98963-9445",
+    "phoneUnformatted": "+5511989639445",
+    "claimThisBusiness": false,
+    "location": {
+      "lat": -23.584405,
+      "lng": -46.677163
+    },
+    "locatedIn": null,
+    "floor": null,
+    "plusCode": null,
+    "menu": null,
+    "servicesLink": null,
+    "totalScore": 4.9,
+    "permanentlyClosed": false,
+    "temporarilyClosed": false,
+    "placeId": "ChIJw9fppJZXzpQRgk5-QIBsfY4",
+    "categories": [
+      "Clínica de dermatologia"
+    ],
+    "fid": "0x94ce5796a4e9d7c3:0x8e7d6c80407e4e82",
+    "cid": "10267482023568232066",
+    "reviewsCount": 224,
+    "imagesCount": 0,
+    "imageCategories": [],
+    "scrapedAt": "2026-09-07T21:00:02.560Z",
+    "reserveTableUrl": null,
+    "googleFoodUrl": null,
+    "hotelStars": null,
+    "hotelDescription": null,
+    "checkInDate": null,
+    "checkOutDate": null,
+    "hotelAds": [],
+    "popularTimesLiveText": null,
+    "popularTimesLivePercent": null,
+    "popularTimesHistogram": {},
+    "openingHours": [
+      {
+        "day": "segunda-feira",
+        "hours": "09:00 to 20:00"
+      },
+      {
+        "day": "terça-feira",
+        "hours": "09:00 to 20:00"
+      },
+      {
+        "day": "quarta-feira",
+        "hours": "09:00 to 20:00"
+      },
+      {
+        "day": "quinta-feira",
+        "hours": "09:00 to 20:00"
+      },
+      {
+        "day": "sexta-feira",
+        "hours": "09:00 to 20:00"
+      },
+      {
+        "day": "sábado",
+        "hours": "Fechado"
+      },
+      {
+        "day": "domingo",
+        "hours": "Fechado"
+      }
+    ],
+    "wasOpenAtScrapeTime": true,
+    "peopleAlsoSearch": [],
+    "placesTags": [],
+    "reviewsTags": [],
+    "gasPrices": [],
+    "url": "https://www.google.com/maps/search/?api=1&query=Clinica%20Natuee&query_place_id=ChIJw9fppJZXzpQRgk5-QIBsfY4",
+    "searchPageUrl": "https://www.google.com/maps/search/Cl%C3%ADnica%20de%20Est%C3%A9tica%20Moema%20S%C3%A3o%20Paulo/@0.779500079685914,-29.482932163294933,13z?hl=pt-BR",
+    "searchString": "Clínica de Estética Moema São Paulo",
+    "language": "pt-BR",
+    "rank": 1,
+    "isAdvertisement": true,
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmxC3B1hiee4teHVqm151Z9_bDVE1sX5pZDJ1V4jpKsV_MRIrP4mdE248I2FFEtd1kVVSz6oCHnU5A-Q5tpiaZhPMYmd4pCh0OI-AhqqPdgIueise-4zbIgYFQOWCu0YfWxwEn7uk7AgqS2=k-no-",
+    "kgmid": null,
+    "businessProfileId": null
+  },
+  {
+    "title": "Sui Amara Clínica Estética",
+    "subTitle": null,
+    "description": null,
+    "ownerDescription": null,
+    "price": null,
+    "categoryName": "Spa",
+    "address": "Alameda dos Nhambiquaras, 952 - Moema, São Paulo - SP, 04090-001, Brasil",
+    "neighborhood": "Moema",
+    "street": "Alameda dos Nhambiquaras, 952",
+    "city": "São Paulo",
+    "postalCode": "04090-001",
+    "state": "São Paulo",
+    "countryCode": "BR",
+    "phone": "+55 11 92518-2953",
+    "phoneUnformatted": "+5511925182953",
+    "claimThisBusiness": false,
+    "location": {
+      "lat": -23.607223,
+      "lng": -46.6597893
+    },
+    "locatedIn": null,
+    "floor": null,
+    "plusCode": null,
+    "menu": null,
+    "servicesLink": null,
+    "totalScore": 5,
+    "permanentlyClosed": false,
+    "temporarilyClosed": false,
+    "placeId": "ChIJsZRPgVRbzpQRd3h4k3TE5s8",
+    "categories": [
+      "Spa"
+    ],
+    "fid": "0x94ce5b54814f94b1:0xcfe6c47493787877",
+    "cid": "14980877215463929975",
+    "reviewsCount": 6,
+    "reviewsDistribution": {
+      "oneStar": 0,
+      "twoStar": 0,
+      "threeStar": 0,
+      "fourStar": 0,
+      "fiveStar": 6
+    },
+    "imagesCount": 13,
+    "imageCategories": [],
+    "scrapedAt": "2026-09-07T21:00:03.618Z",
+    "reserveTableUrl": null,
+    "googleFoodUrl": null,
+    "hotelStars": null,
+    "hotelDescription": null,
+    "checkInDate": null,
+    "checkOutDate": null,
+    "hotelAds": [],
+    "popularTimesLiveText": null,
+    "popularTimesLivePercent": null,
+    "popularTimesHistogram": {},
+    "openingHours": [
+      {
+        "day": "segunda-feira",
+        "hours": "09:30 to 21:00"
+      },
+      {
+        "day": "terça-feira",
+        "hours": "09:30 to 22:00"
+      },
+      {
+        "day": "quarta-feira",
+        "hours": "09:30 to 22:00"
+      },
+      {
+        "day": "quinta-feira",
+        "hours": "09:30 to 22:00"
+      },
+      {
+        "day": "sexta-feira",
+        "hours": "09:30 to 22:00"
+      },
+      {
+        "day": "sábado",
+        "hours": "09:30 to 22:00"
+      },
+      {
+        "day": "domingo",
+        "hours": "09:30 to 22:00"
+      }
+    ],
+    "wasOpenAtScrapeTime": true,
+    "peopleAlsoSearch": [],
+    "placesTags": [],
+    "reviewsTags": [],
+    "additionalInfo": {
+      "Opções no menu": [
+        {
+          "Sauna": true
+        },
+        {
+          "Tratamentos de cuidados com a pele": true
+        }
+      ],
+      "Comodidades": [
+        {
+          "Banheiro": true
+        }
+      ],
+      "Planejamento": [
+        {
+          "É recomendado marcar hora": true
+        }
+      ],
+      "Pagamentos": [
+        {
+          "Cartão de crédito": true
+        },
+        {
+          "Cartão de débito": true
+        },
+        {
+          "Pagamentos por dispositivo móvel via NFC": true
+        }
+      ],
+      "Estacionamento": [
+        {
+          "Estacionamento no local": true
+        }
+      ]
+    },
+    "gasPrices": [],
+    "url": "https://www.google.com/maps/search/?api=1&query=Sui%20Amara%20Cl%C3%ADnica%20Est%C3%A9tica&query_place_id=ChIJsZRPgVRbzpQRd3h4k3TE5s8",
+    "searchPageUrl": "https://www.google.com/maps/search/Cl%C3%ADnica%20de%20Est%C3%A9tica%20Moema%20S%C3%A3o%20Paulo/@-23.06163227250348,-46.31437916041345,8z?hl=pt-BR",
+    "searchString": "Clínica de Estética Moema São Paulo",
+    "language": "pt-BR",
+    "rank": 42,
+    "isAdvertisement": false,
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWn6AZmSqUZ4qv2-tSV9pA8bYPkvSmUV4B1iyn_UoUlrCp6_GuASg50UWwLdPBbwqqiKckM8vpky4SbJ62yKV6e-h1zOIMqQHZ2DoQwz0GkkrRLsD2CKVkh4jBGCUuA5rs5T64ydDSosz8D0=w408-h544-k-no",
+    "kgmid": "/g/11zcqn4dvh",
+    "businessProfileId": "16773998712896937183"
+  }
+]

@@ -1,0 +1,1863 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>US $500 Deal Cockpit & Global Blueprint 🇺🇸 — Sales & Outreach Engine</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Canvas Confetti for celebrations -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Patrick+Hand&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            hand: ['"Patrick Hand"', 'cursive'],
+            script: ['"Caveat"', 'cursive'],
+            serif: ['"Playfair Display"', 'serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            desk: '#0f172a',
+            deskDark: '#090d16',
+            paper: '#fcfbf7',
+            paperDark: '#f3ede2',
+            usBlue: '#1e3a8a',
+            usRed: '#dc2626',
+            gold: '#d97706',
+            postitYellow: '#fef08a',
+            postitBlue: '#bae6fd',
+            postitGreen: '#bbf7d0',
+            postitPurple: '#e9d5ff',
+          },
+          boxShadow: {
+            'notebook': '0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255,255,255,0.05)',
+            'paper': '0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1)',
+            'postit': '3px 6px 15px rgba(0,0,0,0.18), 0 1px 3px rgba(0,0,0,0.1)',
+            'glow-usd': '0 0 25px rgba(16, 185, 129, 0.25)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background: radial-gradient(circle at 50% 20%, #1e293b 0%, #0f172a 60%, #020617 100%);
+      min-height: 100vh;
+    }
+
+    .ruled-paper {
+      background-color: #fcfbf7;
+      background-image: 
+        linear-gradient(90deg, transparent 54px, #fca5a5 54px, #fca5a5 56px, transparent 56px),
+        linear-gradient(#e7e0d3 1px, transparent 1px);
+      background-size: 100% 100%, 100% 30px;
+      line-height: 30px;
+    }
+
+    .washi-tape {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(2px);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.12);
+      border-left: 3px dashed rgba(0,0,0,0.2);
+      border-right: 3px dashed rgba(0,0,0,0.2);
+    }
+
+    .spiral-ring {
+      background: linear-gradient(90deg, #64748b 0%, #f8fafc 50%, #334155 100%);
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.5), inset 0 1px 2px rgba(255,255,255,0.8);
+      border-radius: 9999px;
+      width: 34px;
+      height: 12px;
+      position: relative;
+    }
+
+    .spiral-hole {
+      background: #020617;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.9);
+      border-radius: 9999px;
+      width: 14px;
+      height: 14px;
+    }
+
+    .stamp-deal {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      border-radius: 6px;
+      border: 3px solid #16a34a;
+      color: #16a34a;
+      mask-image: radial-gradient(circle, rgba(0,0,0,1) 80%, rgba(0,0,0,0.6) 100%);
+      transform: rotate(-4deg);
+    }
+
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #f1ebd9; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+  </style>
+</head>
+<body class="text-slate-800 antialiased p-3 sm:p-6 lg:p-8 flex flex-col justify-between selection:bg-emerald-200">
+
+  <!-- ========================================== -->
+  <!-- TOP DESK BAR: HEADER & INTERNATIONAL STATS -->
+  <!-- ========================================== -->
+  <header class="max-w-7xl mx-auto w-full mb-6 flex flex-wrap items-center justify-between gap-4 text-white">
+    <div class="flex items-center gap-3.5">
+      <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500/30 to-blue-600/30 border border-emerald-400/40 flex items-center justify-center text-emerald-300 shadow-glow-usd">
+        <span class="font-mono font-black text-xl">$</span>
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <h1 class="text-xl sm:text-2xl font-black font-serif tracking-wide text-slate-100 flex items-center gap-2">
+            US $500 Deal Cockpit
+            <span class="text-xs font-sans font-extrabold px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 tracking-wider">
+              🇺🇸 English Pitch Edition
+            </span>
+          </h1>
+        </div>
+        <p class="text-xs text-slate-400 font-sans flex items-center gap-2">
+          <span>Zero Inglês Fluente Necessário ➔ Scripts Prontos ➔ Guia Fonético ➔ Venda de $500 USD (R$ ~2.750)</span>
+          <span class="text-slate-600">•</span>
+          <span class="text-emerald-400 flex items-center gap-1 font-mono text-[11px]">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            Áudio Nativo & Text-To-Speech Integrado
+          </span>
+        </p>
+      </div>
+    </div>
+
+    <!-- Quick Stats & Actions -->
+    <div class="flex items-center gap-2 sm:gap-3 flex-wrap">
+      <!-- Pipeline Value in USD & BRL -->
+      <div class="bg-slate-900/90 border border-slate-800 px-3.5 py-2 rounded-xl flex items-center gap-3 text-xs shadow-lg">
+        <div class="flex flex-col">
+          <span class="text-[10px] uppercase font-bold text-slate-400">Total Pipeline</span>
+          <span class="text-emerald-400 font-mono font-extrabold text-sm" id="stat-revenue-usd">$0 USD</span>
+        </div>
+        <span class="w-px h-6 bg-slate-700"></span>
+        <div class="flex flex-col">
+          <span class="text-[10px] uppercase font-bold text-slate-400">Em Reais (BRL)</span>
+          <span class="text-amber-300 font-mono font-bold text-xs" id="stat-revenue-brl">R$ 0,00</span>
+        </div>
+        <span class="w-px h-6 bg-slate-700"></span>
+        <div class="flex items-center gap-2 text-slate-300">
+          <span title="Para Abordar">🔵 <strong id="stat-new" class="font-mono">0</strong></span>
+          <span title="Em Negociação">🟡 <strong id="stat-hot" class="font-mono">0</strong></span>
+          <span title="Fechados">🟢 <strong id="stat-won" class="font-mono text-emerald-400">0</strong></span>
+        </div>
+      </div>
+
+      <button onclick="openEnglishEmergencyModal()" class="bg-indigo-600 hover:bg-indigo-500 active:scale-95 transition-all text-white font-bold px-3.5 py-2 rounded-xl shadow-lg flex items-center gap-2 text-xs border border-indigo-400/40" title="Frases Salva-Vidas de Emergência em Inglês">
+        <i data-lucide="sparkles" class="w-4 h-4 text-amber-300"></i>
+        <span>Guia Salva-Vidas (EN)</span>
+      </button>
+
+      <button onclick="openNewLeadModal()" class="bg-emerald-600 hover:bg-emerald-500 active:scale-95 transition-all text-white font-bold px-4 py-2 rounded-xl shadow-glow-usd flex items-center gap-2 text-xs sm:text-sm border border-emerald-400/30">
+        <i data-lucide="plus-circle" class="w-4 h-4"></i>
+        <span>+ Novo Lead EUA ($500)</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========================================== -->
+  <!-- MAIN WORKBENCH: DESK ACCESSORIES + CADERNO -->
+  <!-- ========================================== -->
+  <main class="max-w-7xl mx-auto w-full flex-1 grid grid-cols-1 xl:grid-cols-12 gap-6 items-start">
+    
+    <!-- LEFT SIDEBAR: DESK POST-ITS (Cols 1-3 on XL) -->
+    <aside class="xl:col-span-3 flex flex-col gap-5 order-2 xl:order-1">
+      
+      <!-- POST-IT: POR QUE $500 É IRRESISTÍVEL NOS EUA -->
+      <div class="relative bg-postitYellow p-4 rounded-sm shadow-postit transform -rotate-1 border border-yellow-300/80 transition-transform hover:rotate-0 hover:scale-[1.02] duration-200">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-24 h-6 washi-tape rotate-1"></div>
+        
+        <div class="flex items-center justify-between border-b border-amber-400/60 pb-1.5 mb-2">
+          <h3 class="font-script text-xl font-bold text-amber-950 flex items-center gap-1.5">
+            <i data-lucide="zap" class="w-4 h-4 text-amber-800"></i> O Poder do Pitch de $500
+          </h3>
+          <span class="text-[10px] font-mono text-amber-900 font-bold uppercase bg-amber-200 px-1.5 py-0.5 rounded">No-Brainer</span>
+        </div>
+
+        <p class="font-hand text-sm text-amber-950 leading-snug">
+          🇺🇸 <strong>Para o dono da empresa americana:</strong> Agências nos EUA cobram <strong>$3,000 a $7,000</strong>. Pagar <strong>$500</strong> é uma decisão por impulso que se paga com <strong>1 único cliente</strong>!
+        </p>
+
+        <p class="font-hand text-sm text-amber-900 mt-2 leading-snug">
+          🇧🇷 <strong>Para você no Brasil:</strong> Cada $500 USD = <strong>R$ 2.750,00</strong>. Fechar 4 sites no mês = <strong>R$ 11.000,00</strong> de faturamento direto no seu bolso via Stripe/Wise!
+        </p>
+      </div>
+
+      <!-- POST-IT: GUIA DE PRONÚNCIA EM 3 SEGUNDOS -->
+      <div class="relative bg-postitBlue p-4 rounded-sm shadow-postit transform rotate-1 border border-sky-300/80 transition-transform hover:rotate-0 duration-200">
+        <div class="absolute -top-3 left-1/3 w-20 h-5 washi-tape -rotate-2"></div>
+        
+        <h3 class="font-script text-xl font-bold text-sky-950 flex items-center gap-1.5 border-b border-sky-300/60 pb-1 mb-2">
+          <i data-lucide="volume-2" class="w-4 h-4 text-sky-800"></i> Como Falar sem Travar
+        </h3>
+
+        <div class="font-hand text-xs text-sky-950 space-y-1.5">
+          <p>• <strong>Não tente fingir sotaque gringo perfeito!</strong> Americanos adoram quem é direto ao ponto e confiante.</p>
+          <p>• <strong>Ritmo calmo:</strong> Fale pausadamente. Quem fala rápido parece vendedor desesperado.</p>
+          <p>• <strong>Use o botão 🔊:</strong> Ouça a pronúncia aqui no painel antes de mandar áudio ou discar!</p>
+          <p>• <strong>Async First:</strong> Você pode fechar 80% dos clientes apenas por <strong>Email + Instagram DM + Vídeo Loom de 2 min</strong> sem precisar ligar!</p>
+        </div>
+      </div>
+
+      <!-- POST-IT: META MENSAL EM DÓLARES -->
+      <div class="relative bg-postitGreen p-4 rounded-sm shadow-postit transform -rotate-1 border border-emerald-300/80">
+        <div class="absolute -top-3 right-6 w-20 h-5 washi-tape rotate-3"></div>
+        
+        <div class="flex items-center justify-between border-b border-emerald-300/60 pb-1 mb-2">
+          <h3 class="font-script text-xl font-bold text-emerald-950 flex items-center gap-1.5">
+            <i data-lucide="target" class="w-4 h-4 text-emerald-800"></i> Meta Mensal ($5K)
+          </h3>
+          <span class="text-[10px] font-mono text-emerald-900 font-extrabold">10 Sites = $5,000 USD</span>
+        </div>
+
+        <div class="font-hand text-sm space-y-2 text-emerald-950">
+          <div>
+            <div class="flex justify-between text-xs font-bold mb-1">
+              <span>Fechamentos:</span>
+              <span id="goal-deals-text">0 / 10 Deals</span>
+            </div>
+            <div class="w-full bg-emerald-200/90 rounded-full h-2.5 overflow-hidden">
+              <div id="goal-deals-bar" class="bg-emerald-600 h-full rounded-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <div class="pt-1 text-xs text-emerald-900 flex justify-between font-mono font-bold">
+            <span>Meta em BRL:</span>
+            <span>R$ 27.500,00 / mês</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- POST-IT: FORMAS DE RECEBER EM DÓLAR -->
+      <div class="relative bg-postitPurple p-4 rounded-sm shadow-postit transform rotate-1 border border-purple-300/80">
+        <div class="absolute -top-3 left-1/4 w-20 h-5 washi-tape -rotate-1"></div>
+        
+        <h3 class="font-script text-xl font-bold text-purple-950 flex items-center gap-1.5 border-b border-purple-300/60 pb-1 mb-2">
+          <i data-lucide="credit-card" class="w-4 h-4 text-purple-800"></i> Como Receber o $500
+        </h3>
+
+        <ul class="font-hand text-xs text-purple-950 space-y-1">
+          <li>• <strong>Stripe Payment Link:</strong> O cliente clica e passa o cartão de crédito em 5 segundos. (Mais recomendado)</li>
+          <li>• <strong>Wise / Conta US:</strong> Dados bancários americanos (Routing / Account Number) sem taxas abusivas.</li>
+          <li>• <strong>PayPal Invoice:</strong> Fatura rápida direto no email do cliente.</li>
+        </ul>
+      </div>
+
+    </aside>
+
+    <!-- CENTER & RIGHT: NOTEBOOK (Cols 4-12 on XL) -->
+    <section class="xl:col-span-9 flex flex-col order-1 xl:order-2">
+      
+      <div class="relative bg-[#111827] p-2 sm:p-4 rounded-2xl shadow-notebook border border-slate-700/80">
+        
+        <!-- FICHÁRIO: ABAS DE STATUS DOS LEADS -->
+        <div class="flex items-center gap-1 sm:gap-2 px-2 overflow-x-auto pb-2 scrollbar-none">
+          <button onclick="filterByTab('todos')" id="tab-todos" class="tab-btn active bg-paper text-slate-900 font-bold px-4 py-2.5 rounded-t-xl shadow-paper text-xs sm:text-sm flex items-center gap-1.5 transition-all border-t-2 border-emerald-600">
+            <i data-lucide="layers" class="w-3.5 h-3.5 text-emerald-700"></i>
+            <span>Todos os Prospects EUA</span>
+            <span class="bg-emerald-200 text-emerald-950 text-[10px] px-2 py-0.5 rounded-full font-mono font-bold" id="badge-all">0</span>
+          </button>
+
+          <button onclick="filterByTab('novos')" id="tab-novos" class="tab-btn bg-[#1e293b] hover:bg-[#334155] text-slate-300 font-medium px-3.5 py-2.5 rounded-t-xl text-xs sm:text-sm flex items-center gap-1.5 transition-all">
+            <span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
+            <span>Para Abordar (Novos)</span>
+            <span class="bg-slate-700 text-slate-200 text-[10px] px-1.5 py-0.2 rounded-full font-mono" id="badge-novos">0</span>
+          </button>
+
+          <button onclick="filterByTab('contato')" id="tab-contato" class="tab-btn bg-[#1e293b] hover:bg-[#334155] text-slate-300 font-medium px-3.5 py-2.5 rounded-t-xl text-xs sm:text-sm flex items-center gap-1.5 transition-all">
+            <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+            <span>Em Conversa (DM/Email)</span>
+            <span class="bg-slate-700 text-slate-200 text-[10px] px-1.5 py-0.2 rounded-full font-mono" id="badge-contato">0</span>
+          </button>
+
+          <button onclick="filterByTab('proposta')" id="tab-proposta" class="tab-btn bg-[#1e293b] hover:bg-[#334155] text-slate-300 font-medium px-3.5 py-2.5 rounded-t-xl text-xs sm:text-sm flex items-center gap-1.5 transition-all">
+            <span class="w-2.5 h-2.5 rounded-full bg-purple-500"></span>
+            <span>Blueprint & Demo Enviados</span>
+            <span class="bg-slate-700 text-slate-200 text-[10px] px-1.5 py-0.2 rounded-full font-mono" id="badge-proposta">0</span>
+          </button>
+
+          <button onclick="filterByTab('fechado')" id="tab-fechado" class="tab-btn bg-[#1e293b] hover:bg-[#334155] text-slate-300 font-medium px-3.5 py-2.5 rounded-t-xl text-xs sm:text-sm flex items-center gap-1.5 transition-all">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>Fechados ($500) 🏆</span>
+            <span class="bg-emerald-900/60 text-emerald-300 text-[10px] px-1.5 py-0.2 rounded-full font-mono font-bold" id="badge-fechado">0</span>
+          </button>
+
+          <button onclick="filterByTab('perdido')" id="tab-perdido" class="tab-btn bg-[#1e293b] hover:bg-[#334155] text-slate-300 font-medium px-3.5 py-2.5 rounded-t-xl text-xs sm:text-sm flex items-center gap-1.5 transition-all">
+            <span class="w-2.5 h-2.5 rounded-full bg-slate-500"></span>
+            <span>Frio / Arquivo</span>
+            <span class="bg-slate-700 text-slate-200 text-[10px] px-1.5 py-0.2 rounded-full font-mono" id="badge-perdido">0</span>
+          </button>
+        </div>
+
+        <!-- NOTEBOOK FOLHA CONTAINER -->
+        <div class="relative bg-paper rounded-xl shadow-paper border border-amber-900/10 overflow-hidden flex flex-col md:flex-row min-h-[660px]">
+          
+          <!-- ESPIRAL LATERAL -->
+          <div class="hidden md:flex flex-col justify-between items-center py-6 px-2 bg-paperDark border-r border-amber-900/10 w-12 shrink-0 select-none shadow-inner">
+            <div class="flex flex-col justify-around h-full gap-4">
+              <div class="spiral-hole flex items-center justify-center"><div class="spiral-ring -ml-2"></div></div>
+              <div class="spiral-hole flex items-center justify-center"><div class="spiral-ring -ml-2"></div></div>
+              <div class="spiral-hole flex items-center justify-center"><div class="spiral-ring -ml-2"></div></div>
+              <div class="spiral-hole flex items-center justify-center"><div class="spiral-ring -ml-2"></div></div>
+              <div class="spiral-hole flex items-center justify-center"><div class="spiral-ring -ml-2"></div></div>
+              <div class="spiral-hole flex items-center justify-center"><div class="spiral-ring -ml-2"></div></div>
+              <div class="spiral-hole flex items-center justify-center"><div class="spiral-ring -ml-2"></div></div>
+              <div class="spiral-hole flex items-center justify-center"><div class="spiral-ring -ml-2"></div></div>
+              <div class="spiral-hole flex items-center justify-center"><div class="spiral-ring -ml-2"></div></div>
+              <div class="spiral-hole flex items-center justify-center"><div class="spiral-ring -ml-2"></div></div>
+              <div class="spiral-hole flex items-center justify-center"><div class="spiral-ring -ml-2"></div></div>
+              <div class="spiral-hole flex items-center justify-center"><div class="spiral-ring -ml-2"></div></div>
+            </div>
+          </div>
+
+          <!-- THE NOTEBOOK CONTENT -->
+          <div class="flex-1 p-4 sm:p-7 flex flex-col justify-between">
+            
+            <!-- FOLHA HEADER: BUSCA & CONTROLE DE PÁGINA -->
+            <div class="border-b-2 border-slate-300/80 pb-4 mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="font-script text-2xl sm:text-3xl font-bold text-slate-900">Caderno de Negócios EUA ($500)</span>
+                  <span class="text-xs font-mono text-slate-600 bg-slate-200/80 px-2.5 py-0.5 rounded-full font-bold">
+                    <span id="rendered-count">0</span> leads exibidos
+                  </span>
+                </div>
+                <p class="text-xs text-slate-600 font-hand text-base mt-0.5">
+                  Abra o <strong>Cockpit Internacional</strong> do cliente para acessar o script de abordagem com guia fonético e pronúncia nativa!
+                </p>
+              </div>
+
+              <!-- Busca estilo caneta -->
+              <div class="relative max-w-xs w-full">
+                <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2"></i>
+                <input id="search-input" oninput="handleSearch()" type="text" placeholder="Buscar por empresa, cidade, nicho..." class="w-full bg-slate-100/90 border border-slate-300 rounded-lg pl-9 pr-3 py-1.5 text-sm text-slate-800 placeholder-slate-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50">
+              </div>
+            </div>
+
+            <!-- LEADS CARDS CONTAINER -->
+            <div id="leads-container" class="space-y-6 flex-1">
+              <!-- Injetado via JS -->
+            </div>
+
+            <!-- EMPTY STATE -->
+            <div id="empty-state" class="hidden py-16 text-center flex-col items-center justify-center">
+              <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mb-3">
+                <i data-lucide="compass" class="w-8 h-8"></i>
+              </div>
+              <h3 class="font-serif text-lg font-bold text-slate-800">Nenhum prospecto encontrado nesta pasta</h3>
+              <p class="font-hand text-base text-slate-600 max-w-md mt-1">Adicione uma nova empresa americana para abrir o cockpit de prospecção e pitch de $500.</p>
+              <button onclick="openNewLeadModal()" class="mt-4 bg-emerald-600 hover:bg-emerald-500 text-white text-xs sm:text-sm font-bold px-5 py-2.5 rounded-xl shadow-lg flex items-center gap-2 mx-auto">
+                <i data-lucide="plus" class="w-4 h-4"></i> + Adicionar Empresa Americana
+              </button>
+            </div>
+
+            <!-- FOLHA FOOTER -->
+            <div class="mt-8 pt-4 border-t border-dashed border-slate-300 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500 font-mono">
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                <span class="font-semibold text-emerald-900">Taxa de Conversão: 1 fechamento a cada 8 abordagens estruturadas</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <button onclick="exportDataJSON()" class="hover:text-slate-800 underline font-semibold flex items-center gap-1">
+                  <i data-lucide="download" class="w-3.5 h-3.5"></i> Backup JSON
+                </button>
+                <span>•</span>
+                <button onclick="resetToSampleData()" class="hover:text-amber-800 underline flex items-center gap-1 text-amber-700">
+                  <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i> Restaurar Leads Exemplo
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- =================================================================== -->
+  <!-- MODAL PRINCIPAL: COCKPIT & BLUEPRINT INTERNACIONAL ($500 USD)      -->
+  <!-- =================================================================== -->
+  <div id="cockpit-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-2 sm:p-4">
+    <div class="bg-paper rounded-2xl shadow-2xl max-w-5xl w-full border-2 border-slate-400 overflow-hidden flex flex-col max-h-[94vh]">
+      
+      <!-- Top Cockpit Bar -->
+      <div class="bg-[#0f172a] text-white px-6 py-4 flex items-center justify-between border-b border-slate-700">
+        <div class="flex items-center gap-3.5">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center font-mono font-black text-lg">
+            $
+          </div>
+          <div>
+            <div class="flex items-center gap-2.5">
+              <h2 id="cockpit-client-name" class="font-serif text-lg sm:text-xl font-bold text-slate-100">Client Name</h2>
+              <span id="cockpit-client-niche" class="text-[11px] font-sans px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-300 font-semibold border border-slate-700">Niche</span>
+              <span class="text-xs font-mono font-extrabold text-emerald-400 bg-emerald-950/80 border border-emerald-500/30 px-2 py-0.5 rounded">$500 Offer</span>
+            </div>
+            <p id="cockpit-client-location" class="text-xs text-slate-400 font-sans mt-0.5">Location, USA</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2.5">
+          <button onclick="speakText(document.getElementById('call-hook-text-en').innerText)" class="bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-emerald-500/30 text-xs px-3 py-1.5 rounded-lg flex items-center gap-1.5 font-bold transition-all" title="Ouvir o Hook em Inglês Nativo">
+            <i data-lucide="volume-2" class="w-4 h-4"></i>
+            <span>🔊 Áudio Pronúncia</span>
+          </button>
+          
+          <button onclick="closeCockpitModal()" class="text-slate-400 hover:text-white p-1 rounded-lg">
+            <i data-lucide="x" class="w-6 h-6"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Cockpit Navigation Tabs (6 AMBIENTES ESTRATÉGICOS) -->
+      <div class="bg-[#f1ebd9] px-6 border-b border-slate-300 flex items-center gap-2 overflow-x-auto scrollbar-none pt-2">
+        <button onclick="switchCockpitTab('call')" id="c-tab-call" class="c-tab active bg-paper text-slate-900 border-t-2 border-emerald-600 font-bold px-4 py-2.5 rounded-t-xl text-xs sm:text-sm flex items-center gap-1.5 shadow-sm">
+          <i data-lucide="phone-outgoing" class="w-4 h-4 text-emerald-700"></i>
+          <span>1. Live Call & Áudio Pitch</span>
+        </button>
+
+        <button onclick="switchCockpitTab('async')" id="c-tab-async" class="c-tab bg-slate-200/80 hover:bg-paper text-slate-600 font-semibold px-4 py-2.5 rounded-t-xl text-xs sm:text-sm flex items-center gap-1.5">
+          <i data-lucide="send" class="w-4 h-4 text-blue-700"></i>
+          <span>2. Email & DM & Loom Kit</span>
+        </button>
+
+        <button onclick="switchCockpitTab('blueprint')" id="c-tab-blueprint" class="c-tab bg-slate-200/80 hover:bg-paper text-slate-600 font-semibold px-4 py-2.5 rounded-t-xl text-xs sm:text-sm flex items-center gap-1.5">
+          <i data-lucide="file-code-2" class="w-4 h-4 text-purple-700"></i>
+          <span>3. Blueprint $500 (O que Entregar)</span>
+        </button>
+
+        <button onclick="switchCockpitTab('design')" id="c-tab-design" class="c-tab bg-slate-200/80 hover:bg-paper text-slate-600 font-semibold px-4 py-2.5 rounded-t-xl text-xs sm:text-sm flex items-center gap-1.5">
+          <i data-lucide="palette" class="w-4 h-4 text-pink-700"></i>
+          <span>4. Design & Demo Live</span>
+        </button>
+
+        <button onclick="switchCockpitTab('dev')" id="c-tab-dev" class="c-tab bg-slate-200/80 hover:bg-paper text-slate-600 font-semibold px-4 py-2.5 rounded-t-xl text-xs sm:text-sm flex items-center gap-1.5">
+          <i data-lucide="zap" class="w-4 h-4 text-amber-700"></i>
+          <span>5. Entrega em 48h (Stack)</span>
+        </button>
+
+        <button onclick="switchCockpitTab('closing')" id="c-tab-closing" class="c-tab bg-slate-200/80 hover:bg-paper text-slate-600 font-semibold px-4 py-2.5 rounded-t-xl text-xs sm:text-sm flex items-center gap-1.5">
+          <i data-lucide="badge-dollar-sign" class="w-4 h-4 text-emerald-700"></i>
+          <span>6. Fechamento & Stripe ($500)</span>
+        </button>
+      </div>
+
+      <!-- Cockpit Dynamic Body -->
+      <div class="p-6 overflow-y-auto flex-1 space-y-6 text-sm">
+        
+        <!-- ============================================== -->
+        <!-- 1. AMBIENTE COLD CALL & ÁUDIO (AO VIVO COM FONÉTICA) -->
+        <!-- ============================================== -->
+        <div id="c-panel-call" class="space-y-6">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            
+            <!-- Coluna Esquerda: Script da Ligação Passo a Passo -->
+            <div class="lg:col-span-7 space-y-4">
+              
+              <!-- Passo 1: Abertura / Pattern Interrupt (30s) -->
+              <div class="p-4 bg-emerald-50/80 border-2 border-emerald-400 rounded-xl shadow-sm space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="bg-emerald-600 text-white text-[11px] font-bold px-2 py-0.5 rounded uppercase flex items-center gap-1">
+                    <i data-lucide="play" class="w-3 h-3"></i> Step 1 • Hook de Abertura (30s)
+                  </span>
+                  <button onclick="speakText(document.getElementById('call-hook-text-en').innerText)" class="text-xs text-emerald-800 hover:text-emerald-950 font-bold flex items-center gap-1">
+                    <i data-lucide="volume-2" class="w-3.5 h-3.5"></i> Ouvir
+                  </button>
+                </div>
+                
+                <!-- English Text -->
+                <div class="p-3 bg-white rounded-lg border border-emerald-200">
+                  <p class="text-xs font-bold text-slate-400 uppercase mb-1">Texto em Inglês:</p>
+                  <p id="call-hook-text-en" class="font-sans text-slate-900 font-bold text-sm leading-relaxed">
+                    "Hey <span class="client-first-name text-emerald-700">[Owner Name]</span>, quick question—I noticed your business on Google Maps with great reviews, but your website is either missing or not mobile-friendly. Did I catch you in the middle of something, or do you have 30 seconds?"
+                  </p>
+                </div>
+
+                <!-- Phonetic Guide in Portuguese -->
+                <div class="p-2.5 bg-amber-50 rounded-lg border border-amber-200 text-xs">
+                  <span class="font-bold text-amber-900 uppercase text-[10px] block mb-0.5">🗣️ Como Falar (Fonética em Português):</span>
+                  <p class="font-mono text-amber-950 leading-relaxed">
+                    "Rêi <span class="client-first-name">[Nome]</span>, cuík cuéstion—ai nótist ior bíznis on gúgol méps uíd grêit re-viús, bât ior uéb-sáiti is íder míssin or nót mó-bail frênd-li. Did ai kétch iú in da mídel ov sâm-thin, or du iú rév têrti sé-conds?"
+                  </p>
+                </div>
+
+                <!-- Meaning in Portuguese -->
+                <p class="text-xs text-slate-600 italic">
+                  💡 <em>O que significa:</em> "Oi [Nome], pergunta rápida—vi sua empresa no Google Maps com ótimas avaliações, mas seu site não existe ou está ruim no celular. Te peguei no meio de algo ou tem 30 segundos?"
+                </p>
+              </div>
+
+              <!-- Passo 2: O Diagnóstico & Oportunidade Perdida -->
+              <div class="p-4 bg-white border border-slate-300 rounded-xl shadow-sm space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="bg-blue-600 text-white text-[11px] font-bold px-2 py-0.5 rounded uppercase">
+                    Step 2 • Diagnóstico & Demonstração
+                  </span>
+                  <button onclick="speakText(document.getElementById('call-pain-text-en').innerText)" class="text-xs text-blue-800 hover:text-blue-950 font-bold flex items-center gap-1">
+                    <i data-lucide="volume-2" class="w-3.5 h-3.5"></i> Ouvir
+                  </button>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
+                  <p class="text-xs font-bold text-slate-400 uppercase mb-1">Texto em Inglês:</p>
+                  <p id="call-pain-text-en" class="font-sans text-slate-900 font-bold text-sm leading-relaxed">
+                    "I already put together a quick, modern prototype for <span class="client-company-name text-blue-700">[Company Name]</span> that loads in 1 second and allows clients to book or call you directly. I can text or email you the preview link in 10 seconds. What’s the best email or cell to send it to?"
+                  </p>
+                </div>
+
+                <div class="p-2.5 bg-amber-50 rounded-lg border border-amber-200 text-xs">
+                  <span class="font-bold text-amber-900 uppercase text-[10px] block mb-0.5">🗣️ Como Falar (Fonética):</span>
+                  <p class="font-mono text-amber-950 leading-relaxed">
+                    "Ai ol-rédi put tu-gué-der a cuík, módern pró-to-taip for <span class="client-company-name">[Empresa]</span> dét louds in uân sé-cond end a-láus clái-ents tu búk or cól iú dai-réct-li. Ai quén tékst or i-mêil iú da prí-viu línk in ten sé-conds. Uóts da bêst i-mêil or cél tu sênd it tu?"
+                  </p>
+                </div>
+              </div>
+
+              <!-- Passo 3: O Fechamento dos $500 USD -->
+              <div class="p-4 bg-emerald-50/50 border border-emerald-300 rounded-xl shadow-sm space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="bg-emerald-700 text-white text-[11px] font-bold px-2 py-0.5 rounded uppercase">
+                    Step 3 • O Preço No-Brainer ($500 Flat)
+                  </span>
+                  <button onclick="speakText(document.getElementById('call-close-text-en').innerText)" class="text-xs text-emerald-800 hover:text-emerald-950 font-bold flex items-center gap-1">
+                    <i data-lucide="volume-2" class="w-3.5 h-3.5"></i> Ouvir
+                  </button>
+                </div>
+
+                <div class="p-3 bg-white rounded-lg border border-emerald-200">
+                  <p class="text-xs font-bold text-slate-400 uppercase mb-1">Texto em Inglês:</p>
+                  <p id="call-close-text-en" class="font-sans text-slate-900 font-bold text-sm leading-relaxed">
+                    "It’s just a flat $500 one-time fee, completely done-for-you and live in 48 hours. If you love the demo, we launch it; if not, you don't pay a dime. Sounds fair?"
+                  </p>
+                </div>
+
+                <div class="p-2.5 bg-amber-50 rounded-lg border border-amber-200 text-xs">
+                  <span class="font-bold text-amber-900 uppercase text-[10px] block mb-0.5">🗣️ Como Falar (Fonética):</span>
+                  <p class="font-mono text-amber-950 leading-relaxed">
+                    "Its djâst a flét fáiv rândred dólars uân-táim fí, com-plí-tli dãn-for-iú end láiv in fórti-êit áuars. If iú lâv da démo, uí lônch it; if nót, iú dônt pêi a dáim. Sáunds fér?"
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Coluna Direita: Objeções Americanas Comuns com Botão de Áudio -->
+            <div class="lg:col-span-5 space-y-4">
+              
+              <!-- Quick Info Card -->
+              <div class="p-4 bg-white border border-slate-300 rounded-xl shadow-sm">
+                <h4 class="font-serif text-sm font-bold text-slate-900 mb-2 flex items-center gap-1.5">
+                  <i data-lucide="link" class="w-4 h-4 text-emerald-600"></i> Links & Contatos deste Lead
+                </h4>
+                <div id="cockpit-links-list" class="space-y-2 text-xs">
+                  <!-- Injetado via JS -->
+                </div>
+              </div>
+
+              <!-- Objeções ao Vivo (Battlecards com Áudio) -->
+              <div class="p-4 bg-slate-100 border border-slate-300 rounded-xl shadow-sm space-y-3">
+                <h4 class="font-serif text-sm font-bold text-slate-900 flex items-center justify-between">
+                  <span class="flex items-center gap-1.5 text-red-700">
+                    <i data-lucide="shield-alert" class="w-4 h-4"></i> Como Responder Objeções (EN)
+                  </span>
+                  <span class="text-[10px] font-mono text-slate-500">Clique para abrir</span>
+                </h4>
+
+                <!-- Objeção 1: Just send me an email -->
+                <details class="bg-white p-3 rounded-lg border border-slate-200 text-xs group">
+                  <summary class="font-bold text-slate-800 cursor-pointer flex items-center justify-between">
+                    <span>"Just send me an email..."</span>
+                    <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+                  </summary>
+                  <div class="mt-2 pt-2 border-t border-slate-100 space-y-1.5">
+                    <p class="text-slate-900 font-semibold">"Sure thing! What’s your best email so I can send the live mockup directly to you?"</p>
+                    <p class="font-mono text-amber-900 text-[11px] bg-amber-50 p-1.5 rounded">🗣️ "Xúr thin! Uóts ior bêst i-mêil sou ai quén sênd da láiv mó-cap dai-réct-li tu iú?"</p>
+                    <button onclick="copyToClipboard('Sure thing! What’s your best email so I can send the live mockup directly to you?')" class="text-[11px] bg-slate-100 hover:bg-slate-200 px-2 py-1 rounded font-bold text-slate-700 flex items-center gap-1">
+                      <i data-lucide="copy" class="w-3 h-3"></i> Copiar Resposta
+                    </button>
+                  </div>
+                </details>
+
+                <!-- Objeção 2: We already have a website / agency -->
+                <details class="bg-white p-3 rounded-lg border border-slate-200 text-xs group">
+                  <summary class="font-bold text-slate-800 cursor-pointer flex items-center justify-between">
+                    <span>"We already have someone / a website..."</span>
+                    <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+                  </summary>
+                  <div class="mt-2 pt-2 border-t border-slate-100 space-y-1.5">
+                    <p class="text-slate-900 font-semibold">"Totally understand! I just noticed your current page takes over 4 seconds on mobile and loses bookings. I made a 60-second Loom showing the fix for free. Can I shoot that over?"</p>
+                    <p class="font-mono text-amber-900 text-[11px] bg-amber-50 p-1.5 rounded">🗣️ "Tôu-ta-li ân-der-stênd! Ai djâst nótist ior câr-rent pêidji têiks ôu-ver fór sé-conds on mó-bail... Quén ai xút dét ôu-ver?"</p>
+                  </div>
+                </details>
+
+                <!-- Objeção 3: How much does it cost? -->
+                <details class="bg-white p-3 rounded-lg border border-slate-200 text-xs group">
+                  <summary class="font-bold text-slate-800 cursor-pointer flex items-center justify-between">
+                    <span>"How much is this going to cost?"</span>
+                    <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+                  </summary>
+                  <div class="mt-2 pt-2 border-t border-slate-100 space-y-1.5">
+                    <p class="text-slate-900 font-semibold">"It’s just $500 flat, one-time payment. Most of our clients make that back with their very next customer. No monthly lock-ins."</p>
+                    <p class="font-mono text-amber-900 text-[11px] bg-amber-50 p-1.5 rounded">🗣️ "Its djâst fáiv rândred dólars flét, uân-táim pêi-ment. Moust ov áuer clái-ents mêik dét bék uíd dêir véri nékst câs-to-mer."</p>
+                  </div>
+                </details>
+
+                <!-- Objeção 4: I don't have time right now -->
+                <details class="bg-white p-3 rounded-lg border border-slate-200 text-xs group">
+                  <summary class="font-bold text-slate-800 cursor-pointer flex items-center justify-between">
+                    <span>"I don't have time right now..."</span>
+                    <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+                  </summary>
+                  <div class="mt-2 pt-2 border-t border-slate-100 space-y-1.5">
+                    <p class="text-slate-900 font-semibold">"No problem at all. I'll drop the 30-second preview link in your inbox. Check it whenever you have a minute!"</p>
+                    <p class="font-mono text-amber-900 text-[11px] bg-amber-50 p-1.5 rounded">🗣️ "Nôu pró-blem ét ól. Ail dróp da têrti-sé-cond prí-viu línk in ior ín-bóks. Tchék it uên-é-ver iú rév a mí-nut!"</p>
+                  </div>
+                </details>
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- 2. AMBIENTE ASYNC OUTREACH (EMAIL, DM & LOOM) -->
+        <!-- ============================================== -->
+        <div id="c-panel-async" class="hidden space-y-6">
+          <div class="p-4 bg-blue-50 border border-blue-200 rounded-xl flex items-center gap-3">
+            <i data-lucide="sparkles" class="w-6 h-6 text-blue-600 shrink-0"></i>
+            <p class="text-xs text-blue-950 font-medium">
+              💡 <strong>Dica de Ouro para Não-Fluentes:</strong> Você não precisa fazer ligações se não quiser! 75% dos fechamentos internacionais de $500 acontecem enviando uma destas mensagens no <strong>Instagram DM</strong> ou <strong>Email</strong> com o link de um vídeo Loom de 60 segundos!
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            
+            <!-- Template 1: Cold Email de Alta Abertura -->
+            <div class="p-5 bg-white rounded-xl border border-slate-300 shadow-sm space-y-3">
+              <div class="flex items-center justify-between">
+                <h4 class="font-serif text-base font-bold text-slate-900 flex items-center gap-1.5">
+                  <i data-lucide="mail" class="w-4 h-4 text-blue-600"></i> Cold Email com Assunto de Alta Conversão
+                </h4>
+                <button onclick="copyAsyncTemplate('email')" class="bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs px-3 py-1.5 rounded-lg flex items-center gap-1 shadow">
+                  <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copiar Email
+                </button>
+              </div>
+
+              <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs font-mono space-y-2 text-slate-800">
+                <p><strong>Subject:</strong> Quick mockup for <span class="client-company-name font-bold text-blue-700">[Company Name]</span> (mobile speed)</p>
+                <div class="pt-2 border-t border-slate-200 space-y-2 font-sans text-xs">
+                  <p>Hi <span class="client-first-name font-bold">[First Name]</span>,</p>
+                  <p>I came across <span class="client-company-name font-bold">[Company Name]</span> on Google and loved your 5-star customer reviews!</p>
+                  <p>However, I noticed your website is taking quite a while to load on mobile phones, which might be costing you calls and bookings from nearby clients.</p>
+                  <p>I took the liberty of building a clean, modern prototype for you that loads in under 1 second and features an instant 1-click booking button.</p>
+                  <p>You can check the live demo here: <strong class="text-blue-600 underline">[INSERT DEMO LINK]</strong></p>
+                  <p>We deliver everything completely turnkey for a flat <strong>$500</strong> in under 48 hours. If you'd like to put it live, just reply to this email!</p>
+                  <p>Best regards,<br><strong>Thiago | TM Studio</strong></p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Template 2: Instagram Direct Message (DM) -->
+            <div class="p-5 bg-white rounded-xl border border-slate-300 shadow-sm space-y-3">
+              <div class="flex items-center justify-between">
+                <h4 class="font-serif text-base font-bold text-slate-900 flex items-center gap-1.5">
+                  <i data-lucide="instagram" class="w-4 h-4 text-pink-600"></i> Direct Message (Instagram / Facebook)
+                </h4>
+                <button onclick="copyAsyncTemplate('dm')" class="bg-pink-600 hover:bg-pink-500 text-white font-bold text-xs px-3 py-1.5 rounded-lg flex items-center gap-1 shadow">
+                  <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copiar DM
+                </button>
+              </div>
+
+              <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs space-y-2 text-slate-800">
+                <p>Hey <span class="client-first-name font-bold text-pink-700">[Name]</span>! Love the work you guys are doing at <span class="client-company-name font-bold">[Company]</span> 🔥</p>
+                <p>I was looking at your Google profile and noticed you don't have a direct mobile landing page for instant bookings.</p>
+                <p>I actually created a live interactive demo for your business so you can see how it looks. It loads instantly and increases calls!</p>
+                <p>Would it be okay if I drop the preview link here for you to check out? No pressure at all!</p>
+              </div>
+
+              <div class="p-3 bg-pink-50 rounded-lg border border-pink-200 text-xs text-pink-950 font-hand text-sm">
+                💡 <em>Por que essa DM funciona:</em> Ela não empurra a venda na primeira mensagem! Ela pede permissão para enviar o link ("Would it be okay...?"), o que gera 80% de taxa de resposta positiva!
+              </div>
+            </div>
+
+            <!-- Template 3: Roteiro do Vídeo Loom de 90 Segundos -->
+            <div class="p-5 bg-white rounded-xl border border-slate-300 shadow-sm space-y-3 lg:col-span-2">
+              <h4 class="font-serif text-base font-bold text-slate-900 flex items-center gap-1.5">
+                <i data-lucide="video" class="w-4 h-4 text-purple-600"></i> Roteiro de Gravação Loom (90 segundos gravando a tela)
+              </h4>
+              
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+                <div class="p-3 bg-purple-50 rounded-lg border border-purple-200 space-y-1">
+                  <span class="font-bold text-purple-900 block uppercase text-[10px]">00:00 - 00:20 • O Elogio + Diagnóstico</span>
+                  <p class="text-purple-950">
+                    "Hey <span class="client-first-name">[Name]</span>, Thiago here! I'm looking at your Google profile with awesome reviews, but on mobile, your booking link is missing or slow..."
+                  </p>
+                </div>
+
+                <div class="p-3 bg-blue-50 rounded-lg border border-blue-200 space-y-1">
+                  <span class="font-bold text-blue-900 block uppercase text-[10px]">00:20 - 00:60 • Mostre o Protótipo Pronto</span>
+                  <p class="text-blue-950">
+                    "So I built this custom landing page for you. Look at how fast it opens, here are your reviews, services, and the big 'Book Now / Call Now' button."
+                  </p>
+                </div>
+
+                <div class="p-3 bg-emerald-50 rounded-lg border border-emerald-200 space-y-1">
+                  <span class="font-bold text-emerald-900 block uppercase text-[10px]">00:60 - 00:90 • A Oferta No-Brainer de $500</span>
+                  <p class="text-emerald-950">
+                    "We do this completely turnkey for just $500 flat fee, live in 48 hours. If you want this live for your company, just reply to my email. Have a great day!"
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- 3. AMBIENTE BLUEPRINT $500 (O QUE ENTREGAR)   -->
+        <!-- ============================================== -->
+        <div id="c-panel-blueprint" class="hidden space-y-6">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            
+            <!-- O que está incluso no pacote de $500 -->
+            <div class="lg:col-span-7 p-5 bg-white rounded-xl border border-slate-300 shadow-sm space-y-4">
+              <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+                <h4 class="font-serif text-base font-bold text-slate-900 flex items-center gap-1.5">
+                  <i data-lucide="package-check" class="w-5 h-5 text-emerald-600"></i> Escopo do Pacote de $500 USD
+                </h4>
+                <span class="font-mono text-xs font-extrabold text-emerald-700 bg-emerald-100 px-2.5 py-1 rounded-full">$500 Flat Fee</span>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 space-y-1">
+                  <span class="font-bold text-slate-900 flex items-center gap-1">
+                    <i data-lucide="smartphone" class="w-3.5 h-3.5 text-blue-600"></i> 1. Mobile-First Landing Page
+                  </span>
+                  <p class="text-slate-600">Design 100% responsivo, adaptado perfeitamente para iPhone e Android com foco em agendamentos.</p>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 space-y-1">
+                  <span class="font-bold text-slate-900 flex items-center gap-1">
+                    <i data-lucide="gauge" class="w-3.5 h-3.5 text-emerald-600"></i> 2. Velocidade Ultra-Rápida (<1s)
+                  </span>
+                  <p class="text-slate-600">Pontuação 95+ no Google PageSpeed Insights. Sem lentidão de WordPress pesado.</p>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 space-y-1">
+                  <span class="font-bold text-slate-900 flex items-center gap-1">
+                    <i data-lucide="star" class="w-3.5 h-3.5 text-amber-500"></i> 3. Google Reviews Social Proof
+                  </span>
+                  <p class="text-slate-600">Grid interativo com as melhores avaliações 5 estrelas do Google Maps do cliente.</p>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 space-y-1">
+                  <span class="font-bold text-slate-900 flex items-center gap-1">
+                    <i data-lucide="phone-call" class="w-3.5 h-3.5 text-indigo-600"></i> 4. Botões 1-Click Call & Booking
+                  </span>
+                  <p class="text-slate-600">Integração direta com discagem telefônica, Calendly, WhatsApp ou formulário de orçamento.</p>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 space-y-1">
+                  <span class="font-bold text-slate-900 flex items-center gap-1">
+                    <i data-lucide="map-pin" class="w-3.5 h-3.5 text-red-600"></i> 5. Local SEO & Schema Markup
+                  </span>
+                  <p class="text-slate-600">Tags Schema.org LocalBusiness, OpenGraph e integração com mapa interativo do Google.</p>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 space-y-1">
+                  <span class="font-bold text-slate-900 flex items-center gap-1">
+                    <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i> 6. Hospedagem Grátis & SSL
+                  </span>
+                  <p class="text-slate-600">Publicado no Vercel/Netlify com certificado de segurança SSL vitalício grátis.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Calculadora de ROI para o Cliente Americano -->
+            <div class="lg:col-span-5 p-5 bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-xl shadow-lg space-y-4">
+              <h4 class="font-serif text-base font-bold text-emerald-300 flex items-center gap-1.5">
+                <i data-lucide="calculator" class="w-4 h-4 text-emerald-400"></i> Calculadora de ROI para o Pitch
+              </h4>
+
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Mostre ao cliente que o investimento de <strong>$500</strong> se paga instantaneamente:
+              </p>
+
+              <div class="space-y-2 text-xs font-mono">
+                <div class="p-3 bg-slate-800/80 rounded-lg border border-slate-700 flex justify-between items-center">
+                  <span class="text-slate-400">Ticket Médio do Cliente:</span>
+                  <span class="text-amber-300 font-bold">$250 - $1,500</span>
+                </div>
+                <div class="p-3 bg-slate-800/80 rounded-lg border border-slate-700 flex justify-between items-center">
+                  <span class="text-slate-400">Clientes para se Pagar:</span>
+                  <span class="text-emerald-400 font-bold font-mono">Apenas 1 ou 2 vendas!</span>
+                </div>
+                <div class="p-3 bg-slate-800/80 rounded-lg border border-slate-700 flex justify-between items-center">
+                  <span class="text-slate-400">Tempo de Entrega:</span>
+                  <span class="text-blue-300 font-bold">48 Horas</span>
+                </div>
+              </div>
+
+              <div class="p-3 bg-emerald-950/60 border border-emerald-500/30 rounded-lg text-[11px] text-emerald-300 leading-relaxed">
+                💬 <strong>Frase para falar no fechamento:</strong><br>
+                <em>"If this new landing page brings you just 1 extra client this month, the entire $500 is 100% paid for. Everything after that is pure profit."</em>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- 4. AMBIENTE DESIGN & LIVE DEMO PREVIEWER       -->
+        <!-- ============================================== -->
+        <div id="c-panel-design" class="hidden space-y-6">
+          <div class="p-5 bg-white rounded-xl border border-slate-300 shadow-sm space-y-4">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h4 class="font-serif text-base font-bold text-slate-900 flex items-center gap-1.5">
+                  <i data-lucide="layout" class="w-4 h-4 text-pink-600"></i> Demonstração Visual ao Vivo para o Cliente
+                </h4>
+                <p class="text-xs text-slate-600">Selecione o nicho da empresa americana para carregar a prévia personalizada:</p>
+              </div>
+
+              <!-- Niche Selector -->
+              <div class="flex items-center gap-2">
+                <select id="preview-niche-select" onchange="updateDemoPreview()" class="bg-slate-100 border border-slate-300 rounded-lg px-3 py-1.5 text-xs font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                  <option value="aesthetics">✨ MedSpa, Estética & Lashes</option>
+                  <option value="roofing">🏠 Roofing & Contracting</option>
+                  <option value="hvac">❄️ HVAC & Plumbing Services</option>
+                  <option value="barber">💈 Barber & Grooming Lounge</option>
+                  <option value="cleaning">🧹 Commercial & Residential Cleaning</option>
+                  <option value="detailing">🚗 Auto Detailing & Tint</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Interactive Live Mockup Frame -->
+            <div class="border-2 border-slate-800 rounded-xl overflow-hidden shadow-xl bg-slate-900">
+              <!-- Browser Mockup Header -->
+              <div class="bg-slate-800 px-4 py-2 flex items-center justify-between text-xs text-slate-400 border-b border-slate-700">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-3 h-3 rounded-full bg-red-500 inline-block"></span>
+                  <span class="w-3 h-3 rounded-full bg-yellow-500 inline-block"></span>
+                  <span class="w-3 h-3 rounded-full bg-green-500 inline-block"></span>
+                </div>
+                <div id="preview-url-bar" class="bg-slate-900 px-4 py-1 rounded-md text-[11px] font-mono text-slate-300 w-1/2 text-center truncate">
+                  https://kethlynaesthetics.com
+                </div>
+                <div class="text-[10px] font-mono text-emerald-400 font-bold">⚡ 0.6s Load Time</div>
+              </div>
+
+              <!-- Mockup Content Banner -->
+              <div id="preview-content-area" class="p-6 sm:p-10 text-white transition-all duration-300 min-h-[280px] flex flex-col justify-center">
+                <!-- Injetado via JS -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- 5. AMBIENTE DESENVOLVIMENTO EM 48H (STACK)     -->
+        <!-- ============================================== -->
+        <div id="c-panel-dev" class="hidden space-y-6">
+          <div class="p-5 bg-white rounded-xl border border-slate-300 shadow-sm space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+              <div>
+                <h4 class="font-serif text-base font-bold text-slate-900 flex items-center gap-1.5">
+                  <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-600"></i> Checklist de Entrega em 48 Horas
+                </h4>
+                <p class="text-xs text-slate-600">Siga o passo a passo para entregar o projeto em menos de 2 dias:</p>
+              </div>
+              <span class="text-xs font-mono bg-emerald-100 text-emerald-900 px-3 py-1 rounded-full font-bold">Stack: HTML5 / Tailwind / Vercel</span>
+            </div>
+
+            <div id="cockpit-dev-checklist" class="space-y-2.5">
+              <!-- Injetado via JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- 6. AMBIENTE FECHAMENTO & STRIPE ($500 USD)    -->
+        <!-- ============================================== -->
+        <div id="c-panel-closing" class="hidden space-y-6">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            
+            <!-- Como Cobrar os $500 -->
+            <div class="p-5 bg-white rounded-xl border border-slate-300 shadow-sm space-y-4">
+              <h4 class="font-serif text-base font-bold text-slate-900 flex items-center gap-1.5">
+                <i data-lucide="credit-card" class="w-4 h-4 text-emerald-600"></i> Como Receber os $500 USD
+              </h4>
+
+              <div class="space-y-3 text-xs font-sans">
+                <div class="p-3 bg-emerald-50 rounded-lg border border-emerald-200">
+                  <span class="font-bold text-emerald-950 text-sm block mb-1">1. Stripe Payment Link (5 segundos)</span>
+                  <p class="text-emerald-900">
+                    Crie um link de produto no seu dashboard Stripe no valor de <strong>$500.00 USD</strong>. O cliente clica e paga com Apple Pay, Google Pay ou Cartão de Crédito americano.
+                  </p>
+                </div>
+
+                <div class="p-3 bg-blue-50 rounded-lg border border-blue-200">
+                  <span class="font-bold text-blue-950 text-sm block mb-1">2. Wise US Bank Details (ACH / Wire)</span>
+                  <p class="text-blue-900">
+                    Forneça seu número de conta e Routing Number da Wise. A transferência cai em minutos com a menor taxa de conversão para BRL.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Mensagem de Cobrança com Link -->
+              <div class="pt-2">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-xs font-bold text-slate-700 uppercase">Mensagem de Envio do Link de Pagamento:</span>
+                  <button onclick="copyToClipboard(document.getElementById('stripe-message-text').innerText)" class="text-xs text-emerald-700 hover:text-emerald-900 font-bold flex items-center gap-1">
+                    <i data-lucide="copy" class="w-3 h-3"></i> Copiar
+                  </button>
+                </div>
+                <p id="stripe-message-text" class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs font-mono text-slate-800 leading-relaxed">
+                  "Awesome doing business with you! Here is the secure Stripe link for the $500 setup: [YOUR STRIPE LINK]. Once processed, our team will connect your domain and launch the site live within 48h!"
+                </p>
+              </div>
+            </div>
+
+            <!-- Upsells Recorrentes Mensais ($49 - $199/mês) -->
+            <div class="p-5 bg-white rounded-xl border border-slate-300 shadow-sm space-y-4">
+              <h4 class="font-serif text-base font-bold text-slate-900 flex items-center gap-1.5">
+                <i data-lucide="trending-up" class="w-4 h-4 text-purple-600"></i> Renda Recorrente Mensal (Upsell)
+              </h4>
+
+              <p class="text-xs text-slate-600">
+                Após fechar os $500, ofereça a manutenção mensal para ter receita em dólar todo mês:
+              </p>
+
+              <div class="space-y-3 text-xs">
+                <div class="p-3 bg-purple-50 rounded-lg border border-purple-200">
+                  <div class="flex justify-between items-center mb-1">
+                    <span class="font-bold text-purple-950 text-sm">🛠️ Website Care & Hosting Plan</span>
+                    <span class="font-mono font-bold text-purple-800 text-xs">$49 - $99 / mo</span>
+                  </div>
+                  <p class="text-purple-900">
+                    Inclui hospedagem rápida, pequenas alterações de fotos/preços e suporte contínuo. 10 clientes = <strong>$490 - $990 USD/mês</strong> recorrentes!
+                  </p>
+                </div>
+
+                <div class="p-3 bg-indigo-50 rounded-lg border border-indigo-200">
+                  <div class="flex justify-between items-center mb-1">
+                    <span class="font-bold text-indigo-950 text-sm">📍 Google Reviews & Local Boost</span>
+                    <span class="font-mono font-bold text-indigo-800 text-xs">$199 / mo</span>
+                  </div>
+                  <p class="text-indigo-900">
+                    Automação de mensagens para coletar novas avaliações no Google Maps e atualizar ofertas sazonais.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Celebrar Fechamento -->
+              <button onclick="triggerDealWonCelebration()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold py-3 rounded-xl shadow-glow-usd flex items-center justify-center gap-2 text-sm transition-all transform active:scale-95">
+                <i data-lucide="trophy" class="w-5 h-5 text-amber-300"></i>
+                <span>🎉 MARCAR COMO FECHADO ($500 USD NO BOLSO!)</span>
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =================================================================== -->
+  <!-- MODAL: GUIA SALVA-VIDAS EM INGLÊS DE EMERGÊNCIA                     -->
+  <!-- =================================================================== -->
+  <div id="english-emergency-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-paper rounded-2xl shadow-2xl max-w-2xl w-full border-2 border-slate-400 overflow-hidden">
+      <div class="bg-[#0f172a] text-white px-6 py-4 border-b border-slate-700 flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <i data-lucide="shield-check" class="w-5 h-5 text-emerald-400"></i>
+          <h3 class="font-serif text-lg font-bold text-slate-100">Guia de Emergência: Frases Prontas em Inglês</h3>
+        </div>
+        <button onclick="closeEnglishEmergencyModal()" class="text-slate-400 hover:text-white p-1 rounded-lg">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="p-6 space-y-4 max-h-[78vh] overflow-y-auto text-xs sm:text-sm">
+        
+        <!-- Frase 1: Se você não entender o que o gringo falou -->
+        <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-sm space-y-2">
+          <span class="font-bold text-indigo-900 uppercase text-xs flex items-center gap-1.5">
+            <i data-lucide="help-circle" class="w-4 h-4 text-indigo-600"></i> Se você não entendeu o que ele falou:
+          </span>
+          <p class="text-slate-900 font-bold text-sm">"Sorry, the connection broke up for a second. Could you say that one more time?"</p>
+          <p class="font-mono text-amber-900 text-xs bg-amber-50 p-2 rounded">🗣️ "Só-ri, da co-néc-shon brôuk âp for a sé-cond. Cúd iú sêi dét uân mór táim?"</p>
+          <p class="text-slate-500 italic text-xs">"Desculpe, a conexão cortou por um segundo. Poderia repetir mais uma vez?"</p>
+        </div>
+
+        <!-- Frase 2: Se você quiser passar para o WhatsApp / Email -->
+        <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-sm space-y-2">
+          <span class="font-bold text-emerald-900 uppercase text-xs flex items-center gap-1.5">
+            <i data-lucide="message-square" class="w-4 h-4 text-emerald-600"></i> Se quiser migrar da ligação para texto:
+          </span>
+          <p class="text-slate-900 font-bold text-sm">"Let me send you the visual preview on your phone right now so you can see it with your own eyes. What's your number?"</p>
+          <p class="font-mono text-amber-900 text-xs bg-amber-50 p-2 rounded">🗣️ "Lét mi sênd iú da ví-ju-al prí-viu on ior fôun ráit náu... Uóts ior nâm-ber?"</p>
+        </div>
+
+        <!-- Frase 3: Se ele perguntar onde você está -->
+        <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-sm space-y-2">
+          <span class="font-bold text-blue-900 uppercase text-xs flex items-center gap-1.5">
+            <i data-lucide="globe" class="w-4 h-4 text-blue-600"></i> Se ele perguntar "Where are you based?":
+          </span>
+          <p class="text-slate-900 font-bold text-sm">"We're a remote design studio working with US local businesses to build fast, high-converting landing pages."</p>
+          <p class="font-mono text-amber-900 text-xs bg-amber-50 p-2 rounded">🗣️ "Uí ar a ri-môut di-záin stú-diou uôr-kin uíd iú-és lôu-cal bíznises..."</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- =================================================================== -->
+  <!-- MODAL: NOVO LEAD AMERICANO / EDITAR FOLHA                           -->
+  <!-- =================================================================== -->
+  <div id="lead-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-paper rounded-2xl shadow-2xl max-w-xl w-full border-2 border-slate-400 overflow-hidden transform transition-all">
+      <div class="bg-[#f1ebd9] px-6 py-4 border-b border-slate-300 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <i data-lucide="file-plus" class="w-5 h-5 text-emerald-800"></i>
+          <h3 id="modal-title" class="font-serif text-lg font-bold text-slate-900">Novo Prospecto Americano ($500 USD)</h3>
+        </div>
+        <button onclick="closeModal()" class="text-slate-500 hover:text-slate-800 p-1 rounded-lg">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form id="lead-form" onsubmit="saveLead(event)" class="p-6 space-y-4 max-h-[82vh] overflow-y-auto text-xs sm:text-sm">
+        <input type="hidden" id="lead-id" value="">
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Company Name (Empresa) *</label>
+            <input id="lead-name" required type="text" placeholder="Ex: Apex Precision Roofing" class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Owner / Decision Maker</label>
+            <input id="lead-contact" type="text" placeholder="Ex: Mike Johnson" class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Phone (US Format) *</label>
+            <input id="lead-phone" required type="text" placeholder="Ex: +1 (512) 890-4421" class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-slate-800 font-mono focus:outline-none focus:ring-2 focus:ring-emerald-500">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Instagram (@) or Email</label>
+            <input id="lead-instagram" type="text" placeholder="Ex: @apexroofing_tx or mike@apex.com" class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Niche (Nicho)</label>
+            <select id="lead-niche" class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500">
+              <option value="MedSpa & Aesthetics">MedSpa & Aesthetics</option>
+              <option value="Roofing & Solar">Roofing & Solar</option>
+              <option value="HVAC & Plumbing">HVAC & Plumbing</option>
+              <option value="Barbershop & Grooming">Barbershop & Grooming</option>
+              <option value="Cleaning Services">Cleaning Services</option>
+              <option value="Auto Detailing">Auto Detailing</option>
+              <option value="Dental Clinic">Dental Clinic</option>
+              <option value="Other Service">Other Service</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">City / State (US)</label>
+            <input id="lead-address" type="text" placeholder="Ex: Austin, TX" class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Pipeline Status</label>
+            <select id="lead-status" class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-slate-800 font-bold focus:outline-none focus:ring-2 focus:ring-emerald-500">
+              <option value="novos">🔵 Para Abordar</option>
+              <option value="contato">🟡 Em Conversa</option>
+              <option value="proposta">🟣 Proposta Enviada</option>
+              <option value="fechado">🟢 Fechado ($500) 🏆</option>
+              <option value="perdido">⚪ Arquivo</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Google Maps / Website URL</label>
+          <input id="lead-maps" type="text" placeholder="https://maps.google.com/..." class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-slate-800 font-mono text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Anotações do Diagnóstico (Dores, Reviews, Oportunidades)</label>
+          <textarea id="lead-notes" rows="3" placeholder="Ex: 48 avaliações 5 estrelas no Google Maps, mas o site demora 6 segundos para carregar no iPhone..." class="w-full bg-white border border-slate-300 rounded-lg p-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500"></textarea>
+        </div>
+
+        <div class="pt-4 border-t border-slate-300 flex items-center justify-end gap-3">
+          <button type="button" onclick="closeModal()" class="px-4 py-2 text-slate-600 hover:text-slate-900 font-semibold">Cancelar</button>
+          <button type="submit" class="bg-emerald-700 hover:bg-emerald-600 text-white px-5 py-2 rounded-xl font-bold shadow flex items-center gap-2">
+            <i data-lucide="check" class="w-4 h-4"></i> Salvar no Caderno
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- =================================================================== -->
+  <!-- JAVASCRIPT: STATE MANAGEMENT, TTS, STORAGE & COCKPIT CONTROLLER    -->
+  <!-- =================================================================== -->
+  <script>
+    // Initial Seed Data with US Sample Businesses ($500 package)
+    const initialSeedLeads = [
+      {
+        id: "lead-kethlyn-aesthetics-us",
+        name: "Kethlyn Aesthetics & Laser Clinic",
+        contact: "Kethlyn Torris (Lead Specialist)",
+        phone: "+1 (305) 921-4820",
+        instagram: "@kethlynaesthetics.miami",
+        email: "contact@kethlynaesthetics.com",
+        mapsUrl: "https://maps.google.com/?q=Kethlyn+Aesthetics+Miami",
+        address: "Miami, FL (198 reviews • 5.0 stars on Google)",
+        niche: "MedSpa & Aesthetics",
+        source: "Google Maps (198 Reviews 5.0)",
+        status: "proposta",
+        value: "$500.00 USD (R$ 2.750,00)",
+        notes: "⚡ [HOT LEAD • PROPOSAL READY]\n• High-end aesthetic and lash clinic in Miami with 198 perfect 5.0 Google Reviews.\n• Current gap: Relying on a slow third-party link with no luxury branding for $450 Nanopigmentation treatments.\n• Offer: $500 turnkey mobile-first booking landing page with hospital-grade autoclave biosafety badge.\n• ROI: Pays for itself with just 1 single procedure closed on the site!",
+        blueprint: {
+          clientName: "Kethlyn Aesthetics & Laser Clinic",
+          ownerFirst: "Kethlyn",
+          niche: "MedSpa & Aesthetics",
+          location: "Miami, FL",
+          pains: [
+            "Losing mobile clients searching on Google Maps due to generic booking page",
+            "High-ticket $450 procedures need high-end visual luxury presentation",
+            "Hospital-grade autoclave sterilization needs prominent front-page badge"
+          ],
+          devChecklist: [
+            { task: "Scaffold mobile-first high converting layout", done: true },
+            { task: "Rose Gold & Onyx luxury color palette and fonts", done: true },
+            { task: "Google Reviews 5.0 Star Social Proof badge integration", done: true },
+            { task: "1-Click Call & Calendly/SMS booking button setup", done: true },
+            { task: "Stripe $500 payment link generated", done: true }
+          ]
+        }
+      },
+      {
+        id: "lead-apex-roofing-tx",
+        name: "Apex Precision Roofing & Solar",
+        contact: "Mike Johnson (Owner & Master Contractor)",
+        phone: "+1 (512) 890-4421",
+        instagram: "@apexroofing_austin",
+        email: "mike@apexroofingtexas.com",
+        mapsUrl: "https://maps.google.com/?q=Apex+Precision+Roofing+Austin",
+        address: "Austin, TX (112 reviews • 4.9 stars)",
+        niche: "Roofing & Solar",
+        source: "Google Maps (No Mobile Landing Page)",
+        status: "novos",
+        value: "$500.00 USD (R$ 2.750,00)",
+        notes: "⚡ [TIER 1 PROSPECT • HIGH TICKET]\n• Average roof replacement in Austin is $10,000 - $18,000.\n• Mike is getting traffic from Google Maps but the old WordPress site takes 6.2s to load.\n• Offer: Clean 1-second landing page with 'Free Roof Inspection' lead capture form.\n• Pitch angle: 1 lead closed pays for 25x the website cost!",
+        blueprint: {
+          clientName: "Apex Precision Roofing & Solar",
+          ownerFirst: "Mike",
+          niche: "Roofing & Solar",
+          location: "Austin, TX",
+          pains: [
+            "Website takes 6+ seconds to load on mobile when storm emergencies happen",
+            "No instant quote / free drone roof inspection form above the fold",
+            "Competitors with faster pages are stealing insurance claim leads"
+          ],
+          devChecklist: [
+            { task: "Scaffold Emergency Free Inspection lead form", done: false },
+            { task: "Integrate 112 Google Reviews grid", done: false },
+            { task: "Deploy on ultra-fast CDN under 1s load time", done: false }
+          ]
+        }
+      },
+      {
+        id: "lead-titan-hvac-az",
+        name: "Titan Flow HVAC & Emergency Cooling",
+        contact: "Dave Miller (General Manager)",
+        phone: "+1 (602) 412-9930",
+        instagram: "@titanflowhvac",
+        email: "service@titanflowhvac.com",
+        mapsUrl: "https://maps.google.com/?q=Titan+Flow+HVAC+Phoenix",
+        address: "Phoenix, AZ (86 reviews • 4.8 stars)",
+        niche: "HVAC & Plumbing",
+        source: "Google Maps",
+        status: "contato",
+        value: "$500.00 USD (R$ 2.750,00)",
+        notes: "⚡ [CONVERSATION IN PROGRESS]\n• Sent Instagram DM with 60s Loom video showing why mobile users bounce during 110°F summer days.\n• Dave responded: 'Looks clean, how much is this?'\n• Next step: Send $500 flat fee close + Stripe link!",
+        blueprint: {
+          clientName: "Titan Flow HVAC & Emergency Cooling",
+          ownerFirst: "Dave",
+          niche: "HVAC & Plumbing",
+          location: "Phoenix, AZ",
+          pains: [
+            "People needing emergency AC repair need a 1-tap 'Call 24/7' button immediately",
+            "Current site requires 4 clicks just to find the emergency dispatch number"
+          ],
+          devChecklist: [
+            { task: "Build emergency sticky call banner for mobile", done: true },
+            { task: "Add Phoenix 24/7 service radius map badge", done: true }
+          ]
+        }
+      },
+      {
+        id: "lead-prime-barber-nyc",
+        name: "Prime Cut Barber & Grooming Lounge",
+        contact: "Anthony Rossi (Head Barber)",
+        phone: "+1 (212) 555-0199",
+        instagram: "@primecutbarbernyc",
+        email: "anthony@primecutnyc.com",
+        mapsUrl: "https://maps.google.com/?q=Prime+Cut+Barber+New+York",
+        address: "Manhattan, New York (340 reviews • 4.9 stars)",
+        niche: "Barbershop & Grooming",
+        source: "Instagram DM",
+        status: "fechado",
+        value: "$500.00 USD (R$ 2.750,00)",
+        notes: "🏆 [DEAL WON - $500 PAID ON STRIPE!]\n• Anthony closed after seeing the slick mobile lookbook and Squire/Booksy direct button.\n• Stripe invoice paid in full!\n• Upsell: $49/month hosting and maintenance agreed!",
+        blueprint: {
+          clientName: "Prime Cut Barber & Grooming Lounge",
+          ownerFirst: "Anthony",
+          niche: "Barbershop & Grooming",
+          location: "New York, NY",
+          pains: [
+            "Linktree was looking amateur compared to top Manhattan salons"
+          ],
+          devChecklist: [
+            { task: "Dark mode luxury grooming theme deployed", done: true },
+            { task: "Custom domain DNS linked and live", done: true },
+            { task: "$500 Stripe payout received", done: true }
+          ]
+        }
+      }
+    ];
+
+    // App State
+    let leads = [];
+    let currentFilter = 'todos';
+    let activeLeadId = null;
+
+    // Initialize Data from LocalStorage or Seed
+    function initData() {
+      const saved = localStorage.getItem('us_deals_cockpit_leads');
+      if (saved) {
+        try {
+          leads = JSON.parse(saved);
+        } catch (e) {
+          leads = [...initialSeedLeads];
+        }
+      } else {
+        leads = [...initialSeedLeads];
+        saveToLocalStorage();
+      }
+      renderApp();
+    }
+
+    function saveToLocalStorage() {
+      localStorage.setItem('us_deals_cockpit_leads', JSON.stringify(leads));
+    }
+
+    function resetToSampleData() {
+      if (confirm("Deseja restaurar a lista de leads de exemplo para $500 USD?")) {
+        leads = [...initialSeedLeads];
+        saveToLocalStorage();
+        renderApp();
+      }
+    }
+
+    // Text-To-Speech (Native US English Voice)
+    function speakText(text) {
+      if (!('speechSynthesis' in window)) {
+        alert("Text-to-speech não suportado pelo seu navegador.");
+        return;
+      }
+      
+      // Clean up brackets or placeholders
+      let cleanText = text.replace(/\[.*?\]/g, '').replace(/[^\w\s.,?!'$-]/gi, '');
+      
+      window.speechSynthesis.cancel(); // Stop ongoing speech
+      const utterance = new SpeechSynthesisUtterance(cleanText);
+      utterance.lang = 'en-US';
+      utterance.rate = 0.92; // Slightly calm and clear tempo
+      utterance.pitch = 1.0;
+
+      // Try to find a good English voice
+      const voices = window.speechSynthesis.getVoices();
+      const usVoice = voices.find(v => v.lang === 'en-US' && (v.name.includes('Google') || v.name.includes('Natural') || v.name.includes('Samantha') || v.name.includes('David')));
+      if (usVoice) {
+        utterance.voice = usVoice;
+      }
+
+      window.speechSynthesis.speak(utterance);
+    }
+
+    // Render Stats & Badges
+    function updateStats() {
+      const total = leads.length;
+      const novos = leads.filter(l => l.status === 'novos').length;
+      const contato = leads.filter(l => l.status === 'contato').length;
+      const proposta = leads.filter(l => l.status === 'proposta').length;
+      const fechado = leads.filter(l => l.status === 'fechado').length;
+      const perdido = leads.filter(l => l.status === 'perdido').length;
+
+      document.getElementById('badge-all').textContent = total;
+      document.getElementById('badge-novos').textContent = novos;
+      document.getElementById('badge-contato').textContent = contato;
+      document.getElementById('badge-proposta').textContent = proposta;
+      document.getElementById('badge-fechado').textContent = fechado;
+      document.getElementById('badge-perdido').textContent = perdido;
+
+      document.getElementById('stat-new').textContent = novos;
+      document.getElementById('stat-hot').textContent = contato + proposta;
+      document.getElementById('stat-won').textContent = fechado;
+
+      // Pipeline Value Calculation ($500 deals)
+      const wonValueUSD = fechado * 500;
+      const wonValueBRL = wonValueUSD * 5.50; // R$ 5.50 / USD exchange
+      document.getElementById('stat-revenue-usd').textContent = `$${wonValueUSD.toLocaleString()} USD`;
+      document.getElementById('stat-revenue-brl').textContent = `R$ ${wonValueBRL.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`;
+
+      // Goal Bar (Target: 10 deals = $5,000 USD)
+      const goalDeals = 10;
+      const percent = Math.min(100, Math.round((fechado / goalDeals) * 100));
+      document.getElementById('goal-deals-text').textContent = `${fechado} / ${goalDeals} Deals ($${wonValueUSD})`;
+      document.getElementById('goal-deals-bar').style.width = `${percent}%`;
+    }
+
+    // Filter Leads by Tab
+    function filterByTab(status) {
+      currentFilter = status;
+      document.querySelectorAll('.tab-btn').forEach(b => {
+        b.classList.remove('active', 'bg-paper', 'text-slate-900', 'border-t-2', 'border-emerald-600');
+        b.classList.add('bg-[#1e293b]', 'text-slate-300');
+      });
+
+      const activeBtn = document.getElementById(`tab-${status}`);
+      if (activeBtn) {
+        activeBtn.classList.add('active', 'bg-paper', 'text-slate-900', 'border-t-2', 'border-emerald-600');
+        activeBtn.classList.remove('bg-[#1e293b]', 'text-slate-300');
+      }
+
+      renderApp();
+    }
+
+    // Render Leads List in the Notebook
+    function renderApp() {
+      updateStats();
+      const container = document.getElementById('leads-container');
+      const emptyState = document.getElementById('empty-state');
+      const searchVal = document.getElementById('search-input').value.toLowerCase().trim();
+
+      let filtered = leads;
+      if (currentFilter !== 'todos') {
+        filtered = filtered.filter(l => l.status === currentFilter);
+      }
+
+      if (searchVal) {
+        filtered = filtered.filter(l => 
+          l.name.toLowerCase().includes(searchVal) ||
+          l.contact.toLowerCase().includes(searchVal) ||
+          l.address.toLowerCase().includes(searchVal) ||
+          l.niche.toLowerCase().includes(searchVal)
+        );
+      }
+
+      document.getElementById('rendered-count').textContent = filtered.length;
+
+      if (filtered.length === 0) {
+        container.innerHTML = '';
+        emptyState.classList.remove('hidden');
+        emptyState.classList.add('flex');
+        return;
+      } else {
+        emptyState.classList.add('hidden');
+        emptyState.classList.remove('flex');
+      }
+
+      container.innerHTML = filtered.map(lead => {
+        const isWon = lead.status === 'fechado';
+        return `
+          <div class="relative bg-white/90 rounded-xl p-5 border ${isWon ? 'border-emerald-400 bg-emerald-50/30' : 'border-slate-300/80'} shadow-sm hover:shadow-md transition-all">
+            <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
+              
+              <!-- Left Info -->
+              <div class="space-y-1.5 flex-1">
+                <div class="flex flex-wrap items-center gap-2">
+                  <h3 class="font-serif text-base sm:text-lg font-bold text-slate-900">${lead.name}</h3>
+                  <span class="text-[10px] font-mono uppercase font-extrabold px-2 py-0.5 rounded-full ${getStatusBadgeClass(lead.status)}">
+                    ${getStatusLabel(lead.status)}
+                  </span>
+                  <span class="text-xs font-mono font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded">
+                    $500 USD
+                  </span>
+                </div>
+
+                <p class="text-xs text-slate-600 font-sans flex flex-wrap items-center gap-x-3 gap-y-1">
+                  <span><strong>Decisor:</strong> ${lead.contact}</span>
+                  <span>•</span>
+                  <span><strong>Local:</strong> ${lead.address}</span>
+                  <span>•</span>
+                  <span><strong>Nicho:</strong> ${lead.niche}</span>
+                </p>
+
+                <!-- Phone & Links -->
+                <div class="pt-1 flex flex-wrap items-center gap-3 text-xs">
+                  <a href="tel:${lead.phone}" class="font-mono text-emerald-800 font-bold hover:underline flex items-center gap-1">
+                    <i data-lucide="phone" class="w-3.5 h-3.5"></i> ${lead.phone}
+                  </a>
+                  ${lead.instagram ? `
+                    <span class="text-slate-500 flex items-center gap-1 font-mono">
+                      <i data-lucide="instagram" class="w-3.5 h-3.5 text-pink-600"></i> ${lead.instagram}
+                    </span>
+                  ` : ''}
+                  ${lead.email ? `
+                    <span class="text-slate-500 flex items-center gap-1 font-mono">
+                      <i data-lucide="mail" class="w-3.5 h-3.5 text-blue-600"></i> ${lead.email}
+                    </span>
+                  ` : ''}
+                </div>
+
+                <!-- Notes Snippet -->
+                <div class="mt-2.5 p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs text-slate-700 font-hand text-sm leading-snug">
+                  ${lead.notes.split('\n')[0]}
+                </div>
+              </div>
+
+              <!-- Right Actions -->
+              <div class="flex sm:flex-col items-center sm:items-end justify-between gap-2 shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-slate-200">
+                <button onclick="openCockpitModal('${lead.id}')" class="bg-emerald-700 hover:bg-emerald-600 text-white font-bold text-xs px-4 py-2 rounded-xl shadow flex items-center gap-1.5 transition-all">
+                  <i data-lucide="compass" class="w-4 h-4 text-emerald-300"></i>
+                  <span>Abrir Cockpit & Pitch</span>
+                </button>
+
+                <div class="flex items-center gap-1">
+                  <button onclick="openEditModal('${lead.id}')" class="p-1.5 text-slate-500 hover:text-slate-900 rounded-lg hover:bg-slate-100" title="Editar Lead">
+                    <i data-lucide="pencil" class="w-4 h-4"></i>
+                  </button>
+                  <button onclick="deleteLead('${lead.id}')" class="p-1.5 text-slate-400 hover:text-red-600 rounded-lg hover:bg-slate-100" title="Excluir Lead">
+                    <i data-lucide="trash-2" class="w-4 h-4"></i>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function getStatusBadgeClass(status) {
+      switch(status) {
+        case 'novos': return 'bg-blue-100 text-blue-800 border border-blue-300';
+        case 'contato': return 'bg-amber-100 text-amber-900 border border-amber-300';
+        case 'proposta': return 'bg-purple-100 text-purple-900 border border-purple-300';
+        case 'fechado': return 'bg-emerald-100 text-emerald-900 border border-emerald-400 font-black';
+        case 'perdido': return 'bg-slate-200 text-slate-700';
+        default: return 'bg-slate-100 text-slate-800';
+      }
+    }
+
+    function getStatusLabel(status) {
+      switch(status) {
+        case 'novos': return '🔵 Para Abordar';
+        case 'contato': return '🟡 Em Conversa';
+        case 'proposta': return '🟣 Proposta Enviada';
+        case 'fechado': return '🟢 Fechado ($500) 🏆';
+        case 'perdido': return '⚪ Arquivo';
+        default: return status;
+      }
+    }
+
+    function handleSearch() {
+      renderApp();
+    }
+
+    // Open Cockpit Modal with Dynamic Data
+    function openCockpitModal(id) {
+      const lead = leads.find(l => l.id === id);
+      if (!lead) return;
+      activeLeadId = id;
+
+      document.getElementById('cockpit-client-name').textContent = lead.name;
+      document.getElementById('cockpit-client-niche').textContent = lead.niche;
+      document.getElementById('cockpit-client-location').textContent = lead.address;
+
+      // Extract First Name for warm friendly English approach
+      const firstName = lead.contact.split(' ')[0] || 'there';
+      document.querySelectorAll('.client-first-name').forEach(el => el.textContent = firstName);
+      document.querySelectorAll('.client-company-name').forEach(el => el.textContent = lead.name);
+
+      // Links
+      const linksContainer = document.getElementById('cockpit-links-list');
+      linksContainer.innerHTML = `
+        <div class="flex items-center justify-between p-2 bg-slate-50 rounded border border-slate-200">
+          <span class="text-slate-600 font-semibold">Telefone (Discar):</span>
+          <a href="tel:${lead.phone}" class="text-emerald-700 font-mono font-bold hover:underline">${lead.phone}</a>
+        </div>
+        ${lead.instagram ? `
+          <div class="flex items-center justify-between p-2 bg-slate-50 rounded border border-slate-200">
+            <span class="text-slate-600 font-semibold">Instagram:</span>
+            <span class="text-pink-700 font-mono font-bold">${lead.instagram}</span>
+          </div>
+        ` : ''}
+        ${lead.email ? `
+          <div class="flex items-center justify-between p-2 bg-slate-50 rounded border border-slate-200">
+            <span class="text-slate-600 font-semibold">Email:</span>
+            <a href="mailto:${lead.email}" class="text-blue-700 font-mono font-bold hover:underline">${lead.email}</a>
+          </div>
+        ` : ''}
+        ${lead.mapsUrl ? `
+          <div class="flex items-center justify-between p-2 bg-slate-50 rounded border border-slate-200">
+            <span class="text-slate-600 font-semibold">Google Maps:</span>
+            <a href="${lead.mapsUrl}" target="_blank" class="text-indigo-700 font-bold hover:underline flex items-center gap-1">Ver Perfil ↗</a>
+          </div>
+        ` : ''}
+      `;
+
+      // Render Dev Checklist
+      renderCockpitDevChecklist(lead);
+
+      // Update Live Preview
+      updateDemoPreview();
+
+      // Show Modal
+      switchCockpitTab('call');
+      document.getElementById('cockpit-modal').classList.remove('hidden');
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function closeCockpitModal() {
+      document.getElementById('cockpit-modal').classList.add('hidden');
+      window.speechSynthesis.cancel();
+    }
+
+    function switchCockpitTab(tabName) {
+      document.querySelectorAll('.c-tab').forEach(b => {
+        b.classList.remove('active', 'bg-paper', 'text-slate-900', 'border-t-2', 'border-emerald-600', 'shadow-sm');
+        b.classList.add('bg-slate-200/80', 'text-slate-600');
+      });
+
+      const activeBtn = document.getElementById(`c-tab-${tabName}`);
+      if (activeBtn) {
+        activeBtn.classList.add('active', 'bg-paper', 'text-slate-900', 'border-t-2', 'border-emerald-600', 'shadow-sm');
+        activeBtn.classList.remove('bg-slate-200/80', 'text-slate-600');
+      }
+
+      ['call', 'async', 'blueprint', 'design', 'dev', 'closing'].forEach(p => {
+        const panel = document.getElementById(`c-panel-${p}`);
+        if (panel) {
+          if (p === tabName) panel.classList.remove('hidden');
+          else panel.classList.add('hidden');
+        }
+      });
+
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function renderCockpitDevChecklist(lead) {
+      const container = document.getElementById('cockpit-dev-checklist');
+      const defaultTasks = [
+        { task: "1. Create high-converting Hero banner with 1-click booking button", done: true },
+        { task: "2. Embed 5.0 Star Google Reviews badge and customer testimonials", done: true },
+        { task: "3. Configure Local SEO, OpenGraph tags and Schema.org metadata", done: true },
+        { task: "4. Integrate Stripe $500 payment link for client checkout", done: false },
+        { task: "5. Link client custom domain (.com) via Vercel / Cloudflare DNS", done: false }
+      ];
+
+      const tasks = lead.blueprint?.devChecklist || defaultTasks;
+      container.innerHTML = tasks.map((t, idx) => `
+        <label class="flex items-center gap-3 p-3 bg-slate-50 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-100 transition-all">
+          <input type="checkbox" ${t.done ? 'checked' : ''} onchange="toggleTask(${idx})" class="w-4 h-4 text-emerald-600 rounded border-slate-300 focus:ring-emerald-500">
+          <span class="text-xs font-semibold ${t.done ? 'line-through text-slate-400' : 'text-slate-800'}">${t.task}</span>
+        </label>
+      `).join('');
+    }
+
+    function toggleTask(idx) {
+      const lead = leads.find(l => l.id === activeLeadId);
+      if (lead && lead.blueprint?.devChecklist?.[idx]) {
+        lead.blueprint.devChecklist[idx].done = !lead.blueprint.devChecklist[idx].done;
+        saveToLocalStorage();
+        renderCockpitDevChecklist(lead);
+      }
+    }
+
+    // Live Demo Preview Updates
+    function updateDemoPreview() {
+      const niche = document.getElementById('preview-niche-select').value;
+      const lead = leads.find(l => l.id === activeLeadId) || leads[0];
+      const area = document.getElementById('preview-content-area');
+      const urlBar = document.getElementById('preview-url-bar');
+
+      const companyName = lead ? lead.name : "Elite Services USA";
+      const location = lead ? lead.address.split('(')[0] : "Miami, FL";
+
+      let domain = companyName.toLowerCase().replace(/[^a-z0-9]/g, '') + ".com";
+      urlBar.textContent = `https://www.${domain}`;
+
+      if (niche === 'aesthetics') {
+        area.className = "p-8 text-white bg-gradient-to-r from-rose-950 via-slate-950 to-neutral-950 border border-rose-500/30 rounded-lg";
+        area.innerHTML = `
+          <div class="max-w-xl space-y-3">
+            <span class="text-[11px] uppercase font-bold tracking-widest text-rose-400 bg-rose-900/40 px-2.5 py-1 rounded-full border border-rose-500/40">
+              ⭐ 5.0 Star Rated Aesthetic Clinic in ${location}
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-black font-serif tracking-tight text-white leading-tight">
+              Flawless Skin & High-End Aesthetic Treatments
+            </h2>
+            <p class="text-xs text-rose-100/80 leading-relaxed font-sans">
+              Experience medical-grade treatments with hospital-certified autoclave biosafety. Book your consultation in 10 seconds.
+            </p>
+            <div class="pt-2 flex flex-wrap gap-3">
+              <button class="bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs px-5 py-2.5 rounded-lg shadow-lg flex items-center gap-1.5">
+                <span>Book Appointment Online</span> ➔
+              </button>
+              <button class="bg-white/10 hover:bg-white/20 text-white text-xs font-semibold px-4 py-2.5 rounded-lg border border-white/20">
+                View Procedures & Pricing
+              </button>
+            </div>
+          </div>
+        `;
+      } else if (niche === 'roofing') {
+        area.className = "p-8 text-white bg-gradient-to-r from-slate-900 via-blue-950 to-slate-950 border border-blue-500/30 rounded-lg";
+        area.innerHTML = `
+          <div class="max-w-xl space-y-3">
+            <span class="text-[11px] uppercase font-bold tracking-widest text-amber-400 bg-amber-950/60 px-2.5 py-1 rounded-full border border-amber-500/40">
+              🏠 Top-Rated Master Roofing Contractors in ${location}
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-black font-sans tracking-tight text-white leading-tight">
+              Emergency Storm Damage & Lifetime Warranty Roofs
+            </h2>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              We handle 100% of insurance claims with $0 upfront deductible. Get your free drone roof inspection today.
+            </p>
+            <div class="pt-2 flex flex-wrap gap-3">
+              <button class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs px-5 py-2.5 rounded-lg shadow-lg flex items-center gap-1.5">
+                <span>Claim Free 24h Inspection</span> ➔
+              </button>
+              <button class="bg-white/10 hover:bg-white/20 text-white text-xs font-semibold px-4 py-2.5 rounded-lg border border-white/20">
+                Call Direct: ${lead.phone}
+              </button>
+            </div>
+          </div>
+        `;
+      } else {
+        area.className = "p-8 text-white bg-gradient-to-r from-emerald-950 via-slate-950 to-teal-950 border border-emerald-500/30 rounded-lg";
+        area.innerHTML = `
+          <div class="max-w-xl space-y-3">
+            <span class="text-[11px] uppercase font-bold tracking-widest text-emerald-400 bg-emerald-900/40 px-2.5 py-1 rounded-full border border-emerald-500/40">
+              ⚡ Premier Local Service Provider • ${location}
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-black tracking-tight text-white leading-tight">
+              Fast, Reliable & 100% Satisfaction Guaranteed
+            </h2>
+            <p class="text-xs text-emerald-100/80 leading-relaxed font-sans">
+              Instant online booking, upfront transparent pricing, and over 100+ five-star verified customer reviews.
+            </p>
+            <div class="pt-2 flex flex-wrap gap-3">
+              <button class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs px-5 py-2.5 rounded-lg shadow-lg">
+                Book Service Online ➔
+              </button>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    // Trigger Confetti Celebration for Closed Deals
+    function triggerDealWonCelebration() {
+      const lead = leads.find(l => l.id === activeLeadId);
+      if (lead) {
+        lead.status = 'fechado';
+        saveToLocalStorage();
+        renderApp();
+      }
+
+      if (window.confetti) {
+        confetti({
+          particleCount: 120,
+          spread: 80,
+          origin: { y: 0.6 }
+        });
+      }
+
+      alert("🎉 PARABÉNS! Lead marcado como Fechado!\n+$500 USD faturados (Aproximadamente R$ 2.750,00 no seu bolso)!");
+      closeCockpitModal();
+    }
+
+    // Copy to Clipboard Utility
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        alert("✅ Copiado para a Área de Transferência com sucesso!");
+      });
+    }
+
+    function copyAsyncTemplate(type) {
+      const lead = leads.find(l => l.id === activeLeadId) || leads[0];
+      const firstName = lead.contact.split(' ')[0] || 'there';
+      const companyName = lead.name;
+
+      if (type === 'email') {
+        const text = `Subject: Quick mockup for ${companyName} (mobile speed)\n\nHi ${firstName},\n\nI came across ${companyName} on Google and loved your 5-star customer reviews!\n\nHowever, I noticed your website is taking quite a while to load on mobile phones, which might be costing you calls and bookings from nearby clients.\n\nI took the liberty of building a clean, modern prototype for you that loads in under 1 second and features an instant 1-click booking button.\n\nYou can check the live demo here: [INSERT DEMO LINK]\n\nWe deliver everything completely turnkey for a flat $500 in under 48 hours. If you'd like to put it live, just reply to this email!\n\nBest regards,\nThiago | TM Studio`;
+        copyToClipboard(text);
+      } else if (type === 'dm') {
+        const text = `Hey ${firstName}! Love the work you guys are doing at ${companyName} 🔥\n\nI was looking at your Google profile and noticed you don't have a direct mobile landing page for instant bookings.\n\nI actually created a live interactive demo for your business so you can see how it looks. It loads instantly and increases calls!\n\nWould it be okay if I drop the preview link here for you to check out? No pressure at all!`;
+        copyToClipboard(text);
+      }
+    }
+
+    // Modal Add / Edit Lead
+    function openNewLeadModal() {
+      document.getElementById('lead-id').value = '';
+      document.getElementById('lead-name').value = '';
+      document.getElementById('lead-contact').value = '';
+      document.getElementById('lead-phone').value = '';
+      document.getElementById('lead-instagram').value = '';
+      document.getElementById('lead-address').value = '';
+      document.getElementById('lead-maps').value = '';
+      document.getElementById('lead-notes').value = '';
+      document.getElementById('lead-status').value = 'novos';
+      document.getElementById('modal-title').textContent = 'Novo Prospecto Americano ($500 USD)';
+      document.getElementById('lead-modal').classList.remove('hidden');
+    }
+
+    function openEditModal(id) {
+      const lead = leads.find(l => l.id === id);
+      if (!lead) return;
+
+      document.getElementById('lead-id').value = lead.id;
+      document.getElementById('lead-name').value = lead.name;
+      document.getElementById('lead-contact').value = lead.contact;
+      document.getElementById('lead-phone').value = lead.phone;
+      document.getElementById('lead-instagram').value = lead.instagram || '';
+      document.getElementById('lead-address').value = lead.address || '';
+      document.getElementById('lead-maps').value = lead.mapsUrl || '';
+      document.getElementById('lead-notes').value = lead.notes || '';
+      document.getElementById('lead-status').value = lead.status || 'novos';
+      document.getElementById('modal-title').textContent = 'Editar Prospecto Americano';
+      document.getElementById('lead-modal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('lead-modal').classList.add('hidden');
+    }
+
+    function saveLead(e) {
+      e.preventDefault();
+      const id = document.getElementById('lead-id').value;
+      const name = document.getElementById('lead-name').value.trim();
+      const contact = document.getElementById('lead-contact').value.trim();
+      const phone = document.getElementById('lead-phone').value.trim();
+      const instagram = document.getElementById('lead-instagram').value.trim();
+      const address = document.getElementById('lead-address').value.trim();
+      const niche = document.getElementById('lead-niche').value;
+      const mapsUrl = document.getElementById('lead-maps').value.trim();
+      const notes = document.getElementById('lead-notes').value.trim();
+      const status = document.getElementById('lead-status').value;
+
+      if (id) {
+        // Edit existing
+        const idx = leads.findIndex(l => l.id === id);
+        if (idx !== -1) {
+          leads[idx] = {
+            ...leads[idx],
+            name, contact, phone, instagram, address, niche, mapsUrl, notes, status
+          };
+        }
+      } else {
+        // Create new
+        const newLead = {
+          id: 'lead-us-' + Date.now(),
+          name, contact, phone, instagram, address, niche, mapsUrl, notes, status,
+          value: '$500.00 USD (R$ 2.750,00)',
+          source: 'Prospecção Ativa',
+          blueprint: {
+            clientName: name,
+            ownerFirst: contact.split(' ')[0] || 'Friend',
+            niche: niche,
+            location: address,
+            devChecklist: [
+              { task: "Scaffold mobile-first high converting layout", done: false },
+              { task: "Configure Google Reviews 5.0 Star Social Proof badge", done: false },
+              { task: "Integrate 1-Click Call & Stripe $500 checkout button", done: false }
+            ]
+          }
+        };
+        leads.unshift(newLead);
+      }
+
+      saveToLocalStorage();
+      renderApp();
+      closeModal();
+    }
+
+    function deleteLead(id) {
+      if (confirm("Tem certeza que deseja remover este prospecto?")) {
+        leads = leads.filter(l => l.id !== id);
+        saveToLocalStorage();
+        renderApp();
+      }
+    }
+
+    // Emergency Guide Modal
+    function openEnglishEmergencyModal() {
+      document.getElementById('english-emergency-modal').classList.remove('hidden');
+    }
+
+    function closeEnglishEmergencyModal() {
+      document.getElementById('english-emergency-modal').classList.add('hidden');
+    }
+
+    // Export JSON Backup
+    function exportDataJSON() {
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(leads, null, 2));
+      const downloadAnchor = document.createElement('a');
+      downloadAnchor.setAttribute("href", dataStr);
+      downloadAnchor.setAttribute("download", `cockpit_leads_500usd_${new Date().toISOString().slice(0,10)}.json`);
+      document.body.appendChild(downloadAnchor);
+      downloadAnchor.click();
+      downloadAnchor.remove();
+    }
+
+    // Run on startup
+    window.addEventListener('DOMContentLoaded', () => {
+      initData();
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.onvoiceschanged = () => {
+          window.speechSynthesis.getVoices();
+        };
+      }
+    });
+  </script>
+</body>
+</html>

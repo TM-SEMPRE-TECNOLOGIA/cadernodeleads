@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sales Cockpit - US $500 Pitch (English Edition)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Canvas Confetti for winning deals -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&family=Caveat:wght@700&display=swap');
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 4px;
+    }
+    .phonetic-box {
+      background: rgba(245, 158, 11, 0.08);
+      border-left: 3px solid #f59e0b;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased selection:bg-emerald-500 selection:text-white">
+
+  <!-- TOP BAR -->
+  <header class="bg-slate-900/90 backdrop-blur-md border-b border-slate-800 sticky top-0 z-50 px-4 lg:px-8 py-3">
+    <div class="max-w-7xl mx-auto flex items-center justify-between flex-wrap gap-3">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 via-teal-500 to-blue-600 flex items-center justify-center font-bold text-white shadow-lg shadow-emerald-500/20">
+          <i class="fa-solid fa-headset text-base"></i>
+        </div>
+        <div>
+          <h1 class="text-sm sm:text-base font-bold text-slate-100 flex items-center gap-2">
+            US Sales Cockpit • Pitch Internacional
+            <span class="text-xs bg-emerald-500/20 text-emerald-300 font-extrabold px-2.5 py-0.5 rounded-full border border-emerald-500/40">
+              Alvo: $500 USD (R$ ~2.750)
+            </span>
+          </h1>
+          <p class="text-xs text-slate-400 flex items-center gap-2">
+            <span>Cliente Alvo: <strong class="text-emerald-300" id="header-client-name">Kethlyn Aesthetics & Lashes (Miami, FL)</strong></span>
+            <span class="text-slate-600">•</span>
+            <span class="text-emerald-400 font-semibold flex items-center gap-1">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              Modo Não-Fluente Ativo (Áudio + Fonética)
+            </span>
+          </p>
+        </div>
+      </div>
+
+      <!-- TIMER & STATS & AUDIO RECORDER & PROMPT AUDIO -->
+      <div class="flex items-center gap-2 sm:gap-3 flex-wrap">
+        
+        <!-- AUDIO RECORDER BUTTON -->
+        <button id="btn-record" onclick="toggleAudioRecording()" class="flex items-center gap-1.5 text-xs bg-rose-600 hover:bg-rose-500 text-white font-bold px-3 py-1.5 rounded-lg transition shadow-md shadow-rose-900/30">
+          <span id="rec-dot" class="w-2 h-2 rounded-full bg-white hidden animate-ping"></span>
+          <i id="rec-icon" class="fa-solid fa-microphone text-xs"></i>
+          <span id="rec-text">Gravar Chamada</span>
+        </button>
+
+        <!-- CALL TIMER -->
+        <div class="flex items-center gap-2 bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-700">
+          <i class="fa-regular fa-clock text-emerald-400 text-xs"></i>
+          <span id="call-timer" class="font-mono text-sm font-bold text-emerald-400">00:00</span>
+          <button id="btn-timer" onclick="toggleTimer()" class="text-xs bg-slate-700 hover:bg-slate-600 px-2 py-0.5 rounded text-slate-200 transition ml-1 font-semibold">
+            Iniciar
+          </button>
+        </div>
+
+        <!-- BOTÃO DE CELEBRAÇÃO FECHAMENTO -->
+        <button onclick="triggerWinCelebration()" class="flex items-center gap-1.5 text-xs bg-emerald-600 hover:bg-emerald-500 text-white font-black px-3.5 py-1.5 rounded-lg transition shadow-lg shadow-emerald-900/30 border border-emerald-400/40">
+          <i class="fa-solid fa-trophy text-amber-300"></i>
+          <span>FECHEI ($500)!</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN GRID -->
+  <main class="max-w-7xl mx-auto w-full p-4 lg:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 flex-1">
+
+    <!-- LEFT COLUMN: SCRIPT TELEPROMPTER WITH PHONETICS (7 COLS) -->
+    <div class="lg:col-span-7 flex flex-col gap-4">
+
+      <!-- QUICK CLIENT CHEAT SHEET -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 shadow-sm">
+        <div class="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2 flex items-center justify-between">
+          <span><i class="fa-solid fa-id-card mr-1.5 text-emerald-400"></i> Raio-X do Prospecto Americano</span>
+          <span class="text-emerald-400 text-[10px] font-semibold"><i class="fa-solid fa-star text-amber-400 mr-0.5"></i> 5.0 Google Reviews (198 Avaliações)</span>
+        </div>
+        <div class="grid grid-cols-3 gap-2 text-xs">
+          <div class="bg-slate-950/60 p-2.5 rounded-xl border border-slate-800/80">
+            <span class="text-slate-500 block text-[10px]">Diferencial Chave:</span>
+            <span class="font-semibold text-emerald-300">Hospital-Grade Autoclave</span>
+          </div>
+          <div class="bg-slate-950/60 p-2.5 rounded-xl border border-slate-800/80">
+            <span class="text-slate-500 block text-[10px]">Procedimento Carro-Chefe:</span>
+            <span class="font-semibold text-amber-300">Nanopigmentation ($450)</span>
+          </div>
+          <div class="bg-slate-950/60 p-2.5 rounded-xl border border-slate-800/80">
+            <span class="text-slate-500 block text-[10px]">Oferta No-Brainer:</span>
+            <span class="font-bold text-emerald-400">$500 Flat Fee (48h Delivery)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCRIPT STEP BY STEP (INTERACTIVE BRANCHING TREE) -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col gap-5 flex-1 shadow-lg">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+          <div>
+            <h2 class="text-sm font-bold text-slate-200 flex items-center gap-2">
+              <i class="fa-solid fa-code-branch text-emerald-400"></i> Teleprompter Dinâmico de Fala (Árvore Interativa)
+            </h2>
+            <p class="text-[11px] text-slate-400">Fale a frase em inglês (use a fonética se tiver dúvida) e clique no que ela responder!</p>
+          </div>
+          <span class="text-xs text-emerald-300 font-semibold bg-emerald-500/10 border border-emerald-500/20 px-2 py-1 rounded-lg">Pitch Time: ~90s</span>
+        </div>
+
+        <!-- PASSO 1: ABERTURA & PATTERN INTERRUPT (15s) -->
+        <div class="space-y-3 bg-slate-950/50 p-4 rounded-xl border border-slate-800 hover:border-slate-700 transition">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold text-emerald-400 tracking-wide uppercase flex items-center gap-1.5">
+              <span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-300 flex items-center justify-center text-[10px]">1</span>
+              Abertura & Quebra de Padrão (15s)
+            </span>
+            <button onclick="speakText('Hey Kethlyn, quick question. I noticed your studio on Google Maps with amazing 5-star reviews, but your mobile booking page takes quite a while to load. Did I catch you in the middle of an appointment, or do you have 30 seconds?')" class="text-[11px] bg-slate-800 hover:bg-slate-700 text-emerald-300 px-2 py-0.5 rounded border border-slate-700 flex items-center gap-1 font-bold">
+              <i class="fa-solid fa-volume-high text-[10px]"></i> 🔊 Ouvir Pronúncia
+            </button>
+          </div>
+
+          <!-- English Speech -->
+          <div class="bg-slate-900/90 p-3 rounded-lg border border-slate-800 text-sm leading-relaxed text-slate-100 font-medium">
+            🗣️ <strong>Você fala em Inglês:</strong><br>
+            "Hey <span class="text-emerald-300 font-bold">Kethlyn</span>, quick question—I noticed your studio on Google Maps with amazing 5-star reviews, but your mobile booking page takes quite a while to load. <strong>Did I catch you in the middle of an appointment, or do you have 30 seconds?</strong>"
+          </div>
+
+          <!-- Phonetic Guide in Portuguese -->
+          <div class="p-2.5 rounded-lg phonetic-box text-xs space-y-0.5">
+            <span class="font-bold text-amber-400 uppercase text-[10px] block">🗣️ Como Falar (Fonética em Português):</span>
+            <p class="font-mono text-amber-200/90 leading-relaxed text-[11px]">
+              "Rêi <span class="text-white font-bold">Kéth-lin</span>, cuík cuéstion—ai nótist ior stú-diou on gúgol méps uíd a-mêi-zin fáiv stár re-viús, bât ior mó-bail bú-kin pêidji têiks cuáit a uáil tu loud. <strong>Did ai kétch iú in da mídel ov en a-póint-ment, or du iú rév têrti sé-conds?</strong>"
+            </p>
+            <p class="text-[10px] text-slate-400 italic pt-1">💡 <em>Significado:</em> "Oi Kethlyn, pergunta rápida—vi seu estúdio no Google Maps com ótimas 5 estrelas, mas sua página no celular demora para abrir. Te peguei no meio de um atendimento ou tem 30 segundos?"</p>
+          </div>
+
+          <!-- BOTÕES DE RESPOSTAS DELA NO PASSO 1 -->
+          <div>
+            <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1.5 flex items-center gap-1">
+              <i class="fa-solid fa-reply text-slate-500"></i> O que ela respondeu em inglês? (Clique na opção):
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-1.5">
+              <button onclick="setBranch(1, 'ok')" id="btn-1-ok" class="text-left text-xs bg-slate-800 hover:bg-slate-700 p-2 rounded-lg border border-slate-700 text-emerald-300 transition flex items-center gap-1.5">
+                <span>🟢</span> "Sure, I have a minute!"
+              </button>
+              <button onclick="setBranch(1, 'busy')" id="btn-1-busy" class="text-left text-xs bg-slate-800 hover:bg-slate-700 p-2 rounded-lg border border-slate-700 text-amber-300 transition flex items-center gap-1.5">
+                <span>🟡</span> "I'm with a client right now!"
+              </button>
+              <button onclick="setBranch(1, 'who')" id="btn-1-who" class="text-left text-xs bg-slate-800 hover:bg-slate-700 p-2 rounded-lg border border-slate-700 text-indigo-300 transition flex items-center gap-1.5">
+                <span>🔵</span> "Who is this? Is this sales?"
+              </button>
+            </div>
+          </div>
+
+          <!-- COMPLEMENTO DINAMICO PASSO 1 -->
+          <div id="branch-box-1" class="hidden p-3 rounded-lg bg-emerald-950/30 border border-emerald-500/30 text-xs text-slate-200 animate-fade-in"></div>
+        </div>
+
+        <!-- PASSO 2: STORYTELLING, CONEXÃO & O PROTÓTIPO PRONTO (35s) -->
+        <div class="space-y-3 bg-slate-950/50 p-4 rounded-xl border border-slate-800 hover:border-slate-700 transition">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold text-amber-400 tracking-wide uppercase flex items-center gap-1.5">
+              <span class="w-5 h-5 rounded-full bg-amber-500/20 text-amber-300 flex items-center justify-center text-[10px]">2</span>
+              O Diagnóstico & O Protótipo Pronto (35s)
+            </span>
+            <button onclick="speakText('I saw your 198 five-star reviews on Google and your hospital-grade autoclave biosafety. I actually designed a clean, mobile prototype for Kethlyn Beauty that loads in under 1 second and lets clients book Nanopigmentation and Fox Eyes directly. I can shoot the preview link to your phone in 10 seconds.')" class="text-[11px] bg-slate-800 hover:bg-slate-700 text-amber-300 px-2 py-0.5 rounded border border-slate-700 flex items-center gap-1 font-bold">
+              <i class="fa-solid fa-volume-high text-[10px]"></i> 🔊 Ouvir Pronúncia
+            </button>
+          </div>
+
+          <div class="bg-slate-900/90 p-3 rounded-lg border border-slate-800 text-sm leading-relaxed text-slate-100 font-medium">
+            🗣️ <strong>Você fala em Inglês:</strong><br>
+            "I saw your <strong class="text-amber-300">198 five-star reviews</strong> on Google and your hospital-grade autoclave biosafety. I actually built a <strong class="text-emerald-400">clean, mobile-first prototype for Kethlyn Beauty</strong> that loads in under 1 second and lets clients book Nanopigmentation and Fox Eyes directly.<br><br>
+            <strong>I can shoot the preview link to your phone in 10 seconds so you can see it with your own eyes.</strong>"
+          </div>
+
+          <div class="p-2.5 rounded-lg phonetic-box text-xs space-y-0.5">
+            <span class="font-bold text-amber-400 uppercase text-[10px] block">🗣️ Como Falar (Fonética):</span>
+            <p class="font-mono text-amber-200/90 leading-relaxed text-[11px]">
+              "Ai só ior <strong class="text-white">uân rândred nainti-êit fáiv stár re-viús</strong> on gúgol end ior rós-pi-tal grêid ó-to-cleiv bai-ou-sêif-ti. Ai ék-txu-a-li biult a <strong class="text-emerald-300">clín, mó-bail fêrst pró-to-taip for Kéth-lin Biú-ti</strong> dét louds in ân-der uân sé-cond end léts clái-ents búk Nê-nou-pig-men-têi-shon end Fóks Áis dai-réct-li.<br>
+              <strong>Ai quén xút da prí-viu línk tu ior fôun in ten sé-conds sou iú quén sí it uíd ior ôun áis.</strong>"
+            </p>
+          </div>
+
+          <!-- BOTÕES DE RESPOSTAS DO PASSO 2 -->
+          <div>
+            <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1.5 flex items-center justify-between">
+              <span><i class="fa-solid fa-reply text-slate-500"></i> Respostas do Prospecto no Passo 2:</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-1.5">
+              <button onclick="setBranch(2, 'curious')" id="btn-2-curious" class="text-left text-xs bg-slate-800 hover:bg-slate-700 p-2 rounded-lg border border-slate-700 text-emerald-300 transition flex items-center gap-1.5">
+                <span>🟢</span> "Oh cool, send it over!"
+              </button>
+              <button onclick="setBranch(2, 'instagram')" id="btn-2-instagram" class="text-left text-xs bg-slate-800 hover:bg-slate-700 p-2 rounded-lg border border-slate-700 text-amber-300 transition flex items-center gap-1.5">
+                <span>🟡</span> "We already have Instagram"
+              </button>
+              <button onclick="setBranch(2, 'price')" id="btn-2-price" class="text-left text-xs bg-slate-800 hover:bg-slate-700 p-2 rounded-lg border border-slate-700 text-rose-300 transition flex items-center gap-1.5">
+                <span>🔴</span> "How much is this going to cost?"
+              </button>
+            </div>
+          </div>
+
+          <!-- COMPLEMENTO DINAMICO PASSO 2 -->
+          <div id="branch-box-2" class="hidden p-3 rounded-lg bg-amber-950/30 border border-amber-500/30 text-xs text-slate-200 animate-fade-in"></div>
+        </div>
+
+        <!-- PASSO 3: A OFERTA NO-BRAINER DE $500 USD (30s) -->
+        <div class="space-y-3 bg-slate-950/50 p-4 rounded-xl border border-slate-800 hover:border-slate-700 transition">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold text-emerald-400 tracking-wide uppercase flex items-center gap-1.5">
+              <span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-300 flex items-center justify-center text-[10px]">3</span>
+              A Oferta No-Brainer de $500 Flat Fee (30s)
+            </span>
+            <button onclick="speakText('US agencies charge between $3,000 to $5,000 for this. But since I already built the whole system, it is just a flat $500 one-time setup fee, with free hosting and live in 48 hours. That is literally the cost of a single Nanopigmentation treatment. If you love it, we launch it; if not, no worries at all. Can I text you the demo link right now?')" class="text-[11px] bg-slate-800 hover:bg-slate-700 text-emerald-300 px-2 py-0.5 rounded border border-slate-700 flex items-center gap-1 font-bold">
+              <i class="fa-solid fa-volume-high text-[10px]"></i> 🔊 Ouvir Pronúncia
+            </button>
+          </div>
+
+          <div class="bg-slate-900/90 p-3 rounded-lg border border-slate-800 text-sm leading-relaxed text-slate-100 font-medium">
+            🗣️ <strong>Você fala em Inglês:</strong><br>
+            "US agencies charge between $3,000 to $5,000 for this. But since I already built the heavy lifting, it’s just a <strong class="text-emerald-400">flat $500 one-time fee</strong>—with free hosting setup and live in 48 hours. That is literally <strong class="text-amber-300">the price of 1 single Nanopigmentation client</strong>.<br><br>
+            If you love it, we launch it; if not, no worries at all. <strong>Can I text you the demo link right now?</strong>"
+          </div>
+
+          <div class="p-2.5 rounded-lg phonetic-box text-xs space-y-0.5">
+            <span class="font-bold text-amber-400 uppercase text-[10px] block">🗣️ Como Falar (Fonética):</span>
+            <p class="font-mono text-amber-200/90 leading-relaxed text-[11px]">
+              "Iú-és êi-djen-sis txárdj bi-tuín <strong class="text-white">trí táu-sand tu fáiv táu-sand dólars</strong> for dis. Bât sins ai ol-rédi biult da ré-vi líf-tin, its djâst a <strong class="text-emerald-300">flét fáiv rândred dólars uân-táim fí</strong>—uíd frí róus-tin sé-tâp end láiv in fórti-êit áuars. Dét is lí-te-ra-li da práis ov <strong class="text-amber-300">uân sín-gol Nê-nou-pig-men-têi-shon clái-ent</strong>.<br>
+              If iú lâv it, uí lônch it; if nót, nôu uô-ris ét ól. <strong>Quén ai tékst iú da dé-mou línk ráit náu?</strong>"
+            </p>
+          </div>
+
+          <!-- BOTÕES DE RESPOSTAS DELA NO PASSO 3 -->
+          <div>
+            <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1.5 flex items-center gap-1">
+              <i class="fa-solid fa-reply text-slate-500"></i> O que ela respondeu sobre a oferta de $500?
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
+              <button onclick="setBranch(3, 'yes')" id="btn-3-yes" class="text-left text-xs bg-slate-800 hover:bg-slate-700 p-2 rounded-lg border border-slate-700 text-emerald-300 transition flex items-center gap-1">
+                <span>🟢</span> "Yes, send the link!"
+              </button>
+              <button onclick="setBranch(3, 'monthly')" id="btn-3-monthly" class="text-left text-xs bg-slate-800 hover:bg-slate-700 p-2 rounded-lg border border-slate-700 text-cyan-300 transition flex items-center gap-1">
+                <span>🔄</span> "Is there monthly fee?"
+              </button>
+              <button onclick="setBranch(3, 'expensive')" id="btn-3-expensive" class="text-left text-xs bg-slate-800 hover:bg-slate-700 p-2 rounded-lg border border-slate-700 text-rose-300 transition flex items-center gap-1">
+                <span>💸</span> "Not looking to spend"
+              </button>
+              <button onclick="setBranch(3, 'no')" id="btn-3-no" class="text-left text-xs bg-slate-800 hover:bg-slate-700 p-2 rounded-lg border border-slate-700 text-red-400 transition flex items-center gap-1">
+                <span>🛑</span> "Not interested"
+              </button>
+            </div>
+          </div>
+
+          <!-- COMPLEMENTO DINAMICO PASSO 3 -->
+          <div id="branch-box-3" class="hidden p-3 rounded-lg bg-indigo-950/30 border border-indigo-500/30 text-xs text-slate-200 animate-fade-in"></div>
+        </div>
+
+        <!-- PASSO 4: REFERRAL HOOK (INDICAÇÃO NOS EUA) & DESPEDIDA (20s) -->
+        <div class="space-y-3 bg-slate-950/60 p-4 rounded-xl border-2 border-amber-500/40 hover:border-amber-500/70 transition shadow-lg shadow-amber-500/5">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold text-amber-300 tracking-wide uppercase flex items-center gap-1.5">
+              <span class="w-5 h-5 rounded-full bg-amber-500/20 text-amber-300 flex items-center justify-center text-[10px]">4</span>
+              🎯 US Referral Hook (Regra de Ouro) & Despedida (20s)
+            </span>
+            <button onclick="speakText('Awesome Kethlyn, sending the link right now! Quick question before I let you go: do you know 1 or 2 other salon or clinic owners in the area who could use a high-converting website like this?')" class="text-[11px] bg-slate-800 hover:bg-slate-700 text-amber-300 px-2 py-0.5 rounded border border-slate-700 flex items-center gap-1 font-bold">
+              <i class="fa-solid fa-volume-high text-[10px]"></i> 🔊 Ouvir
+            </button>
+          </div>
+
+          <div class="bg-slate-900/90 p-3 rounded-lg border border-slate-800 text-sm leading-relaxed text-slate-100 font-medium">
+            🗣️ <strong>Você fala antes de encerrar:</strong><br>
+            "Awesome Kethlyn, sending the link right now! <strong class="text-amber-300">Quick question before I let you go:</strong> do you know 1 or 2 other salon or clinic owners in the area who could also use a high-converting website like this?"
+          </div>
+
+          <div class="p-2.5 rounded-lg phonetic-box text-xs space-y-0.5">
+            <span class="font-bold text-amber-400 uppercase text-[10px] block">🗣️ Como Falar (Fonética):</span>
+            <p class="font-mono text-amber-200/90 leading-relaxed text-[11px]">
+              "Ó-sam <span class="text-white font-bold">Kéth-lin</span>, sén-din da línk ráit náu! <strong class="text-amber-300">Cuík cuéstion bi-fór ai lét iú gôu:</strong> du iú nôu uân or tú ó-der sa-lón or clí-nic ôu-ners in da é-ri-a ru cúd ól-sou iús a rái-con-vêr-tin uéb-sáiti láik dis?"
+            </p>
+          </div>
+
+          <!-- BOTÕES DE RESPOSTA DO HOOK DE INDICAÇÃO -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
+            <button onclick="setBranch(4, 'has_referral')" id="btn-4-has_referral" class="text-left text-xs bg-slate-800 hover:bg-slate-700 p-2 rounded-lg border border-slate-700 text-emerald-300 transition flex items-center gap-1.5">
+              <span>🌟</span> "Yes! My friend Sarah has a MedSpa..."
+            </button>
+            <button onclick="setBranch(4, 'think_about_it')" id="btn-4-think_about_it" class="text-left text-xs bg-slate-800 hover:bg-slate-700 p-2 rounded-lg border border-slate-700 text-amber-300 transition flex items-center gap-1.5">
+              <span>🤝</span> "I'll think about it and let you know!"
+            </button>
+          </div>
+
+          <!-- COMPLEMENTO DINAMICO PASSO 4 -->
+          <div id="branch-box-4" class="hidden p-3 rounded-lg bg-emerald-950/40 border border-emerald-500/40 text-xs text-slate-200 animate-fade-in"></div>
+
+          <!-- DESPEDIDA FINAL EM INGLÊS -->
+          <div class="p-2.5 rounded-lg bg-slate-900/60 border border-slate-800 text-xs text-slate-300 pl-4 border-l-2 border-l-emerald-500">
+            🙏 <strong>Despedida Final:</strong> "Have a wonderful day Kethlyn, and talk to you soon! Bye-bye!"<br>
+            <span class="font-mono text-amber-300/80 text-[11px]">🗣️ "Rév a uân-der-ful dêi Kéth-lin, end tók tu iú sún! Bái-bái!"</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN: INTERACTIVE OBJECTIONS, STRIPE LINK & ASYNC MESSAGES (5 COLS) -->
+    <div class="lg:col-span-5 flex flex-col gap-4">
+
+      <!-- OBJECTIONS CONTROLLER (ENGLISH QUICK REPLIES) -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-lg">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-3">
+          <h2 class="text-sm font-bold text-rose-300 flex items-center gap-2">
+            <i class="fa-solid fa-shield-halved text-rose-400"></i> Botões de Objeção EUA (Clique para a Resposta)
+          </h2>
+          <span class="text-[10px] font-mono text-slate-400">1-clique áudio + texto</span>
+        </div>
+
+        <!-- OBJECTION BUTTONS -->
+        <div class="grid grid-cols-2 gap-2 mb-4">
+          <button onclick="showResponse('email')" class="text-left text-xs bg-slate-800 hover:bg-slate-700 text-amber-300 p-2.5 rounded-xl border border-slate-700 hover:border-amber-500/50 transition">
+            ✉️ "Just send me an email"
+          </button>
+          <button onclick="showResponse('insta')" class="text-left text-xs bg-slate-800 hover:bg-slate-700 text-slate-200 p-2.5 rounded-xl border border-slate-700 hover:border-emerald-500/50 transition">
+            📱 "We already have Instagram"
+          </button>
+          <button onclick="showResponse('expensive')" class="text-left text-xs bg-slate-800 hover:bg-slate-700 text-slate-200 p-2.5 rounded-xl border border-slate-700 hover:border-rose-500/50 transition">
+            💸 "We have no budget right now"
+          </button>
+          <button onclick="showResponse('busy')" class="text-left text-xs bg-slate-800 hover:bg-slate-700 text-slate-200 p-2.5 rounded-xl border border-slate-700 hover:border-amber-500/50 transition">
+            ⏳ "I'm with a client right now"
+          </button>
+          <button onclick="showResponse('monthly')" class="text-left text-xs bg-slate-800 hover:bg-slate-700 text-slate-200 p-2.5 rounded-xl border border-slate-700 hover:border-cyan-500/50 transition">
+            🔄 "Are there hidden fees?"
+          </button>
+          <button onclick="showResponse('location')" class="text-left text-xs bg-slate-800 hover:bg-slate-700 text-slate-200 p-2.5 rounded-xl border border-slate-700 hover:border-indigo-500/50 transition">
+            🌍 "Where are you based?"
+          </button>
+          <button onclick="showResponse('no_final')" class="text-left text-xs bg-rose-950/50 hover:bg-rose-900/50 text-rose-200 p-2.5 rounded-xl border border-rose-800/60 hover:border-rose-500 transition col-span-2">
+            🛑 Se ela disser "NOT INTERESTED"
+          </button>
+        </div>
+
+        <!-- DYNAMIC RESPONSE BOX -->
+        <div id="response-box" class="bg-slate-950 p-4 rounded-xl border border-slate-800 min-h-[140px] flex flex-col justify-center">
+          <p class="text-xs text-slate-500 italic text-center">Clique em um dos botões de objeção acima para carregar a réplica instantânea em inglês com guia fonético e pronúncia.</p>
+        </div>
+      </div>
+
+      <!-- ASYNC OUTREACH & STRIPE $500 CENTER -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-lg flex-1 space-y-4">
+        
+        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+          <h2 class="text-sm font-bold text-emerald-300 flex items-center gap-2">
+            <i class="fa-solid fa-paper-plane text-emerald-400"></i> Central de Mensagens Rápidas (DM & Email)
+          </h2>
+          <span class="text-[10px] text-slate-400">1-clique para copiar</span>
+        </div>
+
+        <!-- INPUT DE LINK DE DEMO E STRIPE -->
+        <div class="space-y-2">
+          <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 flex items-center gap-2">
+            <span class="text-[11px] text-slate-400 font-semibold whitespace-nowrap">Link da Demo:</span>
+            <input type="text" id="demo-link-input" value="https://kethlyn-beauty.vercel.app" class="bg-slate-900 text-emerald-300 text-xs px-2.5 py-1.5 rounded-lg border border-slate-700 w-full focus:outline-none focus:border-emerald-500 font-mono">
+          </div>
+
+          <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 flex items-center gap-2">
+            <span class="text-[11px] text-slate-400 font-semibold whitespace-nowrap">Stripe $500 Link:</span>
+            <input type="text" id="stripe-link-input" value="https://buy.stripe.com/500usd_setup" class="bg-slate-900 text-amber-300 text-xs px-2.5 py-1.5 rounded-lg border border-slate-700 w-full focus:outline-none focus:border-amber-500 font-mono">
+          </div>
+        </div>
+
+        <!-- BOTOES DE COPIAR MENSAGENS EM INGLÊS -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          <button onclick="copyDemoLinkMessage()" class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold py-2.5 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-lg shadow-emerald-900/20 transition">
+            <i class="fa-solid fa-link text-xs"></i> Copiar Msg c/ Link Demo
+          </button>
+
+          <button onclick="copyStripePaymentMessage()" class="w-full bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-500 hover:to-blue-500 text-white font-bold py-2.5 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-lg shadow-blue-900/20 transition">
+            <i class="fa-solid fa-credit-card text-xs"></i> Copiar Cobrança $500
+          </button>
+
+          <button onclick="copyInstagramDM()" class="w-full bg-slate-800 hover:bg-slate-700 text-pink-300 hover:text-pink-200 font-bold py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 border border-pink-500/30 transition">
+            <i class="fa-brands fa-instagram text-xs"></i> Copiar Cold DM Insta
+          </button>
+
+          <button onclick="copyLoomPitchScript()" class="w-full bg-slate-800 hover:bg-slate-700 text-purple-300 hover:text-purple-200 font-bold py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 border border-purple-500/30 transition">
+            <i class="fa-solid fa-video text-xs"></i> Roteiro Vídeo Loom (90s)
+          </button>
+        </div>
+
+        <!-- TOAST NOTIFICATION -->
+        <div id="toast-notify" class="hidden bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-xs p-2.5 rounded-xl text-center font-medium animate-fade-in">
+          <i class="fa-solid fa-circle-check mr-1.5"></i> <span id="toast-text">Mensagem copiada para a área de transferência!</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // Text-To-Speech (Native US English Voice)
+    function speakText(text) {
+      if (!('speechSynthesis' in window)) {
+        alert("Text-to-speech não suportado pelo seu navegador.");
+        return;
+      }
+      
+      let cleanText = text.replace(/\[.*?\]/g, '').replace(/[^\w\s.,?!'$-]/gi, '');
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(cleanText);
+      utterance.lang = 'en-US';
+      utterance.rate = 0.92;
+      utterance.pitch = 1.0;
+
+      const voices = window.speechSynthesis.getVoices();
+      const usVoice = voices.find(v => v.lang === 'en-US' && (v.name.includes('Google') || v.name.includes('Natural') || v.name.includes('Samantha') || v.name.includes('David')));
+      if (usVoice) utterance.voice = usVoice;
+
+      window.speechSynthesis.speak(utterance);
+    }
+
+    // Branching Tree Content (US $500 Pitch)
+    const branchContent = {
+      1: {
+        ok: `
+          <div class="space-y-1">
+            <span class="font-bold text-emerald-400 text-[11px]">✨ Ela deu abertura! Fale em seguida:</span>
+            <p class="font-medium text-slate-100">"Awesome, I'll get straight to the point..." <span class="text-amber-300 font-bold">&rarr; Continue lendo o Passo 2 abaixo!</span></p>
+            <p class="font-mono text-amber-200 text-[11px]">🗣️ "Ó-sam, ail guét strêit tu da póint..."</p>
+          </div>
+        `,
+        busy: `
+          <div class="space-y-1">
+            <span class="font-bold text-amber-400 text-[11px]">⏳ Ela está ocupada/atendendo. Fale:</span>
+            <p class="font-medium text-slate-100">"Totally understand, don't want to hold you up! I'll text you the 30-second preview link, check it whenever you have a minute!"</p>
+            <p class="font-mono text-amber-200 text-[11px]">🗣️ "Tôu-ta-li ân-der-stênd, dônt uónt tu rôuld iú âp! Ail tékst iú da têrti-sé-cond prí-viu línk..."</p>
+            <div class="pt-1.5 flex gap-2">
+              <button onclick="copyDemoLinkMessage()" class="bg-emerald-600 hover:bg-emerald-500 text-white px-2.5 py-1 rounded text-[11px] font-bold">📲 Copiar Link para Enviar no Celular</button>
+            </div>
+          </div>
+        `,
+        who: `
+          <div class="space-y-1">
+            <span class="font-bold text-indigo-400 text-[11px]">🔵 Ela desconfiou (Who is this? Is this sales?). Fale:</span>
+            <p class="font-medium text-slate-100">"No spam at all! I'm a web specialist and I actually built a custom mobile landing page for Kethlyn Beauty to show your 5-star reviews..." <span class="text-amber-300 font-bold">&rarr; Continue para o Passo 2!</span></p>
+            <p class="font-mono text-amber-200 text-[11px]">🗣️ "Nôu spém ét ól! Aim a uéb spé-sha-list end ai ék-txu-a-li biult a câs-tom mó-bail lêndin pêidji..."</p>
+          </div>
+        `
+      },
+      2: {
+        curious: `
+          <div class="space-y-1">
+            <span class="font-bold text-emerald-400 text-[11px]">✨ Ela ficou curiosa e quer ver! Fale:</span>
+            <p class="font-medium text-slate-100">"I'll send the link right over, and here's the best part..." <span class="text-emerald-300 font-bold">&rarr; Continue para o Passo 3 (Apresentar os $500)!</span></p>
+            <p class="font-mono text-amber-200 text-[11px]">🗣️ "Ail sênd da línk ráit ôu-ver, end ríers da bêst párt..."</p>
+          </div>
+        `,
+        instagram: `
+          <div class="space-y-1">
+            <span class="font-bold text-amber-400 text-[11px]">📱 Ela disse que já tem Instagram. Fale:</span>
+            <p class="font-medium text-slate-100">"Your Instagram is beautiful! This doesn't replace it, it upgrades your Google ranking and lets clients book $450 Nanopigmentation in 1 click without DM back-and-forth." <span class="text-emerald-300 font-bold">&rarr; Continue para o Passo 3!</span></p>
+            <p class="font-mono text-amber-200 text-[11px]">🗣️ "Ior Íns-ta-grém is biú-ti-ful! Dis dâ-sent ri-plêis it, it âp-grêids ior gúgol rên-kin..."</p>
+          </div>
+        `,
+        price: `
+          <div class="space-y-1">
+            <span class="font-bold text-rose-400 text-[11px]">🔴 Ela perguntou o preço antes da hora. Fale:</span>
+            <p class="font-medium text-slate-100">"It's just a flat $500 one-time fee, no crazy agency prices of $3,000..." <span class="text-emerald-300 font-bold">&rarr; Continue para o Passo 3!</span></p>
+            <p class="font-mono text-amber-200 text-[11px]">🗣️ "Its djâst a flét fáiv rândred dólars uân-táim fí, nôu crêi-zi êi-djen-si práises..."</p>
+          </div>
+        `
+      },
+      3: {
+        yes: `
+          <div class="space-y-1">
+            <span class="font-bold text-emerald-400 text-[11px]">🎉 Ela aceitou ver o link no celular!</span>
+            <p class="font-medium text-slate-100">"Awesome! Sending it to you right now. <strong class="text-amber-300">Não desligue ainda: faça o Referral Hook no Passo 4!</strong>"</p>
+            <div class="pt-1.5 flex gap-2">
+              <button onclick="copyDemoLinkMessage()" class="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-lg text-xs font-bold shadow-md">📲 Copiar Mensagem c/ Link Agora</button>
+            </div>
+          </div>
+        `,
+        monthly: `
+          <div class="space-y-1">
+            <span class="font-bold text-cyan-400 text-[11px]">🔄 Ela perguntou se tem taxas mensais. Fale:</span>
+            <p class="font-medium text-slate-100">"Zero monthly fees! The $500 is a flat one-time turnkey setup. Hosting is 100% free with SSL security. Can I send you the demo?"</p>
+            <p class="font-mono text-amber-200 text-[11px]">🗣️ "Zí-rou mân-thli fís! Da fáiv rândred is a flét uân-táim têrn-kí sé-tâp. Róus-tin is uân rândred pêr-sênt frí..."</p>
+          </div>
+        `,
+        expensive: `
+          <div class="space-y-1">
+            <span class="font-bold text-rose-400 text-[11px]">💸 Ela disse que está sem verba. Fale:</span>
+            <p class="font-medium text-slate-100">"Totally understand! Keep in mind just 1 new client pays for the whole site. Take a look at the preview link anyway, no commitment!"</p>
+            <p class="font-mono text-amber-200 text-[11px]">🗣️ "Tôu-ta-li ân-der-stênd! Kíp in máind djâst uân niú clái-ent pêis for da rôul sáit..."</p>
+          </div>
+        `,
+        no: `
+          <div class="space-y-2">
+            <span class="font-bold text-red-400 text-[11px]">🛑 Ela disse "Not interested". Peça feedback profissional:</span>
+            <p class="font-medium text-slate-100">"Totally understand Kethlyn! Just to improve our work: is your calendar already 100% fully booked, or is Instagram alone handling all your appointments?"</p>
+            <p class="font-mono text-amber-200 text-[11px]">🗣️ "Tôu-ta-li ân-der-stênd Kéth-lin! Djâst tu im-prúv áuer uôrk: is ior cá-len-der ol-rédi fú-li búkt, or is Íns-ta-grém a-lôun rên-dlin ól ior a-póint-ments?"</p>
+          </div>
+        `
+      },
+      4: {
+        has_referral: `
+          <div class="space-y-1">
+            <span class="font-bold text-emerald-400 text-[11px]">🌟 Ela tem uma indicação nos EUA! Fale com entusiasmo:</span>
+            <p class="font-medium text-slate-100">"That's awesome! What is her Instagram or phone number? I'll reach out and mention you recommended her with love!"</p>
+            <p class="font-mono text-amber-200 text-[11px]">🗣️ "Déts ó-sam! Uót is rêr Íns-ta-grém or fôun nâm-ber? Ail rítch áut end mén-shon iú re-co-mên-ded rêr uíd lâv!"</p>
+          </div>
+        `,
+        think_about_it: `
+          <div class="space-y-1">
+            <span class="font-bold text-amber-400 text-[11px]">🤝 Ela disse que vai pensar. Fale leve:</span>
+            <p class="font-medium text-slate-100">"Sounds great! If anyone comes to mind, just text me on this number. Have an amazing day!"</p>
+            <p class="font-mono text-amber-200 text-[11px]">🗣️ "Sáunds grêit! If é-ni-uân câms tu máind, djâst tékst mi on dis nâm-ber. Rév en a-mêi-zin dêi!"</p>
+          </div>
+        `
+      }
+    };
+
+    function setBranch(step, key) {
+      const box = document.getElementById(`branch-box-${step}`);
+      box.innerHTML = branchContent[step][key];
+      box.classList.remove('hidden');
+
+      const stepContainer = box.parentElement;
+      const buttons = stepContainer.querySelectorAll('button[id^="btn-"]');
+      buttons.forEach(btn => {
+        btn.classList.remove('ring-2', 'ring-emerald-500', 'bg-slate-700');
+      });
+      const activeBtn = document.getElementById(`btn-${step}-${key}`);
+      if (activeBtn) {
+        activeBtn.classList.add('ring-2', 'ring-emerald-500', 'bg-slate-700');
+      }
+    }
+
+    // Responses Dictionary (Objections in English with Portuguese phonetics)
+    const responses = {
+      email: `
+        <div class="space-y-1.5">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-amber-400 uppercase tracking-wide">✉️ Resposta para "Just send me an email":</span>
+            <button onclick="speakText('Sure thing! What is your best email so I can send the live mockup directly to you right now?')" class="text-[10px] text-amber-300 font-bold bg-slate-800 px-2 py-0.5 rounded">🔊 Ouvir</button>
+          </div>
+          <p class="text-xs text-slate-200 leading-relaxed font-medium">
+            "Sure thing! What’s your best email so I can send the live mockup directly to you right now?"
+          </p>
+          <p class="font-mono text-amber-200 text-[11px] bg-amber-950/30 p-2 rounded border border-amber-500/30">
+            🗣️ <em>"Xúr thin! Uóts ior bêst i-mêil sou ai quén sênd da láiv mó-cap dai-réct-li tu iú ráit náu?"</em>
+          </p>
+        </div>
+      `,
+      insta: `
+        <div class="space-y-1.5">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-emerald-400 uppercase tracking-wide">📱 Resposta para "We already have Instagram":</span>
+            <button onclick="speakText('Your Instagram is great! The website simply captures high-intent clients searching on Google Maps and lets them book without waiting for DMs.')" class="text-[10px] text-emerald-300 font-bold bg-slate-800 px-2 py-0.5 rounded">🔊 Ouvir</button>
+          </div>
+          <p class="text-xs text-slate-200 leading-relaxed font-medium">
+            "Your Instagram is great! The website simply captures high-intent clients searching on Google Maps and lets them book without waiting for DMs."
+          </p>
+          <p class="font-mono text-amber-200 text-[11px] bg-amber-950/30 p-2 rounded border border-amber-500/30">
+            🗣️ <em>"Ior Íns-ta-grém is grêit! Da uéb-sáit sím-pli cáp-txurs rái-in-tênt clái-ents sêr-txin on gúgol méps..."</em>
+          </p>
+        </div>
+      `,
+      expensive: `
+        <div class="space-y-1.5">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-rose-400 uppercase tracking-wide">💸 Resposta para "No budget / Too expensive":</span>
+            <button onclick="speakText('Totally understand! Most agencies charge $3,000, so $500 pays for itself with your very first client booking.')" class="text-[10px] text-rose-300 font-bold bg-slate-800 px-2 py-0.5 rounded">🔊 Ouvir</button>
+          </div>
+          <p class="text-xs text-slate-200 leading-relaxed font-medium">
+            "Totally understand! Most agencies charge $3,000, so $500 pays for itself with your very first client booking."
+          </p>
+          <p class="font-mono text-amber-200 text-[11px] bg-amber-950/30 p-2 rounded border border-amber-500/30">
+            🗣️ <em>"Tôu-ta-li ân-der-stênd! Moust êi-djen-sis txárdj trí táu-sand dólars, sou fáiv rândred pêis for it-sélf uíd ior véri fêrst clái-ent."</em>
+          </p>
+        </div>
+      `,
+      busy: `
+        <div class="space-y-1.5">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-amber-400 uppercase tracking-wide">⏳ Resposta para "I'm with a client right now":</span>
+            <button onclick="speakText('No problem at all! I will drop the 30-second preview link in your text messages. Have a great day!')" class="text-[10px] text-amber-300 font-bold bg-slate-800 px-2 py-0.5 rounded">🔊 Ouvir</button>
+          </div>
+          <p class="text-xs text-slate-200 leading-relaxed font-medium">
+            "No problem at all! I’ll drop the 30-second preview link in your text messages. Have a great day!"
+          </p>
+          <p class="font-mono text-amber-200 text-[11px] bg-amber-950/30 p-2 rounded border border-amber-500/30">
+            🗣️ <em>"Nôu pró-blem ét ól! Ail dróp da têrti-sé-cond prí-viu línk in ior tékst mé-ssa-djes. Rév a grêit dêi!"</em>
+          </p>
+        </div>
+      `,
+      monthly: `
+        <div class="space-y-1.5">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-cyan-400 uppercase tracking-wide">🔄 Resposta para "Are there hidden monthly fees?":</span>
+            <button onclick="speakText('Zero hidden fees. It is a one-time flat $500 setup with lifetime free hosting. You own 100 percent of the site.')" class="text-[10px] text-cyan-300 font-bold bg-slate-800 px-2 py-0.5 rounded">🔊 Ouvir</button>
+          </div>
+          <p class="text-xs text-slate-200 leading-relaxed font-medium">
+            "Zero hidden fees. It’s a one-time flat $500 setup with lifetime free hosting. You own 100% of the site."
+          </p>
+          <p class="font-mono text-amber-200 text-[11px] bg-amber-950/30 p-2 rounded border border-amber-500/30">
+            🗣️ <em>"Zí-rou rí-den fís. Its a uân-táim flét fáiv rândred sé-tâp uíd láif-táim frí róus-tin. Iú ôun uân rândred pêr-sênt ov da sáit."</em>
+          </p>
+        </div>
+      `,
+      location: `
+        <div class="space-y-1.5">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-indigo-400 uppercase tracking-wide">🌍 Resposta para "Where are you based?":</span>
+            <button onclick="speakText('We are a specialized remote digital studio working directly with high-end aesthetic clinics and visual businesses across the US.')" class="text-[10px] text-indigo-300 font-bold bg-slate-800 px-2 py-0.5 rounded">🔊 Ouvir</button>
+          </div>
+          <p class="text-xs text-slate-200 leading-relaxed font-medium">
+            "We are a specialized remote digital studio working directly with high-end aesthetic clinics and visual businesses across the US."
+          </p>
+          <p class="font-mono text-amber-200 text-[11px] bg-amber-950/30 p-2 rounded border border-amber-500/30">
+            🗣️ <em>"Uí ar a spé-sha-laizd ri-môut dí-dji-tal stú-diou uôr-kin dai-réct-li uíd rái-ênd es-thé-tic clí-nics..."</em>
+          </p>
+        </div>
+      `,
+      no_final: `
+        <div class="space-y-1.5">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-rose-400 uppercase tracking-wide">🛑 Resposta para "NOT INTERESTED":</span>
+            <button onclick="speakText('No worries at all! Thank you so much for your time and wishing your studio massive success!')" class="text-[10px] text-rose-300 font-bold bg-slate-800 px-2 py-0.5 rounded">🔊 Ouvir</button>
+          </div>
+          <p class="text-xs text-slate-200 leading-relaxed font-medium">
+            "No worries at all! Thank you so much for your time and wishing your studio massive success!"
+          </p>
+          <p class="font-mono text-amber-200 text-[11px] bg-amber-950/30 p-2 rounded border border-amber-500/30">
+            🗣️ <em>"Nôu uô-ris ét ól! Thênk iú sou mâtch for ior táim end uí-shin ior stú-diou mé-ssiv suc-sês!"</em>
+          </p>
+        </div>
+      `
+    };
+
+    function showResponse(key) {
+      const box = document.getElementById('response-box');
+      box.innerHTML = responses[key];
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast-notify');
+      const text = document.getElementById('toast-text');
+      text.innerText = msg;
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 3500);
+    }
+
+    // WhatsApp / SMS Template Copy (US English)
+    function copyDemoLinkMessage() {
+      const link = document.getElementById('demo-link-input').value.trim() || 'https://kethlyn-beauty.vercel.app';
+      const text = `Hi Kethlyn! Great speaking with you on the phone! 
+
+As promised, here is the direct interactive prototype I structured for Kethlyn Beauty:
+👉 ${link}
+
+⚡ What is built-in for you:
+• High-converting mobile layout that loads in under 1 second;
+• Direct 1-click booking integration for Nanopigmentation ($450) and Fox Eyes;
+• Prominent hospital-grade autoclave biosafety badge;
+• Embedded 5.0 Star Google Reviews social proof grid;
+• Full turnkey setup on your official domain live in 48 hours for a flat $500 (no monthly fees).
+
+Take a quick look on your phone whenever you have a minute and let me know your thoughts! 😊`;
+
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('Mensagem em inglês com link da demo copiada com sucesso!');
+      });
+    }
+
+    // Stripe $500 Payment Link Copy
+    function copyStripePaymentMessage() {
+      const stripeLink = document.getElementById('stripe-link-input').value.trim() || 'https://buy.stripe.com/500usd_setup';
+      const text = `Awesome doing business with you, Kethlyn! 🎉
+
+Here is the secure Stripe checkout link for the $500 turnkey setup:
+👉 ${stripeLink}
+
+Once processed, our team will connect your official domain, configure your DNS and have your website 100% live and running in under 48 hours!`;
+
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('Mensagem de cobrança Stripe ($500 USD) copiada!');
+      });
+    }
+
+    // Instagram DM Copy
+    function copyInstagramDM() {
+      const text = `Hey Kethlyn! Love the aesthetic work you guys are doing at Kethlyn Beauty 🔥
+
+I came across your Google profile with 198 five-star reviews, but noticed your booking link is taking a while to load on mobile.
+
+I actually put together a quick interactive prototype for your studio that loads in 1 second and allows clients to book Nanopigmentation directly.
+
+Would it be okay if I drop the 30-second preview link here for you to check out? No pressure at all!`;
+
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('Cold DM para Instagram copiada com sucesso!');
+      });
+    }
+
+    // Loom Script Copy
+    function copyLoomPitchScript() {
+      const text = `[ROTEIRO VÍDEO LOOM DE 90 SEGUNDOS - PITCH $500]
+
+00:00 - 00:20 (O Elogio):
+"Hey Kethlyn, Thiago here! I was researching top-rated lash and aesthetic clinics in the area and was blown away by your 198 five-star Google reviews."
+
+00:20 - 00:50 (O Diagnóstico):
+"However, when clients click on your profile from their phones, your page takes over 4 seconds to load and doesn't showcase your autoclave biosafety and high-ticket Nanopigmentation procedures."
+
+00:50 - 01:20 (A Demonstração):
+"So I took the liberty of building this live interactive mockup for Kethlyn Beauty. Notice how fast it opens, here are your procedures, your before/afters, and the instant Book Now button."
+
+01:20 - 01:30 (A Oferta $500):
+"We deliver this completely turnkey for a flat $500 one-time fee in under 48 hours. If you'd like to put this live, just reply to my message!"`;
+
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('Roteiro do Vídeo Loom copiado com sucesso!');
+      });
+    }
+
+    // Celebration Win ($500 Deal)
+    function triggerWinCelebration() {
+      if (window.confetti) {
+        confetti({
+          particleCount: 150,
+          spread: 90,
+          origin: { y: 0.6 }
+        });
+      }
+      alert("🎉 PARABÉNS! +$500 USD FECHADOS!\n(Aproximadamente R$ 2.750,00 limpos na sua conta via Stripe/Wise)!");
+    }
+
+    // Audio Voice Recorder using Browser MediaRecorder API
+    let mediaRecorder = null;
+    let audioChunks = [];
+    let isRecording = false;
+
+    async function toggleAudioRecording() {
+      const btn = document.getElementById('btn-record');
+      const recText = document.getElementById('rec-text');
+      const recIcon = document.getElementById('rec-icon');
+      const recDot = document.getElementById('rec-dot');
+
+      if (!isRecording) {
+        try {
+          const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+          mediaRecorder = new MediaRecorder(stream);
+          audioChunks = [];
+
+          mediaRecorder.ondataavailable = (event) => {
+            if (event.data.size > 0) {
+              audioChunks.push(event.data);
+            }
+          };
+
+          mediaRecorder.onstop = () => {
+            const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
+            const audioUrl = URL.createObjectURL(audioBlob);
+            
+            const a = document.createElement('a');
+            const now = new Date();
+            const timeStr = `${String(now.getHours()).padStart(2, '0')}h${String(now.getMinutes()).padStart(2, '0')}m`;
+            a.href = audioUrl;
+            a.download = `cold_call_pitch_500usd_${timeStr}.webm`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+
+            showToast('🎙️ Gravação salva e baixada no seu PC com sucesso!');
+          };
+
+          mediaRecorder.start();
+          isRecording = true;
+
+          btn.classList.remove('bg-rose-600', 'hover:bg-rose-500');
+          btn.classList.add('bg-red-600', 'animate-pulse');
+          recText.innerText = 'Parar e Salvar';
+          recIcon.classList.remove('fa-microphone');
+          recIcon.classList.add('fa-stop');
+          recDot.classList.remove('hidden');
+
+          if (!timerInterval) {
+            toggleTimer();
+          }
+
+          showToast('🔴 Gravação iniciada! Falando pelo microfone...');
+        } catch (err) {
+          console.error(err);
+          alert('Erro ao acessar o microfone: Por favor, autorize o microfone no navegador.');
+        }
+      } else {
+        if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+          mediaRecorder.stop();
+          mediaRecorder.stream.getTracks().forEach(track => track.stop());
+        }
+        isRecording = false;
+
+        btn.classList.remove('bg-red-600', 'animate-pulse');
+        btn.classList.add('bg-rose-600', 'hover:bg-rose-500');
+        recText.innerText = 'Gravar Chamada';
+        recIcon.classList.remove('fa-stop');
+        recIcon.classList.add('fa-microphone');
+        recDot.classList.add('hidden');
+      }
+    }
+
+    // Call Stopwatch Timer
+    let timerInterval = null;
+    let seconds = 0;
+
+    function toggleTimer() {
+      const btn = document.getElementById('btn-timer');
+      const display = document.getElementById('call-timer');
+
+      if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+        btn.innerText = 'Retomar';
+        btn.classList.remove('bg-emerald-600');
+        btn.classList.add('bg-slate-700');
+      } else {
+        btn.innerText = 'Pausar';
+        btn.classList.remove('bg-slate-700');
+        btn.classList.add('bg-emerald-600');
+        timerInterval = setInterval(() => {
+          seconds++;
+          const mins = String(Math.floor(seconds / 60)).padStart(2, '0');
+          const secs = String(seconds % 60).padStart(2, '0');
+          display.innerText = `${mins}:${secs}`;
+          if (seconds > 90 && seconds <= 120) {
+            display.classList.remove('text-emerald-400');
+            display.classList.add('text-amber-400');
+          } else if (seconds > 120) {
+            display.classList.remove('text-amber-400');
+            display.classList.add('text-rose-400');
+          }
+        }, 1000);
+      }
+    }
+
+    // Preload TTS voices
+    window.addEventListener('DOMContentLoaded', () => {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.onvoiceschanged = () => {
+          window.speechSynthesis.getVoices();
+        };
+      }
+    });
+  </script>
+</body>
+</html>

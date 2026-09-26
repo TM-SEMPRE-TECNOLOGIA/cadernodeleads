@@ -1,0 +1,47 @@
+{
+  "name": "Caderno de Leads CRM & Sales Cockpit",
+  "short_name": "Caderno CRM",
+  "description": "Sistema tátil de prospecção em caderno físico com CRM dos 5 Pilares e Sales Cockpit integrado para vendas ativas por telefone.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0c0a09",
+  "theme_color": "#0c0a09",
+  "categories": ["business", "productivity", "utilities"],
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Abrir Sales Cockpit",
+      "short_name": "Cockpit",
+      "description": "Acesso rápido ao roteiro de Cold Call e gravação",
+      "url": "/#cockpit",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Novo Lead",
+      "short_name": "Novo Lead",
+      "description": "Cadastrar nova folha de prospecto",
+      "url": "/#novo-lead",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}
