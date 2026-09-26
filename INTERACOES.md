@@ -32,7 +32,10 @@ Toda a abordagem comercial, scripts do Cockpit, WhatsApp Frio e cálculo de fech
   2. Ajustar e padronizar a nova oferta: R$ 289,90 (Landing Page) | R$ 589,90 (LP + Catálogo) | Sem mensalidade | Domínio opcional +R$ 119,90.
   3. Criar repositório no GitHub `TM-SEMPRE-TECNOLOGIA/cadernodeleads` e fazer push.
   4. Realizar o deploy do projeto na Vercel sob o nome `cadernodeleads`.
-- **Status:** Em execução.
+- **Status:** ✅ Concluído com Sucesso Total.
+  - Repositório GitHub criado e sincronizado: [cadernodeleads](https://github.com/TM-SEMPRE-TECNOLOGIA/cadernodeleads)
+  - Deploy Vercel ativo em produção: [cadernodeleads.vercel.app](https://cadernodeleads.vercel.app)
+  - Copys do Cockpit e réplicas de fechamento atualizadas com a nova tabela comercial (R$ 289,90 LP / R$ 589,90 LP + Catálogo / Domínio +R$ 119,90).
 
 ---
 
