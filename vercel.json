@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "framework": null,
   "cleanUrls": true,
   "rewrites": [
     { "source": "/api/data/sync", "destination": "/api/data" },
