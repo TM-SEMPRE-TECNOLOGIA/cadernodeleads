@@ -1,4 +1,5 @@
 # Python local files & scripts (Vercel uses api/ Node.js Serverless)
+requirements.txt
 server.py
 _server_audit.py
 audit_dark_mode.py
@@ -7,6 +8,7 @@ crawler_google_places.py
 enrich_leads_phone.py
 patch_init_fetch.py
 patch_render_wa.py
+*.py
 tests/
 __pycache__/
 *.pyc
